@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruit.mapper.EmployerMapper">
+    <resultMap id="BaseResultMap" type="com.recruit.entity.EmployerDetailEntity">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="issue_name" property="issueName" jdbcType="VARCHAR"/>
+        <result column="company_name" property="companyName" jdbcType="VARCHAR"/>
+        <result column="trend_complete" property="trendComplete" jdbcType="VARCHAR"/>
+        <result column="project_desc" property="projectDesc" jdbcType="VARCHAR"/>
+        <result column="publisher" property="publisher" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
+        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
+        <collection property="recruitBusinessList" column="business_id" ofType="RecruitBusiness">
+            <result column="business_id" property="id"></result>
+            <result column="business_name" property="businessName"></result>
+            <result column="business_code" property="businessCode"></result>
+            <result column="business_parent_id" property="parentId"></result>
+        </collection>
+    </resultMap>
+
+    <resultMap id="ViewHeaderResultMap" type="com.recruit.entity.vo.EmployerViewHeaderObject">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="issue_name" property="issueName" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="visit_count" property="visitCount" />
+        <result column="apply_count" property="applyCount" />
+        <result column="recommend_count" property="recommendCount" jdbcType="VARCHAR"/>
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
+        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
+        <collection property="recruitBusinessList" column="business_id" ofType="RecruitBusiness">
+            <result column="business_id" property="id"></result>
+            <result column="business_name" property="businessName"></result>
+            <result column="business_code" property="businessCode"></result>
+            <result column="business_parent_id" property="parentId"></result>
+        </collection>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, issue_name, company_name, trend_complete, project_desc, publisher, status, created_at, 
+    updated_at
+  </sql>
+    <select id="queryEmployerViewHeader" resultMap="ViewHeaderResultMap">
+      SELECT tre.id, tre.issue_name, tre.status, tre.created_at,
+      tre.updated_at,treo.visit_count,treo.apply_count,treo.recommend_count,trebm.business_id AS business_id,trb.business_name,trb.business_code,trb.parent_id AS business_parent_id
+      FROM t_recruit_employer tre
+      LEFT JOIN t_recruit_employer_operation treo
+      ON tre.id = treo.employer_id
+      LEFT JOIN t_recruit_employer_business_mapping trebm
+      ON tre.id = trebm.employer_id
+      INNER JOIN t_recruit_business trb
+      ON trb.id = trebm.business_id
+  </select>
+    <select id="queryEmployerDetail" parameterType="com.recruit.entity.EmployerDetailEntity" resultMap="BaseResultMap">
+        SELECT tre.id, tre.issue_name, tre.company_name, tre.trend_complete, tre.project_desc, tre.publisher,
+        tre.status, tre.created_at,
+        tre.updated_at,trebm.business_id AS business_id,trb.business_name,trb.business_code,trb.parent_id AS
+        business_parent_id
+        FROM t_recruit_employer tre
+        INNER JOIN t_recruit_employer_business_mapping trebm
+        ON tre.id = trebm.employer_id
+        INNER JOIN t_recruit_business trb
+        ON trb.id = trebm.business_id
+        WHERE tre.status = #{status}
+        <if test="issueName!=null and issueName!=''">
+            tre.issue_name = #{issue_name}
+        </if>
+        <if test="id!=null and id!=0">
+            tre.id= #{id}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from t_recruit_employer
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_recruit_employer
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+    <insert id="insert" parameterType="com.recruit.entity.EmployerDetailEntity">
+    insert into t_recruit_employer (issue_name, company_name,
+      trend_complete, project_desc, publisher,phone
+      status
+      )
+    values (#{issueName,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR},
+      #{trendComplete,jdbcType=VARCHAR}, #{projectDesc,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR},
+       #{phone,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR}
+      )
+  </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.EmployerDetailEntity">
+        update t_recruit_employer
+        <set>
+            <if test="issueName != null">
+                issue_name = #{issueName,jdbcType=VARCHAR},
+            </if>
+            <if test="companyName != null">
+                company_name = #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="trendComplete != null">
+                trend_complete = #{trendComplete,jdbcType=VARCHAR},
+            </if>
+            <if test="projectDesc != null">
+                project_desc = #{projectDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="publisher != null">
+                publisher = #{publisher,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="createdAt != null">
+                created_at = #{createdAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedAt != null">
+                updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.recruit.entity.EmployerDetailEntity">
+    update t_recruit_employer
+    set issue_name = #{issueName,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      trend_complete = #{trendComplete,jdbcType=VARCHAR},
+      project_desc = #{projectDesc,jdbcType=VARCHAR},
+      publisher = #{publisher,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
