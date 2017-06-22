@@ -80,7 +80,8 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
 
-    <insert id="insert" parameterType="com.recruit.entity.EmployerDetailEntity">
+    <insert id="insert" parameterType="com.recruit.entity.EmployerDetailEntity" useGeneratedKeys="true"
+            keyProperty="id">
     insert into t_recruit_employer (issue_name, company_name,
       trend_complete, project_desc, publisher,phone
       status

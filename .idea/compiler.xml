@@ -23,12 +23,10 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="soluo-recruit" />
-        <module name="spring-boot-mybatis-xml" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="soluo-recruit" target="1.8" />
-      <module name="spring-boot-mybatis-xml" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

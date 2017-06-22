@@ -4,6 +4,7 @@ import com.recruit.entity.EmployerBasic;
 
 /**
  * Created by jmx on 17/6/21.
+ *
  */
 public class EmployerViewHeaderObject extends EmployerBasic {
 

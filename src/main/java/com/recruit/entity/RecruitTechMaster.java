@@ -1,6 +1,7 @@
 package com.recruit.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class RecruitTechMaster {
     private Long id;
@@ -30,6 +31,8 @@ public class RecruitTechMaster {
     private Date updatedAt;
 
     private Integer score;
+
+    private List<RecruitBaseSkill> recruitBaseSkills;
 
     public Long getId() {
         return id;
@@ -141,5 +144,13 @@ public class RecruitTechMaster {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+    public List<RecruitBaseSkill> getRecruitBaseSkills() {
+        return recruitBaseSkills;
+    }
+
+    public void setRecruitBaseSkills(List<RecruitBaseSkill> recruitBaseSkills) {
+        this.recruitBaseSkills = recruitBaseSkills;
     }
 }

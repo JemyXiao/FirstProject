@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruit.mapper.TechMasterSkillMapperMapper">
+
+    <sql id="Base_Column_List">
+        id, tech_master_id, skill_id,created_at,
+        updated_at
+    </sql>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from t_recruit_techmaster_skill_mapping
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <insert id="insert" parameterType="com.recruit.entity.RecruitTechMaster" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into t_recruit_techmaster_skill_mapping (tech_master_id, skill_id)
+        values
+        <foreach collection="recruitBaseSkills" item="baseSkill" index="index" separator=",">
+            (
+            #{techMasterId}, #{baseSkill.skillId}
+            )
+        </foreach>
+        )
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.recruit.entity.TechMasterBasicSkillMapper">
+        update t_recruit_techmaster_skill_mapping
+        set tech_master_id = #{techMasterId,jdbcType=BIGINT},
+        skill_id = #{skillId,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

@@ -109,7 +109,8 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.recruit.entity.RecruitTechMaster" >
+  <insert id="insert" parameterType="com.recruit.entity.RecruitTechMaster" useGeneratedKeys="true"
+          keyProperty="id" >
     insert into t_recruit_tech_master (id, nick_name, open_id, 
       daily_wage, city_id, area_id, 
       sex, status, personal_info, 
