@@ -4,15 +4,13 @@ import com.recruit.entity.RecruitTechMaster;
 import com.recruit.entity.ResultModel;
 import com.recruit.service.TechMasterService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by jmx on 17/6/18.
  * 牛人controller
  */
+@RestController
 public class TechMasterController {
     @Autowired
     private TechMasterService techMasterService;

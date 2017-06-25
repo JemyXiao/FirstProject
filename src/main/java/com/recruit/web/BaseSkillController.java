@@ -6,12 +6,14 @@ import com.recruit.service.BaseSkillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 /**
  * Created by jmx on 17/6/18.
  */
+@RestController
 public class BaseSkillController {
     private final BaseSkillService baseSkillService;
 

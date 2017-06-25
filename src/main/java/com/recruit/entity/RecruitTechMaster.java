@@ -14,6 +14,8 @@ public class RecruitTechMaster {
 
     private Long cityId;
 
+    private String cityName;
+
     private Long areaId;
 
     private String sex;
@@ -152,5 +154,13 @@ public class RecruitTechMaster {
 
     public void setRecruitBaseSkills(List<RecruitBaseSkill> recruitBaseSkills) {
         this.recruitBaseSkills = recruitBaseSkills;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 }
