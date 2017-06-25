@@ -19,6 +19,8 @@ public interface RecruitBaseSkillMapper {
 
     List<RecruitBaseSkill> selectByExample(RecruitBaseSkillExample example);
 
+    List<RecruitBaseSkill> selectALLSkill();
+
     RecruitBaseSkill selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") RecruitBaseSkill record, @Param("example") RecruitBaseSkillExample example);

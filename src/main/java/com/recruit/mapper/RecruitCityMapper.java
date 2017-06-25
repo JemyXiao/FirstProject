@@ -19,6 +19,8 @@ public interface RecruitCityMapper {
 
     List<RecruitCity> selectByExample(RecruitCityExample example);
 
+    List<RecruitCity> selectAllCity();
+
     RecruitCity selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") RecruitCity record, @Param("example") RecruitCityExample example);

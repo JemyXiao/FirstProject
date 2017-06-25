@@ -48,7 +48,7 @@ public class MailSenderHelper implements InitializingBean {
 
     public void sendMail(MailContract mailContract, String subject) {
         logger.info("sending mail:{}", subject);
-        String content = "操作信息提示";
+        String content = "error";
         mailSender.sendHtmlMail(mailContract, subject, content);
     }
 

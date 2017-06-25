@@ -26,7 +26,7 @@ public class RecruitExceptionHandlerAdvice {
         result.setMessage("error: " + ex.getMessage());
         MailContract mailContract = new MailContract();
         mailContract.setTo(new String[]{"jinming.xiao@ele.me"});
-        mailSenderHelper.sendMail(mailContract,"异常信息邮件");
+        mailSenderHelper.sendMail(mailContract,"erro");
         return result;
     }
 }

@@ -19,6 +19,8 @@ public interface RecruitBusinessMapper {
 
     List<RecruitBusiness> selectByExample(recruitBusinessExample example);
 
+    List<RecruitBusiness> selectAllBusiness();
+
     RecruitBusiness selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") RecruitBusiness record, @Param("example") recruitBusinessExample example);
