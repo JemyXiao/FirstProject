@@ -28,6 +28,6 @@ public class TechMasterController {
     @RequestMapping(value = "/techMaster/delete/{id}", method = RequestMethod.GET)
     public ResultModel deleteTechMaster(@PathVariable("id") long id) {
         techMasterService.deleteTechMaster(id);
-        return new ResultModel(200, "删除成功");
+        return new ResultModel(200, "删除信息成功");
     }
 }
