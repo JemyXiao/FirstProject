@@ -63,10 +63,10 @@
         ON trb.id = trebm.business_id
         WHERE tre.status = #{status}
         <if test="issueName!=null and issueName!=''">
-            tre.issue_name = #{issue_name}
+            AND tre.issue_name = #{issue_name}
         </if>
         <if test="id!=null and id!=0">
-            tre.id= #{id}
+            AND tre.id= #{id}
         </if>
     </select>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
@@ -80,7 +80,8 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
 
-    <insert id="insert" parameterType="com.recruit.entity.EmployerDetailEntity">
+    <insert id="insert" parameterType="com.recruit.entity.EmployerDetailEntity" useGeneratedKeys="true"
+            keyProperty="id">
     insert into t_recruit_employer (issue_name, company_name,
       trend_complete, project_desc, publisher,phone
       status

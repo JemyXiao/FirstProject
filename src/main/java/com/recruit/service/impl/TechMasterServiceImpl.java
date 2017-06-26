@@ -2,6 +2,7 @@ package com.recruit.service.impl;
 
 import com.recruit.entity.RecruitTechMaster;
 import com.recruit.mapper.RecruitTechMasterMapper;
+import com.recruit.mapper.TechMasterSkillMapperMapper;
 import com.recruit.service.TechMasterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,9 +14,12 @@ import org.springframework.stereotype.Service;
 public class TechMasterServiceImpl implements TechMasterService {
     @Autowired
     private RecruitTechMasterMapper techMasterMapper;
+    @Autowired
+    private TechMasterSkillMapperMapper skillMapperMapper;
+
     @Override
     public int addTechMaster(RecruitTechMaster record) {
-        return techMasterMapper.insert(record);
+        return techMasterMapper.insert(record) + skillMapperMapper.insert(record);
     }
 
     @Override

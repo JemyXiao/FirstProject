@@ -70,6 +70,11 @@
   <sql id="Base_Column_List" >
     id, business_name, business_code, parent_id, created_at, updated_at
   </sql>
+  <select id="selectAllBusiness" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    from t_recruit_business
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruit.entity.recruitBusinessExample" >
     select
     <if test="distinct" >

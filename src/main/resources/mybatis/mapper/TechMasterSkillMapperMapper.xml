@@ -18,10 +18,9 @@
         values
         <foreach collection="recruitBaseSkills" item="baseSkill" index="index" separator=",">
             (
-            #{techMasterId}, #{baseSkill.skillId}
+            #{id}, #{baseSkill.id}
             )
         </foreach>
-        )
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.recruit.entity.TechMasterBasicSkillMapper">
         update t_recruit_techmaster_skill_mapping

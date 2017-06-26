@@ -18,10 +18,9 @@
         values
         <foreach collection="recruitBusinessList" item="business" index="index" separator=",">
             (
-            #{employer_id}, #{business.businessId}
+            #{id}, #{business.id}
             )
         </foreach>
-        )
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.recruit.entity.EmployerBusinessMapper">
         update t_recruit_employer_business_mapping

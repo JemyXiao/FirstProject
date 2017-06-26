@@ -109,17 +109,16 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.recruit.entity.RecruitTechMaster" >
+  <insert id="insert" parameterType="com.recruit.entity.RecruitTechMaster" useGeneratedKeys="true"
+          keyProperty="id" >
     insert into t_recruit_tech_master (id, nick_name, open_id, 
-      daily_wage, city_id, area_id, 
+      daily_wage, city_id,
       sex, status, personal_info, 
-      work_experience, phone, created_at, 
-      updated_at, score)
+      work_experience, phone)
     values (#{id,jdbcType=BIGINT}, #{nickName,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
-      #{dailyWage,jdbcType=VARCHAR}, #{cityId,jdbcType=BIGINT}, #{areaId,jdbcType=BIGINT}, 
+      #{dailyWage,jdbcType=VARCHAR}, #{cityId,jdbcType=BIGINT},
       #{sex,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{personalInfo,jdbcType=VARCHAR}, 
-      #{workExperience,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
-      #{updatedAt,jdbcType=TIMESTAMP}, #{score,jdbcType=INTEGER})
+      #{workExperience,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.recruit.entity.RecruitTechMaster" >
     insert into t_recruit_tech_master

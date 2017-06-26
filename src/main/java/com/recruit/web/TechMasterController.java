@@ -17,7 +17,7 @@ public class TechMasterController {
     @RequestMapping(value = "/techMaster/add", method = RequestMethod.POST)
     public ResultModel saveTechMaster(@RequestBody RecruitTechMaster record) {
         techMasterService.addTechMaster(record);
-        return new ResultModel(200, "条件信息成功");
+        return new ResultModel(200, "添加信息成功");
     }
     @RequestMapping(value = "/techMaster/update", method = RequestMethod.POST)
     public ResultModel updateTechMaster(@RequestBody RecruitTechMaster record) {

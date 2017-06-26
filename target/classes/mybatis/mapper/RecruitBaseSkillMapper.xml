@@ -69,6 +69,11 @@
   <sql id="Base_Column_List" >
     id, skill_name, created_at, updated_at, skill_code
   </sql>
+  <select id="selectALLSkill" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    from t_recruit_base_skill
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruit.entity.RecruitBaseSkillExample" >
     select
     <if test="distinct" >
