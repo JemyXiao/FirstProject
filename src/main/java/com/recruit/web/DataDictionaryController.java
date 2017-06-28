@@ -1,28 +1,28 @@
 package com.recruit.web;
 
+import com.recruit.entity.DataDictionaryEntity;
 import com.recruit.entity.ResultModel;
 import com.recruit.service.BusinessService;
+import com.recruit.service.DataDictionaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * Created by jmx on 17/6/18.
  */
 @RestController
 public class DataDictionaryController {
-    private final BusinessService businessService;
-
     @Autowired
-    public DataDictionaryController(BusinessService businessService) {
-        this.businessService = businessService;
-    }
+    private DataDictionaryService dataDictionaryService;
 
-    @RequestMapping(value = "/dataDictionary/getByCode/{code}", method = RequestMethod.GET)
-    public ResultModel deleteTechMaster(@PathVariable("id") long id) {
-//        techMasterService.deleteTechMaster(id);
-        return new ResultModel(200,null);
+    @RequestMapping(value = "/dataDictionary/getByCode/{id}", method = RequestMethod.GET)
+    public ResultModel selectDictionary(@PathVariable("id") long id) {
+        List<DataDictionaryEntity> dataDictionaryEntities = dataDictionaryService.getDataDictionary(id);
+        return new ResultModel(200,dataDictionaryEntities);
     }
 }

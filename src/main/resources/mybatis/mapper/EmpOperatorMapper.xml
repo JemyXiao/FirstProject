@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruit.mapper.EmpOperatorMapper">
+ <insert id="insert" parameterType="com.recruit.entity.EmployerOperator">
+     INSERT INTO t_recruit_employer_operation (employer_id,visit_count,apply_count,recommend_count)
+     VALUE (#{employerId},#{visitCount},#{applyCount},#{recommendCount})
+ </insert>
+<update id="update" parameterType="com.recruit.entity.EmployerOperator">
+    UPDATE t_recruit_employer_operation
+    <if test="visitCount!=null and visitCount!=0">
+        SET visit_count = visit_count+1
+    </if>
+    <if test="recommendCount!=null and recommendCount!=0">
+        SET recommend_count = recommend_count+1
+    </if>
+    <if test="applyCount!=null and applyCount!=0">
+        SET apply_count = apply_count+1
+    </if>
+    WHERE employer_id = #{employerId}
+</update>
+</mapper>

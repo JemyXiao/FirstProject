@@ -1,6 +1,9 @@
 package com.recruit.common.guava;
 
 import com.google.common.eventbus.Subscribe;
+import com.recruit.entity.EmployerOperator;
+import com.recruit.service.EmpOperatorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,8 +12,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class EventListener {
+    @Autowired
+    private EmpOperatorService operatorService;
     @Subscribe
-      public void listen(Object o) {
-        System.out.println(o);
+      public void listen(EmployerOperator o) {
+        operatorService.update(o);
     }
 }

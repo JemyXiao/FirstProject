@@ -1,14 +1,13 @@
 package com.recruit.web;
 
+import com.recruit.common.aop.Operation;
+import com.recruit.entity.EmployerBasic;
 import com.recruit.entity.EmployerDetailEntity;
 import com.recruit.entity.ResultModel;
 import com.recruit.entity.vo.EmployerViewHeaderObject;
 import com.recruit.service.EmployerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,14 +25,15 @@ public class EmployerController {
         employerService.addEmployer(record);
         return new ResultModel(200, "发布信息待审核");
     }
-    @RequestMapping(value = "/employer/queryDetail", method = RequestMethod.POST)
-    public ResultModel queryEmployerDetail(@RequestBody EmployerDetailEntity record) {
-        List<EmployerDetailEntity> employerEntityList =  employerService.queryEmployerDetail(record);
-        return new ResultModel(200,employerEntityList);
+    @Operation(name = "employerCount")
+    @RequestMapping(value = "/employer/queryDetail/{id}", method = RequestMethod.GET)
+    public ResultModel queryEmployerDetail(@PathVariable("id") long id) {
+        EmployerDetailEntity employerEntity =  employerService.queryEmployerDetail(id);
+        return new ResultModel(200,employerEntity);
     }
     @RequestMapping(value = "/employer/queryEmpViewHeader", method = RequestMethod.GET)
     public ResultModel queryEmployerDetail() {
-        List<EmployerViewHeaderObject> viewHeaderObjects =  employerService.queryEmployerViewHeader();
+        List<EmployerBasic> viewHeaderObjects =  employerService.queryEmployerViewHeader();
         return new ResultModel(200,viewHeaderObjects);
     }
 }

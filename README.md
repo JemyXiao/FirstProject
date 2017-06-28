@@ -204,3 +204,27 @@ this is my first project
             "code":200,
             "data":"添加成功"
           }
+5.添加发布信息
+
+         链接：/techMaster/add
+         
+         请求类型:POST
+                   
+          {
+          	"issueName":"测试发布项目",
+          	"companyName":"金明发展公司",
+          	"trendComplete":"公司",
+          	"projectDesc":"我要睡你",
+          	"publisher":"jinming.xiao",
+          	 "phone":"18721958875",
+          	"recruitBusinessList":[
+          		  {"id":2},
+          		  {"id":3},
+          		  {"id":5}
+          		]
+          }
+          返回数据：
+                    {
+                      "code":200,
+                      "data":"添加成功"
+                    }

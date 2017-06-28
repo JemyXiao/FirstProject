@@ -1,6 +1,7 @@
 package com.recruit.common.guava;
 
 import com.google.common.eventbus.AsyncEventBus;
+import com.recruit.entity.EmployerOperator;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,7 @@ public class AsyncEvtBusHelper implements InitializingBean {
     private EventListener eventListener;
     AsyncEventBus eventBus;
 
-    public void post(Object o){
+    public void post(EmployerOperator o){
         eventBus.post(o);
     }
 

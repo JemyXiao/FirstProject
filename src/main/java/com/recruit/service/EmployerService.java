@@ -1,5 +1,6 @@
 package com.recruit.service;
 
+import com.recruit.entity.EmployerBasic;
 import com.recruit.entity.EmployerDetailEntity;
 import com.recruit.entity.vo.EmployerViewHeaderObject;
 
@@ -11,7 +12,7 @@ import java.util.List;
 public interface EmployerService {
     int addEmployer(EmployerDetailEntity employerEntity);
 
-    List<EmployerDetailEntity> queryEmployerDetail(EmployerDetailEntity record);
+    EmployerDetailEntity queryEmployerDetail(Long id);
 
-    List<EmployerViewHeaderObject> queryEmployerViewHeader();
+    List<EmployerBasic> queryEmployerViewHeader();
 }

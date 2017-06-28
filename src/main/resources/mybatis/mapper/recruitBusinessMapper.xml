@@ -3,9 +3,9 @@
 <mapper namespace="com.recruit.mapper.RecruitBusinessMapper" >
   <resultMap id="BaseResultMap" type="com.recruit.entity.RecruitBusiness" >
     <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="parent_id" property="parentId" jdbcType="BIGINT" />
     <result column="business_name" property="businessName" jdbcType="VARCHAR" />
     <result column="business_code" property="businessCode" jdbcType="VARCHAR" />
-    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
     <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
     <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -70,10 +70,13 @@
   <sql id="Base_Column_List" >
     id, business_name, business_code, parent_id, created_at, updated_at
   </sql>
+  <select id="getChildBusiness">
+
+  </select>
   <select id="selectAllBusiness" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List" />
-    from t_recruit_business
+    from t_recruit_business parent
   </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruit.entity.recruitBusinessExample" >
     select

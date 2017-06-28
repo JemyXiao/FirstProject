@@ -1,6 +1,7 @@
 package com.recruit.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class RecruitBusiness {
     private Long id;
@@ -10,6 +11,8 @@ public class RecruitBusiness {
     private String businessCode;
 
     private Long parentId;
+
+    private List<RecruitBusiness> children;
 
     private Date createdAt;
 
@@ -61,5 +64,13 @@ public class RecruitBusiness {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public List<RecruitBusiness> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<RecruitBusiness> children) {
+        this.children = children;
     }
 }

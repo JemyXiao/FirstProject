@@ -1,5 +1,6 @@
 package com.recruit.web;
 
+import com.recruit.common.aop.Operation;
 import com.recruit.entity.RecruitCity;
 import com.recruit.entity.ResultModel;
 import com.recruit.service.CityService;
@@ -22,7 +23,6 @@ public class CityController {
     public CityController(CityService cityService) {
         this.cityService = cityService;
     }
-
     @RequestMapping(value = "/city/getAllCity", method = RequestMethod.GET)
     public ResultModel getAllCity() {
         List<RecruitCity> recruitCities = cityService.getAllCity();

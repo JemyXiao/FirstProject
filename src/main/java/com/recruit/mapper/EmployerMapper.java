@@ -1,5 +1,6 @@
 package com.recruit.mapper;
 
+import com.recruit.entity.EmployerBasic;
 import com.recruit.entity.EmployerDetailEntity;
 import com.recruit.entity.vo.EmployerViewHeaderObject;
 
@@ -13,7 +14,7 @@ public interface EmployerMapper {
 
     int insertSelective(EmployerDetailEntity record);
 
-    List<EmployerDetailEntity> queryEmployerDetail(EmployerDetailEntity record);
+    EmployerDetailEntity queryEmployerDetail(Long id);
 
     EmployerDetailEntity selectByPrimaryKey(Long id);
 
@@ -21,5 +22,5 @@ public interface EmployerMapper {
 
     int updateByPrimaryKey(EmployerDetailEntity record);
 
-    List<EmployerViewHeaderObject> queryEmployerViewHeader();
+    List<EmployerBasic> queryEmployerViewHeader();
 }

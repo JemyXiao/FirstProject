@@ -1,6 +1,7 @@
 package com.recruit.service.impl;
 
 import com.recruit.entity.RecruitBaseSkill;
+import com.recruit.entity.RecruitBusiness;
 import com.recruit.entity.RecruitCity;
 import com.recruit.mapper.RecruitBaseSkillMapper;
 import com.recruit.mapper.RecruitCityMapper;
@@ -9,6 +10,7 @@ import com.recruit.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**

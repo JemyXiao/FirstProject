@@ -20,6 +20,10 @@ public class EmployerBasic {
 
     private List<RecruitBusiness> recruitBusinessList;
 
+    private int visitCount;
+    private int applyCount;
+    private int recommendCount;
+
     private Date createdAt;
 
     private Date updatedAt;
@@ -86,5 +90,29 @@ public class EmployerBasic {
 
     public void setProjectBudget(int projectBudget) {
         this.projectBudget = projectBudget;
+    }
+
+    public int getVisitCount() {
+        return visitCount;
+    }
+
+    public void setVisitCount(int visitCount) {
+        this.visitCount = visitCount;
+    }
+
+    public int getApplyCount() {
+        return applyCount;
+    }
+
+    public void setApplyCount(int applyCount) {
+        this.applyCount = applyCount;
+    }
+
+    public int getRecommendCount() {
+        return recommendCount;
+    }
+
+    public void setRecommendCount(int recommendCount) {
+        this.recommendCount = recommendCount;
     }
 }

@@ -15,6 +15,6 @@
         <include refid="Base_Column_List"/>
         FROM
         t_recruit_data_dictionary
-        WHEN data_code = #{code}
+        WHERE data_code = #{code}
     </select>
 </mapper>

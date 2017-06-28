@@ -1,5 +1,6 @@
 package com.recruit.service.impl;
 
+import com.recruit.entity.EmployerBasic;
 import com.recruit.entity.EmployerDetailEntity;
 import com.recruit.entity.vo.EmployerViewHeaderObject;
 import com.recruit.mapper.EmployerBusinessMapperMapper;
@@ -24,18 +25,19 @@ public class EmployerServiceImpl implements EmployerService {
 
     @Override
     public int addEmployer(EmployerDetailEntity employerEntity) {
-         int emp = employerMapper.insert(employerEntity);
-         int bus = businessMapperMapper.insert(employerEntity);
-         return  emp+bus;
+        employerEntity.setStatus("待审核");
+        int emp = employerMapper.insert(employerEntity);
+        int bus = businessMapperMapper.insert(employerEntity);
+        return emp + bus;
     }
 
     @Override
-    public List<EmployerDetailEntity> queryEmployerDetail(EmployerDetailEntity record) {
-        return employerMapper.queryEmployerDetail(record);
+    public EmployerDetailEntity queryEmployerDetail(Long id) {
+        return employerMapper.queryEmployerDetail(id);
     }
 
     @Override
-    public List<EmployerViewHeaderObject> queryEmployerViewHeader() {
+    public List<EmployerBasic> queryEmployerViewHeader() {
         return employerMapper.queryEmployerViewHeader();
     }
 }
