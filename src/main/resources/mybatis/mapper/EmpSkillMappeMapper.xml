@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruit.mapper.EmpSkillMapperMapper">
+
+    <sql id="Base_Column_List">
+        id, employer_id, business_id,created_at,
+        updated_at
+    </sql>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from t_recruit_employer_skill_mapping
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <insert id="insert" parameterType="com.recruit.entity.EmployerSkillMapper" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into t_recruit_employer_skill_mapping (employer_id, skill_id)
+        values(#{employerId},#{skillId})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.recruit.entity.EmployerSkillMapper">
+        update t_recruit_employer_skill_mapping
+        set employer_id = #{employerId,jdbcType=BIGINT},
+        businskill_idess_id = #{skillId,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

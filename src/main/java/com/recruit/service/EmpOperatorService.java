@@ -8,4 +8,5 @@ import com.recruit.entity.EmployerOperator;
 public interface EmpOperatorService {
     int insert(EmployerOperator operator);
     int update(EmployerOperator operator);
+    EmployerOperator selectByPrimaryKey(Long id);
 }

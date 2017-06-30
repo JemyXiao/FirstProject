@@ -18,4 +18,9 @@
     </if>
     WHERE employer_id = #{employerId}
 </update>
+    <select id="selectByPrimaryKey" parameterType="Long" resultType="com.recruit.entity.EmployerOperator">
+        SELECT employer_id AS employerId,visit_count as visitCount,apply_count as applyCount,recommend_count as recommendCount
+        FROM t_recruit_employer_operation
+        WHERE employer_id = #{id}
+    </select>
 </mapper>

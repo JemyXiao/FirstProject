@@ -1,14 +1,16 @@
 package com.recruit.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 
 public class RecruitBaseSkill {
     private Long id;
 
     private String skillName;
-
+    @JSONField(serialize = false)
     private Date createdAt;
-
+    @JSONField(serialize = false)
     private Date updatedAt;
 
     private String skillCode;

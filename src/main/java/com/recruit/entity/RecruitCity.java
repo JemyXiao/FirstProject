@@ -1,5 +1,7 @@
 package com.recruit.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 
 public class RecruitCity {
@@ -8,9 +10,9 @@ public class RecruitCity {
     private String cityName;
 
     private Integer hotTop;
-
+    @JSONField(serialize = false)
     private Date createdAt;
-
+    @JSONField(serialize = false)
     private Date updatedAt;
 
     private String cityCode;

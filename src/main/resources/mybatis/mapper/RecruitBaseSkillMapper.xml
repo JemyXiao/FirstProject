@@ -74,20 +74,6 @@
     <include refid="Base_Column_List" />
     from t_recruit_base_skill
   </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruit.entity.RecruitBaseSkillExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from t_recruit_base_skill
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
@@ -97,12 +83,6 @@
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from t_recruit_base_skill
     where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.recruit.entity.RecruitBaseSkillExample" >
-    delete from t_recruit_base_skill
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
   </delete>
   <insert id="insert" parameterType="com.recruit.entity.RecruitBaseSkill" >
     insert into t_recruit_base_skill (id, skill_name, created_at, 
@@ -147,35 +127,6 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.recruit.entity.RecruitBaseSkillExample" resultType="java.lang.Integer" >
-    select count(*) from t_recruit_base_skill
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map" >
-    update t_recruit_base_skill
-    <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=BIGINT},
-      </if>
-      <if test="record.skillName != null" >
-        skill_name = #{record.skillName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.createdAt != null" >
-        created_at = #{record.createdAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.updatedAt != null" >
-        updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.skillCode != null" >
-        skill_code = #{record.skillCode,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
   <update id="updateByExample" parameterType="map" >
     update t_recruit_base_skill
     set id = #{record.id,jdbcType=BIGINT},
@@ -186,24 +137,6 @@
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.RecruitBaseSkill" >
-    update t_recruit_base_skill
-    <set >
-      <if test="skillName != null" >
-        skill_name = #{skillName,jdbcType=VARCHAR},
-      </if>
-      <if test="createdAt != null" >
-        created_at = #{createdAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatedAt != null" >
-        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="skillCode != null" >
-        skill_code = #{skillCode,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.recruit.entity.RecruitBaseSkill" >
     update t_recruit_base_skill

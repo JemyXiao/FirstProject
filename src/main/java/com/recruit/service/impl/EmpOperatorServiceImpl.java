@@ -22,4 +22,9 @@ public class EmpOperatorServiceImpl implements EmpOperatorService {
     public int update(EmployerOperator operator) {
         return mapper.update(operator);
     }
+
+    @Override
+    public EmployerOperator selectByPrimaryKey(Long id) {
+        return mapper.selectByPrimaryKey(id);
+    }
 }

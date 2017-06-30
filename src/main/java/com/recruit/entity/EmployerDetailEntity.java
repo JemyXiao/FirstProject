@@ -1,5 +1,7 @@
 package com.recruit.entity;
 
+import java.util.List;
+
 /**
  * 发布信息类
  */
@@ -15,7 +17,8 @@ public class EmployerDetailEntity extends EmployerBasic{
 
     private String phone;
 
-    private String objectCycle;
+    private String projectCycle;
+
 
     public String getCompanyName() {
         return companyName;
@@ -57,11 +60,11 @@ public class EmployerDetailEntity extends EmployerBasic{
         this.phone = phone;
     }
 
-    public String getObjectCycle() {
-        return objectCycle;
+    public String getProjectCycle() {
+        return projectCycle;
     }
 
-    public void setObjectCycle(String objectCycle) {
-        this.objectCycle = objectCycle;
+    public void setProjectCycle(String projectCycle) {
+        this.projectCycle = projectCycle;
     }
 }

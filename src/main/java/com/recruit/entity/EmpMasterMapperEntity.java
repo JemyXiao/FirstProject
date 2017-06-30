@@ -1,20 +1,18 @@
 package com.recruit.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
 import java.util.Date;
 
-/**
- * Created by jmx on 2017/6/22.
- *
- */
-public class EmployerBusinessMapper {
+public class EmpMasterMapperEntity {
     private Long id;
+
+    private Long techMasterId;
+
     private Long employerId;
-    private Long businessId;
-    @JSONField(serialize = false)
+
+    private String status;
+
     private Date createdAt;
-    @JSONField(serialize = false)
+
     private Date updatedAt;
 
     public Long getId() {
@@ -25,6 +23,14 @@ public class EmployerBusinessMapper {
         this.id = id;
     }
 
+    public Long getTechMasterId() {
+        return techMasterId;
+    }
+
+    public void setTechMasterId(Long techMasterId) {
+        this.techMasterId = techMasterId;
+    }
+
     public Long getEmployerId() {
         return employerId;
     }
@@ -33,12 +39,12 @@ public class EmployerBusinessMapper {
         this.employerId = employerId;
     }
 
-    public Long getBusinessId() {
-        return businessId;
+    public String getStatus() {
+        return status;
     }
 
-    public void setBusinessId(Long businessId) {
-        this.businessId = businessId;
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
     }
 
     public Date getCreatedAt() {

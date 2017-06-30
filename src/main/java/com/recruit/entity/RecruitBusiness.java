@@ -1,5 +1,7 @@
 package com.recruit.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 import java.util.List;
 
@@ -14,8 +16,11 @@ public class RecruitBusiness {
 
     private List<RecruitBusiness> children;
 
-    private Date createdAt;
+    private RecruitBusiness parentBusiness;
 
+    @JSONField(serialize = false)
+    private Date createdAt;
+    @JSONField(serialize = false)
     private Date updatedAt;
 
     public Long getId() {
@@ -72,5 +77,13 @@ public class RecruitBusiness {
 
     public void setChildren(List<RecruitBusiness> children) {
         this.children = children;
+    }
+
+    public RecruitBusiness getParentBusiness() {
+        return parentBusiness;
+    }
+
+    public void setParentBusiness(RecruitBusiness parentBusiness) {
+        this.parentBusiness = parentBusiness;
     }
 }

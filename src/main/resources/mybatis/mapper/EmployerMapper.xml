@@ -1,41 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.recruit.mapper.EmployerMapper">
-    <resultMap id="BaseResultMap" type="com.recruit.entity.EmployerDetailEntity">
-        <id column="id" property="id" jdbcType="BIGINT"/>
-        <result column="issue_name" property="issueName" jdbcType="VARCHAR"/>
+    <resultMap id="BaseResultMap" type="com.recruit.entity.EmployerDetailEntity" extends="ViewHeaderResultMap">
         <result column="company_name" property="companyName" jdbcType="VARCHAR"/>
         <result column="trend_complete" property="trendComplete" jdbcType="VARCHAR"/>
         <result column="project_desc" property="projectDesc" jdbcType="VARCHAR"/>
+        <result column="project_cycle" property="projectCycle" jdbcType="VARCHAR"/>
         <result column="publisher" property="publisher" jdbcType="VARCHAR"/>
-        <result column="visit_count" property="visitCount" jdbcType="BIGINT" />
-        <result column="apply_count" property="applyCount" jdbcType="BIGINT" />
-        <result column="recommend_count" property="recommendCount" jdbcType="BIGINT"/>
-        <result column="status" property="status" jdbcType="VARCHAR"/>
-        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
-        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
-        <collection property="recruitBusinessList" column="business_id" ofType="RecruitBusiness">
-            <result column="business_id" property="id"></result>
-            <result column="business_name" property="businessName"></result>
-            <result column="business_code" property="businessCode"></result>
-            <result column="business_parent_id" property="parentId"></result>
-        </collection>
     </resultMap>
 
     <resultMap id="ViewHeaderResultMap" type="com.recruit.entity.EmployerBasic">
         <id column="id" property="id" jdbcType="BIGINT"/>
-        <result column="issue_name" property="issueName" jdbcType="VARCHAR"/>
+        <result column="issue_name" property="projectName" jdbcType="VARCHAR"/>
+        <result column="project_budget" property="projectBudget"/>
         <result column="status" property="status" jdbcType="VARCHAR"/>
-        <result column="visit_count" property="visitCount" jdbcType="BIGINT" />
-        <result column="apply_count" property="applyCount" jdbcType="BIGINT" />
+        <result column="visit_count" property="visitCount" jdbcType="BIGINT"/>
+        <result column="apply_count" property="applyCount" jdbcType="BIGINT"/>
         <result column="recommend_count" property="recommendCount" jdbcType="BIGINT"/>
         <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
         <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
-        <collection property="recruitBusinessList" column="business_id" ofType="RecruitBusiness">
-            <result column="business_id" property="id"></result>
-            <result column="business_name" property="businessName"></result>
-            <result column="business_code" property="businessCode"></result>
-            <result column="business_parent_id" property="parentId"></result>
+        <result column="business_id" property="businessId" jdbcType="BIGINT"/>
+        <result column="business_parent_id" property="businessParentId" jdbcType="BIGINT"/>
+        <collection property="baseSkills" column="skill_id" ofType="RecruitBaseSkill">
+            <result column="skill_id" property="id"></result>
+            <result column="skill_name" property="skillName"></result>
+            <result column="skill_code" property="skillCode"></result>
         </collection>
     </resultMap>
 
@@ -43,29 +32,43 @@
     id, issue_name, company_name, trend_complete, project_desc, publisher, status, created_at, 
     updated_at
   </sql>
-    <select id="queryEmployerViewHeader" resultMap="ViewHeaderResultMap">
-      SELECT tre.id, tre.issue_name, tre.status, tre.created_at,
-      tre.updated_at,treo.visit_count,treo.apply_count,treo.recommend_count,trebm.business_id AS business_id,trb.business_name,trb.business_code,trb.parent_id AS business_parent_id
-      FROM t_recruit_employer tre
-      LEFT JOIN t_recruit_employer_operation treo
-      ON tre.id = treo.employer_id
-      LEFT JOIN t_recruit_employer_business_mapping trebm
-      ON tre.id = trebm.employer_id
-      INNER JOIN t_recruit_business trb
-      ON trb.id = trebm.business_id
-  </select>
-    <select id="queryEmployerDetail" parameterType="Long" resultMap="BaseResultMap">
-        SELECT tre.id, tre.issue_name,treo.visit_count,treo.apply_count,treo.recommend_count, tre.company_name, tre.trend_complete, tre.project_desc, tre.publisher,
-        tre.status, tre.created_at,
-        tre.updated_at,trebm.business_id AS business_id,trb.business_name,trb.business_code,trb.parent_id AS
-        business_parent_id
+    <select id="queryEmployerViewHeader" resultMap="ViewHeaderResultMap" parameterType="EmployerDto">
+        SELECT tre.id, tre.issue_name, tre.status, tre.created_at,
+        tre.updated_at,tre.project_budget,treo.visit_count,treo.apply_count,treo.recommend_count,tre.business_id AS
+        business_id,tre.business_parent_id as business_parent_id
+        ,trbs.id AS skill_id,trbs.skill_name,trbs.skill_code
         FROM t_recruit_employer tre
         LEFT JOIN t_recruit_employer_operation treo
         ON tre.id = treo.employer_id
-        INNER JOIN t_recruit_employer_business_mapping trebm
-        ON tre.id = trebm.employer_id
-        INNER JOIN t_recruit_business trb
-        ON trb.id = trebm.business_id
+        LEFT JOIN t_recruit_employer_skill_mapping tresm
+        ON tre.id = tresm.employer_id
+        LEFT JOIN t_recruit_base_skill trbs
+        ON tresm.skill_id = trbs.id
+        WHERE status=#{status}
+        <if test="businessParentId !=null and businessParentId!=0">
+            tre.business_parent_id = #{businessParentId}
+        </if>
+        ORDER by tre.created_at DESC
+    </select>
+    <select id="queryCountViewCount" parameterType="EmployerDto" resultType="int">
+        SELECT count(1)
+        FROM t_recruit_employer
+        WHERE status=#{status}
+        <if test="businessParentId !=null and businessParentId!=0">
+            business_parent_id = #{businessParentId}
+        </if>
+    </select>
+    <select id="queryEmployerDetail" parameterType="Long" resultMap="BaseResultMap">
+        SELECT tre.id, tre.issue_name, tre.status, tre.created_at,
+        tre.updated_at,tre.company_name, tre.project_budget,tre.project_cycle,tre.trend_complete, tre.project_desc, tre.publisher,treo.visit_count,treo.apply_count,treo.recommend_count,tre.business_id AS business_id,tre.business_parent_id as business_parent_id
+      ,trbs.id AS skill_id,trbs.skill_name,trbs.skill_code
+        FROM t_recruit_employer tre
+        LEFT JOIN t_recruit_employer_operation treo
+        ON tre.id = treo.employer_id
+        LEFT JOIN t_recruit_employer_skill_mapping tresm
+        ON tre.id = tresm.employer_id
+        LEFT JOIN t_recruit_base_skill trbs
+        ON tresm.skill_id = trbs.id
         WHERE tre.id= #{id}
     </select>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
@@ -79,23 +82,23 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
 
-    <insert id="insert" parameterType="com.recruit.entity.EmployerDetailEntity" useGeneratedKeys="true"
+    <insert id="insert" parameterType="com.recruit.entity.dto.EmployerDto" useGeneratedKeys="true"
             keyProperty="id">
     insert into t_recruit_employer (issue_name, company_name,
-      trend_complete, project_desc, publisher,phone,
-      status
+      trend_complete, project_desc,object_budget
+      status,business_id,business_parent_id,object_cycle
       )
-    values (#{issueName,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR},
-      #{trendComplete,jdbcType=VARCHAR}, #{projectDesc,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR},
-       #{phone,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR}
+    values (#{projectName,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR},
+      #{trendComplete,jdbcType=VARCHAR}, #{projectDesc,jdbcType=VARCHAR},
+      #{projectBudget,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{businessId,jdbcType=VARCHAR},#{businessParentId,jdbcType=VARCHAR},#{objectCycle,jdbcType=VARCHAR},
       )
   </insert>
 
     <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.EmployerDetailEntity">
         update t_recruit_employer
         <set>
-            <if test="issueName != null">
-                issue_name = #{issueName,jdbcType=VARCHAR},
+            <if test="projectName != null">
+                issue_name = #{projectName,jdbcType=VARCHAR},
             </if>
             <if test="companyName != null">
                 company_name = #{companyName,jdbcType=VARCHAR},
@@ -123,7 +126,7 @@
     </update>
     <update id="updateByPrimaryKey" parameterType="com.recruit.entity.EmployerDetailEntity">
     update t_recruit_employer
-    set issue_name = #{issueName,jdbcType=VARCHAR},
+    set issue_name = #{projectName,jdbcType=VARCHAR},
       company_name = #{companyName,jdbcType=VARCHAR},
       trend_complete = #{trendComplete,jdbcType=VARCHAR},
       project_desc = #{projectDesc,jdbcType=VARCHAR},
