@@ -3,122 +3,353 @@ this is my first project
 1. 查询首页发布信息
     
         链接: /employer/queryEmpViewHeader
-        GET
+        POST
         
+        参数: | name              |  是否必须 |  描述                                 |
+              | -----------      | --------- | ------------------------------------- |
+              | status           |    是     |  状态(默认待审核)                               |
+              | businessParentId |    否     |  类型查询参数                    |
+              | pageNumber       |    否     |  分页                                  |
+              | pageSize         |    否     |  分页                                  |
         返回数据： 
         {
             "code": 200,
             "data": [
                 {
-                    "id": 1,
+                    "id": 7,
                     "openId": null,
-                    "projectBudget": 0,
-                    "issueName": "测试发布项目",
+                    "projectBudget": 5000,
+                    "projectName": "母鸡啊",
                     "status": "待审核",
-                    "recruitBusinessList": [
+                    "businessId": 2,
+                    "businessParentId": 1,
+                    "baseSkills": [
                         {
+                            "id": 1,
+                            "skillName": "软件开发",
+                            "createdAt": null,
+                            "updatedAt": null,
+                            "skillCode": "100"
+                        },
+                        {
+                            "id": 2,
+                            "skillName": "网站设计",
+                            "createdAt": null,
+                            "updatedAt": null,
+                            "skillCode": "101"
+                        },
+                        {
+                            "id": 3,
+                            "skillName": "室内装潢",
+                            "createdAt": null,
+                            "updatedAt": null,
+                            "skillCode": "201"
+                        }
+                    ],
+                    "recruitBusiness": {
+                        "id": 2,
+                        "businessName": "室内设计",
+                        "businessCode": "10001",
+                        "parentId": 1,
+                        "children": null,
+                        "parentBusiness": {
                             "id": 1,
                             "businessName": "设计",
                             "businessCode": "100",
                             "parentId": 0,
+                            "children": null,
+                            "parentBusiness": null,
+                            "createdAt": 1498015320000,
+                            "updatedAt": 1498015320000
+                        },
+                        "createdAt": 1498015336000,
+                        "updatedAt": 1498015336000
+                    },
+                    "visitCount": 4,
+                    "applyCount": 0,
+                    "recommendCount": 0,
+                    "createdAt": 1498828386000,
+                    "updatedAt": 1498829672000
+                },
+                {
+                    "id": 6,
+                    "openId": null,
+                    "projectBudget": 0,
+                    "projectName": "母鸡啊",
+                    "status": "待审核",
+                    "businessId": 2,
+                    "businessParentId": 1,
+                    "baseSkills": [
+                        {
+                            "id": 1,
+                            "skillName": "软件开发",
                             "createdAt": null,
-                            "updatedAt": null
+                            "updatedAt": null,
+                            "skillCode": "100"
                         },
                         {
                             "id": 2,
-                            "businessName": "室内设计",
-                            "businessCode": "10001",
-                            "parentId": 1,
+                            "skillName": "网站设计",
                             "createdAt": null,
-                            "updatedAt": null
+                            "updatedAt": null,
+                            "skillCode": "101"
+                        },
+                        {
+                            "id": 3,
+                            "skillName": "室内装潢",
+                            "createdAt": null,
+                            "updatedAt": null,
+                            "skillCode": "201"
                         }
                     ],
-                    "createdAt": 1497769584000,
-                    "updatedAt": 1497769584000,
-                    "visitCount": 100,
-                    "applyCount": 200,
-                    "recommendCount": 300
+                    "recruitBusiness": {
+                        "id": 2,
+                        "businessName": "室内设计",
+                        "businessCode": "10001",
+                        "parentId": 1,
+                        "children": null,
+                        "parentBusiness": {
+                            "id": 1,
+                            "businessName": "设计",
+                            "businessCode": "100",
+                            "parentId": 0,
+                            "children": null,
+                            "parentBusiness": null,
+                            "createdAt": 1498015320000,
+                            "updatedAt": 1498015320000
+                        },
+                        "createdAt": 1498015336000,
+                        "updatedAt": 1498015336000
+                    },
+                    "visitCount": 0,
+                    "applyCount": 0,
+                    "recommendCount": 0,
+                    "createdAt": 1498827445000,
+                    "updatedAt": 1498827445000
+                },
+                {
+                    "id": 3,
+                    "openId": null,
+                    "projectBudget": 0,
+                    "projectName": "测试发布项目",
+                    "status": "待审核",
+                    "businessId": 5,
+                    "businessParentId": 6,
+                    "baseSkills": [
+                        {
+                            "id": 1,
+                            "skillName": "软件开发",
+                            "createdAt": null,
+                            "updatedAt": null,
+                            "skillCode": "100"
+                        }
+                    ],
+                    "recruitBusiness": {
+                        "id": 5,
+                        "businessName": "室内摄影",
+                        "businessCode": "20001",
+                        "parentId": 4,
+                        "children": null,
+                        "parentBusiness": {
+                            "id": 6,
+                            "businessName": "室外摄影",
+                            "businessCode": "20001",
+                            "parentId": 4,
+                            "children": null,
+                            "parentBusiness": null,
+                            "createdAt": 1498584026000,
+                            "updatedAt": 1498584026000
+                        },
+                        "createdAt": 1498584026000,
+                        "updatedAt": 1498584026000
+                    },
+                    "visitCount": 0,
+                    "applyCount": 0,
+                    "recommendCount": 0,
+                    "createdAt": 1498670647000,
+                    "updatedAt": 1498810101000
                 },
                 {
                     "id": 2,
                     "openId": null,
                     "projectBudget": 0,
-                    "issueName": "测试发布项目",
+                    "projectName": "测试发布项目",
                     "status": "待审核",
-                    "recruitBusinessList": [
+                    "businessId": 3,
+                    "businessParentId": 1,
+                    "baseSkills": [
                         {
+                            "id": 1,
+                            "skillName": "软件开发",
+                            "createdAt": null,
+                            "updatedAt": null,
+                            "skillCode": "100"
+                        },
+                        {
+                            "id": 3,
+                            "skillName": "室内装潢",
+                            "createdAt": null,
+                            "updatedAt": null,
+                            "skillCode": "201"
+                        }
+                    ],
+                    "recruitBusiness": {
+                        "id": 3,
+                        "businessName": "室外实际",
+                        "businessCode": "10002",
+                        "parentId": 1,
+                        "children": null,
+                        "parentBusiness": {
                             "id": 1,
                             "businessName": "设计",
                             "businessCode": "100",
                             "parentId": 0,
+                            "children": null,
+                            "parentBusiness": null,
+                            "createdAt": 1498015320000,
+                            "updatedAt": 1498015320000
+                        },
+                        "createdAt": 1498583833000,
+                        "updatedAt": 1498583833000
+                    },
+                    "visitCount": 0,
+                    "applyCount": 0,
+                    "recommendCount": 0,
+                    "createdAt": 1497946957000,
+                    "updatedAt": 1498810101000
+                },
+                {
+                    "id": 1,
+                    "openId": null,
+                    "projectBudget": 0,
+                    "projectName": "测试发布项目",
+                    "status": "待审核",
+                    "businessId": 2,
+                    "businessParentId": 1,
+                    "baseSkills": [
+                        {
+                            "id": 1,
+                            "skillName": "软件开发",
                             "createdAt": null,
-                            "updatedAt": null
+                            "updatedAt": null,
+                            "skillCode": "100"
                         },
                         {
                             "id": 2,
-                            "businessName": "室内设计",
-                            "businessCode": "10001",
-                            "parentId": 1,
+                            "skillName": "网站设计",
                             "createdAt": null,
-                            "updatedAt": null
+                            "updatedAt": null,
+                            "skillCode": "101"
+                        },
+                        {
+                            "id": 3,
+                            "skillName": "室内装潢",
+                            "createdAt": null,
+                            "updatedAt": null,
+                            "skillCode": "201"
                         }
                     ],
-                    "createdAt": 1497946957000,
-                    "updatedAt": 1497946957000,
-                    "visitCount": 0,
-                    "applyCount": 0,
-                    "recommendCount": 0
+                    "recruitBusiness": {
+                        "id": 2,
+                        "businessName": "室内设计",
+                        "businessCode": "10001",
+                        "parentId": 1,
+                        "children": null,
+                        "parentBusiness": {
+                            "id": 1,
+                            "businessName": "设计",
+                            "businessCode": "100",
+                            "parentId": 0,
+                            "children": null,
+                            "parentBusiness": null,
+                            "createdAt": 1498015320000,
+                            "updatedAt": 1498015320000
+                        },
+                        "createdAt": 1498015336000,
+                        "updatedAt": 1498015336000
+                    },
+                    "visitCount": 106,
+                    "applyCount": 200,
+                    "recommendCount": 300,
+                    "createdAt": 1497769584000,
+                    "updatedAt": 1498810101000
                 }
             ]
-        } 
+        }
  2.发布信息详情 
        链接: /employer/queryDetail
        
        参数:          | name        |  是否必须  |  描述
                      | ----------- | --------- | -----------------
                      | id          |    是     | 发布信息id
-                     | status      |    是     | 发布状态'recruiting'
                       
           请求类型：POST
                
                返回数据： 
                {
                    "code": 200,
-                   "data": [
-                       {
-                           "id": 1,
-                           "openId": null,
-                           "projectBudget": 0,
-                           "issueName": "测试发布项目",
-                           "status": "待审核",
-                           "recruitBusinessList": [
-                               {
-                                   "id": 1,
-                                   "businessName": "设计",
-                                   "businessCode": "100",
-                                   "parentId": 0,
-                                   "createdAt": null,
-                                   "updatedAt": null
-                               },
-                               {
-                                   "id": 2,
-                                   "businessName": "室内设计",
-                                   "businessCode": "10001",
-                                   "parentId": 1,
-                                   "createdAt": null,
-                                   "updatedAt": null
-                               }
-                           ],
-                           "createdAt": 1497769584000,
-                           "updatedAt": 1497769584000,
-                           "companyName": "金明发展公司", 
-                           "trendComplete": "公司",
-                           "projectDesc": "我要睡你", 
-                           "publisher": "jinming.xiao",
-                           "phone": "18721956624",
-                           "objectCycle": "oneMonth"
-                       }
-                   ]
+                   "data": {
+                       "id": 7,
+                       "openId": null,
+                       "projectBudget": 5000,
+                       "projectName": "母鸡啊",
+                       "status": "待审核",
+                       "businessId": 2,
+                       "businessParentId": 1,
+                       "baseSkills": [
+                           {
+                               "id": 1,
+                               "skillName": "软件开发",
+                               "createdAt": null,
+                               "updatedAt": null,
+                               "skillCode": "100"
+                           },
+                           {
+                               "id": 2,
+                               "skillName": "网站设计",
+                               "createdAt": null,
+                               "updatedAt": null,
+                               "skillCode": "101"
+                           },
+                           {
+                               "id": 3,
+                               "skillName": "室内装潢",
+                               "createdAt": null,
+                               "updatedAt": null,
+                               "skillCode": "201"
+                           }
+                       ],
+                       "recruitBusiness": {
+                           "id": 2,
+                           "businessName": "室内设计",
+                           "businessCode": "10001",
+                           "parentId": 1,
+                           "children": null,
+                           "parentBusiness": {
+                               "id": 1,
+                               "businessName": "设计",
+                               "businessCode": "100",
+                               "parentId": 0,
+                               "children": null,
+                               "parentBusiness": null,
+                               "createdAt": 1498015320000,
+                               "updatedAt": 1498015320000
+                           },
+                           "createdAt": 1498015336000,
+                           "updatedAt": 1498015336000
+                       },
+                       "visitCount": 4,
+                       "applyCount": 0,
+                       "recommendCount": 0,
+                       "createdAt": 1498828386000,
+                       "updatedAt": 1498829672000,
+                       "companyName": "上海",
+                       "trendComplete": "company",
+                       "projectDesc": "缝纫机啊",
+                       "publisher": "",
+                       "phone": null,
+                       "projectCycle": "一周以内"
+                   }
                }
 3.查询所有城市信息
                链接："/city/getAllCity"
@@ -221,7 +452,12 @@ this is my first project
           		  {"id":2},
           		  {"id":3},
           		  {"id":5}
-          		]
+          		],
+          	"baseSkills"：[
+          	    {"id":1},
+                {"id":2},
+                {"id":3}
+          	]
           }
           返回数据：
                     {
