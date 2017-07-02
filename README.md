@@ -441,24 +441,20 @@ this is my first project
          
          请求类型:POST
                    
-          {
-          	"issueName":"测试发布项目",
-          	"companyName":"金明发展公司",
-          	"trendComplete":"公司",
-          	"projectDesc":"我要睡你",
-          	"publisher":"jinming.xiao",
-          	 "phone":"18721958875",
-          	"recruitBusinessList":[
-          		  {"id":2},
-          		  {"id":3},
-          		  {"id":5}
-          		],
-          	"baseSkills"：[
-          	    {"id":1},
-                {"id":2},
-                {"id":3}
-          	]
-          }
+         {
+         	"businessParentId":1,
+          	 "businessId":2,
+          	 "projectName":"母鸡啊",
+          	 "projectDesc":"缝纫机啊",
+          	 "projectBudget":"5000以上",
+          	 "objectCycle":"一周以内",
+          	 "companyName":"上海",
+          	 "trendComplete":"company",
+          	 "status":"招募中",
+          	 "skillList":[
+          	 	1,2,3
+          	 	]
+         }
           返回数据：
                     {
                       "code":200,
