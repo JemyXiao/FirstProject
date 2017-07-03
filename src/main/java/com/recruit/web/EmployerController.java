@@ -39,14 +39,13 @@ public class EmployerController {
     }
     @RequestMapping(value = "/employer/queryEmpViewHeader", method = RequestMethod.POST)
     public ResultModel queryEmployerDetail(@RequestBody EmployerDto record) {
-//        if (record.getPageNumber() != 0 && record.getPageSize() != 0) {
-//            PageHelper.startPage(record.getPageNumber(), record.getPageSize());
-//        }
-        List<EmployerBasic> basicList =  employerService.queryEmployerViewHeader(record);
-//        int total = employerService.queryCountViewCount(record);
-//        Map<String, Object> map = new LinkedHashMap<>();
-//        map.put("rows", basicList);
-//        map.put("total", total);
-        return new ResultModel(200, basicList);
+        if (record.getPageNumber() != 0 && record.getPageSize() != 0) {
+            PageHelper.startPage(record.getPageNumber(), record.getPageSize());
+        }
+        PageInfo pageInfo = PageHelper.startPage(record.getPageNumber(),record.getPageSize()).doSelectPageInfo(() -> employerService.queryEmployerViewHeader(record));
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("rows", pageInfo.getList());
+        map.put("total", pageInfo.getTotal());
+        return new ResultModel(200, map);
     }
 }

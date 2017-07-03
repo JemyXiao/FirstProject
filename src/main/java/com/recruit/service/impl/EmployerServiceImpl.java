@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by jmx on 17/6/18.
@@ -61,6 +62,8 @@ public class EmployerServiceImpl implements EmployerService {
             RecruitBusiness recruitBusinessParent = businessMapper.selectByPrimaryKey(employerBasic.getBusinessParentId());
             recruitBusinessChild.setParentBusiness(recruitBusinessParent);
             employerBasic.setRecruitBusiness(recruitBusinessChild);
+            List<RecruitBaseSkill> list = skillMapperMapper.selectSkillByEmpId(employerBasic.getId());
+            employerBasic.setBaseSkills(list);
         }
         return employerBasics;
     }

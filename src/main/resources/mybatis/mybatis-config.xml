@@ -36,7 +36,7 @@
 			<!-- 增加了一个`params`参数来配置参数映射，用于从Map或ServletRequest中取值 -->
 			<!-- 可以配置pageNum,pageSize,count,pageSizeZero,rFeasonable,不配置映射的用默认值-->
 			<property name="params"
-					  value="pageNum=start;pageSize=limit;pageSizeZero=zero;reasonable=heli;count=contsql" />
+					  value="pageNum=start;pageSize=limit;pageSizeZero=zero;reasonable=true;count=contsql" />
 		</plugin>
 	</plugins>
 </configuration>

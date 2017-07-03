@@ -23,4 +23,11 @@
         businskill_idess_id = #{skillId,jdbcType=BIGINT}
         where id = #{id,jdbcType=BIGINT}
     </update>
+    <select id="selectSkillByEmpId" parameterType="Long" resultType="RecruitBaseSkill">
+        SELECT  trb.id as id,trb.business_name as skillName,trb.business_code as skillCode
+        FROM t_recruit_employer_business_mapping trebm
+        INNER JOIN t_recruit_business trb
+        ON trb.id = trebm.business_id
+        WHERE trebm.employer_id = #{employerId}
+    </select>
 </mapper>

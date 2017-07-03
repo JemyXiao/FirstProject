@@ -21,11 +21,11 @@
         <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
         <result column="business_id" property="businessId" jdbcType="BIGINT"/>
         <result column="business_parent_id" property="businessParentId" jdbcType="BIGINT"/>
-        <collection property="baseSkills" column="skill_id" ofType="RecruitBaseSkill">
-            <result column="skill_id" property="id"></result>
-            <result column="skill_name" property="skillName"></result>
-            <result column="skill_code" property="skillCode"></result>
-        </collection>
+        <!--<collection property="baseSkills" column="skill_id" ofType="RecruitBaseSkill">-->
+            <!--<result column="skill_id" property="id"></result>-->
+            <!--<result column="skill_name" property="skillName"></result>-->
+            <!--<result column="skill_code" property="skillCode"></result>-->
+        <!--</collection>-->
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -36,14 +36,14 @@
         SELECT tre.id, tre.issue_name, tre.status, tre.created_at,
         tre.updated_at,tre.project_budget,treo.visit_count,treo.apply_count,treo.recommend_count,tre.business_id AS
         business_id,tre.business_parent_id as business_parent_id
-        ,trbs.id AS skill_id,trbs.skill_name,trbs.skill_code
+--         ,trbs.id AS skill_id,trbs.skill_name,trbs.skill_code
         FROM t_recruit_employer tre
         LEFT JOIN t_recruit_employer_operation treo
         ON tre.id = treo.employer_id
-        LEFT JOIN t_recruit_employer_skill_mapping tresm
-        ON tre.id = tresm.employer_id
-        LEFT JOIN t_recruit_base_skill trbs
-        ON tresm.skill_id = trbs.id
+--         LEFT JOIN t_recruit_employer_skill_mapping tresm
+--         ON tre.id = tresm.employer_id
+--         LEFT JOIN t_recruit_base_skill trbs
+--         ON tresm.skill_id = trbs.id
         WHERE status=#{status}
         <if test="businessParentId !=null and businessParentId!=0">
             tre.business_parent_id = #{businessParentId}
