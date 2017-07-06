@@ -272,32 +272,40 @@ this is my first project
                    ]
                }
                
-4.添加牛人信息
+4.完善牛人信息
 
-         链接：/techMaster/add
+         链接：/techMaster/update
          
          请求类型:POST
-         
-         参数：
-          {
-          	"nickName":"jinming.xiao",
-          	"openId":"rwrwrw2332",
-          	"cityId":1,
-          	"dailyWage":500,
-          	"sex":"MAN",
-          	"status":"待审核",
-          	"personalInfo":"我要得第一",
-          	"workExperience":"在饿了了工作1年半",
-          	"phone":"12345678912",
-          	"recruitBaseSkills":[
-          		{"id":1
-          			
-          		},
-          		{
-          		  "id":2
-          		}
-          		]
-          }
+         参数：{
+            	"nickName":"dsds",
+            	"dailyWage":"1233",
+            	"cityId":"12",
+            	"sex":"MAN",
+            	"jobTitle":"woaini,woow",
+            	"workExperience":"yuuoo",
+            	"phone":"276343422",
+            	"selfIntroduction":"woaid",
+            	"skills":[1,2,3],
+            	"worksCases":[
+            		{
+            			"workName":"aiai",
+            			"responsibilities":"rere",
+            			"industryId":1,
+            			"industryName":"软件",
+            			"worksLink":"www.rer",
+            			"worksDesc":"woaini"
+            		},
+            		{
+            		    "workName":"popo",
+            			"responsibilities":"",
+            			"industryId":2,
+            			"industryName":"职责",
+            			"worksLink":"wwww.ele",
+            			"worksDesc":"nimenmienn"	
+            		}]
+            }
+          
       返回数据：
           {
             "code":200,
@@ -328,3 +336,5 @@ this is my first project
                       "code":200,
                       "data":"添加成功"
                     }
+                    
+                    
