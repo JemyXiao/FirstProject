@@ -2,10 +2,7 @@ package com.recruit.service.impl;
 
 import com.recruit.entity.*;
 import com.recruit.entity.dto.EmployerDto;
-import com.recruit.mapper.RecruitMasterWorkCaseMapper;
-import com.recruit.mapper.RecruitMasterWorkMappingMapper;
-import com.recruit.mapper.RecruitTechMasterMapper;
-import com.recruit.mapper.TechMasterSkillMapperMapper;
+import com.recruit.mapper.*;
 import com.recruit.service.EmployerService;
 import com.recruit.service.TechMasterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,16 +28,18 @@ public class TechMasterServiceImpl implements TechMasterService {
 
     private final RecruitMasterWorkMappingMapper masterWorkMappingMapper;
 
+    private final EmpMasterMapperEntityMapper empMasterMapperEntityMapper;
 
 
     private final EmployerService employerService;
 
     @Autowired
-    public TechMasterServiceImpl(RecruitMasterWorkMappingMapper masterWorkMappingMapper, RecruitMasterWorkCaseMapper masterWorkCaseMapper, TechMasterSkillMapperMapper skillMapperMapper, RecruitTechMasterMapper techMasterMapper, EmployerService employerService) {
+    public TechMasterServiceImpl(RecruitMasterWorkMappingMapper masterWorkMappingMapper, RecruitMasterWorkCaseMapper masterWorkCaseMapper, TechMasterSkillMapperMapper skillMapperMapper, RecruitTechMasterMapper techMasterMapper, EmpMasterMapperEntityMapper empMasterMapperEntityMapper, EmployerService employerService) {
         this.masterWorkMappingMapper = masterWorkMappingMapper;
         this.masterWorkCaseMapper = masterWorkCaseMapper;
         this.skillMapperMapper = skillMapperMapper;
         this.techMasterMapper = techMasterMapper;
+        this.empMasterMapperEntityMapper = empMasterMapperEntityMapper;
         this.employerService = employerService;
     }
 
@@ -51,6 +50,7 @@ public class TechMasterServiceImpl implements TechMasterService {
 
     @Override
     public int updateTechMaster(RecruitTechMaster record) {
+        record.setStatus("待审核");
         //更新master
         int masterNum = techMasterMapper.updateByPrimaryKeySelective(record);
         //更新或插入skill
@@ -60,21 +60,46 @@ public class TechMasterServiceImpl implements TechMasterService {
             mapper.setTechMasterId(record.getId());
             skillMapperMapper.insert(mapper);
         }
-
-        //更新或插入worksCase
-        for (RecruitMasterWorkCase workCase : record.getWorksCases()) {
-            masterWorkCaseMapper.insert(workCase);
-            RecruitMasterWorkMapping mapping = new RecruitMasterWorkMapping();
-            mapping.setTechMasterId(record.getId());
-            mapping.setWorkCaseId(workCase.getId());
-            masterWorkMappingMapper.insert(mapping);
-        }
+//        //更新或插入worksCase
+//        for (RecruitMasterWorkCase workCase : record.getWorksCases()) {
+//            masterWorkCaseMapper.insert(workCase);
+//            RecruitMasterWorkMapping mapping = new RecruitMasterWorkMapping();
+//            mapping.setTechMasterId(record.getId());
+//            mapping.setWorkCaseId(workCase.getId());
+//            masterWorkMappingMapper.insert(mapping);
+//        }
         return masterNum;
+    }
+
+    //更新或插入worksCase
+    @Override
+    public int updateWorksCase(RecruitMasterWorkCase workCase, Long masterId) {
+        masterWorkCaseMapper.insert(workCase);
+        RecruitMasterWorkMapping mapping = new RecruitMasterWorkMapping();
+        mapping.setTechMasterId(masterId);
+        mapping.setWorkCaseId(workCase.getId());
+        masterWorkMappingMapper.insert(mapping);
+        return 2;
     }
 
     @Override
     public int deleteTechMaster(long id) {
         return techMasterMapper.deleteByPrimaryKey(id);
+    }
+
+    /**
+     * 牛人申請发布信息
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public int applyEmployer(long id,HttpServletRequest request) {
+        EmpMasterMapperEntity entity = new EmpMasterMapperEntity();
+        entity.setEmployerId(id);
+        entity.setTechMasterId(1L);
+        entity.setStatus("待确认");
+        return empMasterMapperEntityMapper.insert(entity);
     }
 
     @Override
@@ -87,8 +112,7 @@ public class TechMasterServiceImpl implements TechMasterService {
                 break;
             }
         }
-        RecruitTechMaster techMaster = techMasterMapper.selectByPrimaryKey(userId);
-        return techMaster;
+        return techMasterMapper.selectByPrimaryKey(userId);
     }
 
     @Override

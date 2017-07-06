@@ -1,6 +1,7 @@
 # FirstProject
 this is my first project
 1. 查询首页发布信息
+
     
         链接: /employer/queryEmpViewHeader
         POST
@@ -144,7 +145,10 @@ this is my first project
               "total": 5
           }
       }
+      
  2.发布信息详情 
+       
+       
        链接: /employer/queryDetail
        
        参数:          | name        |  是否必须  |  描述
@@ -220,6 +224,7 @@ this is my first project
                    }
                }
 3.查询所有城市信息
+               
                链接："/city/getAllCity"
                
                请求类型：GET
@@ -295,9 +300,10 @@ this is my first project
             "data":"添加成功"
           }
  5.更新作品案例
-            链接：/techMasterWorksCase/update        
-            请求类型:POST
-            参数：
+             
+             链接：/techMasterWorksCase/update        
+             请求类型:POST
+             参数：
                  
                {
                 "workName":"aiai",
@@ -338,4 +344,30 @@ this is my first project
                       "data":"添加成功"
                     }
                     
-                    
+7.牛人发送申请意向
+
+
+
+    链接：/techMaster/applyEmployer/{id}
+           
+    请求类型:GET 
+   
+    返回数据：
+   
+       {
+           "code": 200,
+           "data": "申请成功"
+       }
+           
+8.个人发出、接收招募信息
+                     
+                     链接：/techMaster/getEmployer
+                     
+                     请求类型:GET 
+                     
+                      参数:         | name              |  是否必须 |  描述                                   |
+                                   | -----------      | --------- | ------------------------------------- |
+                                   | status           |    是     |  状态(send or receive)                 |
+                                   | pageNumber       |    是     |  分页                                  |
+                                   | pageSize         |    是     |  分页               
+                     

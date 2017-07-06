@@ -23,11 +23,11 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.recruit.entity.EmpMasterMapperEntity" >
-    insert into t_recruit_employer_master_mapping (id, tech_master_id, employer_id, 
-      status, created_at, updated_at
+    insert into t_recruit_employer_master_mapping (tech_master_id, employer_id,
+      status
       )
-    values (#{id,jdbcType=BIGINT}, #{techMasterId,jdbcType=BIGINT}, #{employerId,jdbcType=BIGINT}, 
-      #{status,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}
+    values (#{techMasterId,jdbcType=BIGINT}, #{employerId,jdbcType=BIGINT},
+      #{status,jdbcType=VARCHAR}
       )
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.EmpMasterMapperEntity" >

@@ -9,6 +9,7 @@ import com.recruit.service.BusinessService;
 import com.recruit.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.Objects;
  * Created by jmx on 2017/6/24.
  */
 @Service
+@Transactional
 public class BusinessServiceImpl implements BusinessService {
     @Autowired
     private RecruitBusinessMapper businessMapper;

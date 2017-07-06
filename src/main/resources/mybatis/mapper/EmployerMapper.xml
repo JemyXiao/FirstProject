@@ -22,9 +22,9 @@
         <result column="business_id" property="businessId" jdbcType="BIGINT"/>
         <result column="business_parent_id" property="businessParentId" jdbcType="BIGINT"/>
         <!--<collection property="baseSkills" column="skill_id" ofType="RecruitBaseSkill">-->
-            <!--<result column="skill_id" property="id"></result>-->
-            <!--<result column="skill_name" property="skillName"></result>-->
-            <!--<result column="skill_code" property="skillCode"></result>-->
+        <!--<result column="skill_id" property="id"></result>-->
+        <!--<result column="skill_name" property="skillName"></result>-->
+        <!--<result column="skill_code" property="skillCode"></result>-->
         <!--</collection>-->
     </resultMap>
 
@@ -33,18 +33,23 @@
     updated_at
   </sql>
     <select id="queryEmployerViewHeader" resultMap="ViewHeaderResultMap" parameterType="EmployerDto">
-        SELECT tre.id, tre.issue_name, tre.status, tre.created_at,
+        SELECT DISTINCT tre.id, tre.issue_name, tre.status, tre.created_at,
         tre.updated_at,tre.project_budget,treo.visit_count,treo.apply_count,treo.recommend_count,tre.business_id AS
         business_id,tre.business_parent_id as business_parent_id
         FROM t_recruit_employer tre
         LEFT JOIN t_recruit_employer_operation treo
         ON tre.id = treo.employer_id
-        WHERE status=#{status}
+        LEFT JOIN t_recruit_employer_master_mapping tremm
+        ON tre.id = tremm.employer_id
+        WHERE 1=1
+        <if test="status !=null and status!=''">
+            and tre.status=#{status}
+        </if>
         <if test="businessParentId !=null and businessParentId!=0">
             and tre.business_parent_id = #{businessParentId}
         </if>
         <if test="masterId !=null and masterId!=0">
-            and tre.master_id = #{masterId}
+            and tremm.tech_master_id = #{masterId}
         </if>
         ORDER by tre.created_at DESC
     </select>

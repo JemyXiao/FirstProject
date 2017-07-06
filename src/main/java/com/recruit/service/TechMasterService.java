@@ -1,6 +1,7 @@
 package com.recruit.service;
 
 import com.recruit.entity.EmployerBasic;
+import com.recruit.entity.RecruitMasterWorkCase;
 import com.recruit.entity.RecruitTechMaster;
 import com.recruit.entity.dto.EmployerDto;
 
@@ -15,7 +16,11 @@ public interface TechMasterService {
 
     int updateTechMaster(RecruitTechMaster record);
 
+    int updateWorksCase(RecruitMasterWorkCase workCase,Long masterId);
+
     int deleteTechMaster(long id);
+
+    int applyEmployer(long id,HttpServletRequest request);
 
     RecruitTechMaster getTechMaster(HttpServletRequest request);
 

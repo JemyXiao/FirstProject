@@ -5,11 +5,13 @@ import com.recruit.mapper.EmpOperatorMapper;
 import com.recruit.service.EmpOperatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by jmx on 2017/6/28.
  */
 @Service
+@Transactional
 public class EmpOperatorServiceImpl implements EmpOperatorService {
     @Autowired
     private EmpOperatorMapper mapper;
