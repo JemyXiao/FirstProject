@@ -5,4 +5,5 @@ package com.recruit.util;
  * 错误代码
  */
 public class ErrorCode {
+    public static final String OK = "操作成功";
 }

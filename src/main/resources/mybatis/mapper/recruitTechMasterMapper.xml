@@ -139,9 +139,6 @@
       <if test="nickName != null" >
         nick_name = #{nickName,jdbcType=VARCHAR},
       </if>
-      <if test="openId != null" >
-        open_id = #{openId,jdbcType=VARCHAR},
-      </if>
       <if test="dailyWage != null" >
         daily_wage = #{dailyWage,jdbcType=VARCHAR},
       </if>
@@ -157,20 +154,17 @@
       <if test="status != null" >
         status = #{status,jdbcType=VARCHAR},
       </if>
-      <if test="personalInfo != null" >
-        personal_info = #{personalInfo,jdbcType=VARCHAR},
+      <if test="jobTitle != null" >
+        job_title = #{jobTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="selfIntroduction != null" >
+        self_introduction = #{selfIntroduction,jdbcType=VARCHAR},
       </if>
       <if test="workExperience != null" >
         work_experience = #{workExperience,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         phone = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="createdAt != null" >
-        created_at = #{createdAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatedAt != null" >
-        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
       </if>
       <if test="score != null" >
         score = #{score,jdbcType=INTEGER},

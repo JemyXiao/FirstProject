@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruit.mapper.RecruitMasterWorkCaseMapper" >
+  <resultMap id="BaseResultMap" type="com.recruit.entity.RecruitMasterWorkCase" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="work_name" property="workName" jdbcType="VARCHAR" />
+    <result column="work_responsibility" property="workResponsibility" jdbcType="VARCHAR" />
+    <result column="industry_id" property="industryId" jdbcType="BIGINT" />
+    <result column="industry_name" property="industryName" jdbcType="VARCHAR" />
+    <result column="works_link" property="worksLink" jdbcType="VARCHAR" />
+    <result column="works_desc" property="worksDesc" jdbcType="VARCHAR" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, work_name, work_responsibility, industry_id, industry_name, works_link, works_desc, 
+    created_at, updated_at
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruit.entity.RecruitMasterWorkCaseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_recruit_works_case
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_recruit_works_case
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_recruit_works_case
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.recruit.entity.RecruitMasterWorkCaseExample" >
+    delete from t_recruit_works_case
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.recruit.entity.RecruitMasterWorkCase" useGeneratedKeys="true"
+          keyProperty="id"  >
+    insert into t_recruit_works_case (work_name, work_responsibility,
+      industry_id, industry_name, works_link, 
+      works_desc
+      )
+    values (#{workName,jdbcType=VARCHAR}, #{responsibilities,jdbcType=VARCHAR},
+      #{industryId,jdbcType=BIGINT}, #{industryName,jdbcType=VARCHAR}, #{worksLink,jdbcType=VARCHAR}, 
+      #{worksDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.recruit.entity.RecruitMasterWorkCase" >
+    insert into t_recruit_works_case
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="workName != null" >
+        work_name,
+      </if>
+      <if test="responsibilities != null" >
+        work_responsibility,
+      </if>
+      <if test="industryId != null" >
+        industry_id,
+      </if>
+      <if test="industryName != null" >
+        industry_name,
+      </if>
+      <if test="worksLink != null" >
+        works_link,
+      </if>
+      <if test="worksDesc != null" >
+        works_desc,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="updatedAt != null" >
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="workName != null" >
+        #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="responsibilities != null" >
+        #{responsibilities,jdbcType=VARCHAR},
+      </if>
+      <if test="industryId != null" >
+        #{industryId,jdbcType=BIGINT},
+      </if>
+      <if test="industryName != null" >
+        #{industryName,jdbcType=VARCHAR},
+      </if>
+      <if test="worksLink != null" >
+        #{worksLink,jdbcType=VARCHAR},
+      </if>
+      <if test="worksDesc != null" >
+        #{worksDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.recruit.entity.RecruitMasterWorkCaseExample" resultType="java.lang.Integer" >
+    select count(*) from t_recruit_works_case
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_recruit_works_case
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.workName != null" >
+        work_name = #{record.workName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.responsibilities != null" >
+        work_responsibility = #{record.responsibilities,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industryId != null" >
+        industry_id = #{record.industryId,jdbcType=BIGINT},
+      </if>
+      <if test="record.industryName != null" >
+        industry_name = #{record.industryName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.worksLink != null" >
+        works_link = #{record.worksLink,jdbcType=VARCHAR},
+      </if>
+      <if test="record.worksDesc != null" >
+        works_desc = #{record.worksDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdAt != null" >
+        created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedAt != null" >
+        updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_recruit_works_case
+    set id = #{record.id,jdbcType=BIGINT},
+      work_name = #{record.workName,jdbcType=VARCHAR},
+      work_responsibility = #{record.responsibilities,jdbcType=VARCHAR},
+      industry_id = #{record.industryId,jdbcType=BIGINT},
+      industry_name = #{record.industryName,jdbcType=VARCHAR},
+      works_link = #{record.worksLink,jdbcType=VARCHAR},
+      works_desc = #{record.worksDesc,jdbcType=VARCHAR},
+      created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{record.updatedAt,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.RecruitMasterWorkCase" >
+    update t_recruit_works_case
+    <set >
+      <if test="workName != null" >
+        work_name = #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="responsibilities != null" >
+        work_responsibility = #{responsibilities,jdbcType=VARCHAR},
+      </if>
+      <if test="industryId != null" >
+        industry_id = #{industryId,jdbcType=BIGINT},
+      </if>
+      <if test="industryName != null" >
+        industry_name = #{industryName,jdbcType=VARCHAR},
+      </if>
+      <if test="worksLink != null" >
+        works_link = #{worksLink,jdbcType=VARCHAR},
+      </if>
+      <if test="worksDesc != null" >
+        works_desc = #{worksDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null" >
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.recruit.entity.RecruitMasterWorkCase" >
+    update t_recruit_works_case
+    set work_name = #{workName,jdbcType=VARCHAR},
+      work_responsibility = #{responsibilities,jdbcType=VARCHAR},
+      industry_id = #{industryId,jdbcType=BIGINT},
+      industry_name = #{industryName,jdbcType=VARCHAR},
+      works_link = #{worksLink,jdbcType=VARCHAR},
+      works_desc = #{worksDesc,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -36,17 +36,15 @@
         SELECT tre.id, tre.issue_name, tre.status, tre.created_at,
         tre.updated_at,tre.project_budget,treo.visit_count,treo.apply_count,treo.recommend_count,tre.business_id AS
         business_id,tre.business_parent_id as business_parent_id
---         ,trbs.id AS skill_id,trbs.skill_name,trbs.skill_code
         FROM t_recruit_employer tre
         LEFT JOIN t_recruit_employer_operation treo
         ON tre.id = treo.employer_id
---         LEFT JOIN t_recruit_employer_skill_mapping tresm
---         ON tre.id = tresm.employer_id
---         LEFT JOIN t_recruit_base_skill trbs
---         ON tresm.skill_id = trbs.id
         WHERE status=#{status}
         <if test="businessParentId !=null and businessParentId!=0">
-            tre.business_parent_id = #{businessParentId}
+            and tre.business_parent_id = #{businessParentId}
+        </if>
+        <if test="masterId !=null and masterId!=0">
+            and tre.master_id = #{masterId}
         </if>
         ORDER by tre.created_at DESC
     </select>
@@ -61,14 +59,9 @@
     <select id="queryEmployerDetail" parameterType="Long" resultMap="BaseResultMap">
         SELECT tre.id, tre.issue_name, tre.status, tre.created_at,
         tre.updated_at,tre.company_name, tre.project_budget,tre.project_cycle,tre.trend_complete, tre.project_desc, tre.publisher,treo.visit_count,treo.apply_count,treo.recommend_count,tre.business_id AS business_id,tre.business_parent_id as business_parent_id
-      ,trbs.id AS skill_id,trbs.skill_name,trbs.skill_code
         FROM t_recruit_employer tre
         LEFT JOIN t_recruit_employer_operation treo
         ON tre.id = treo.employer_id
-        LEFT JOIN t_recruit_employer_skill_mapping tresm
-        ON tre.id = tresm.employer_id
-        LEFT JOIN t_recruit_base_skill trbs
-        ON tresm.skill_id = trbs.id
         WHERE tre.id= #{id}
     </select>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
@@ -85,12 +78,12 @@
     <insert id="insert" parameterType="com.recruit.entity.dto.EmployerDto" useGeneratedKeys="true"
             keyProperty="id">
     insert into t_recruit_employer (issue_name, company_name,
-      trend_complete, project_desc,object_budget
-      status,business_id,business_parent_id,object_cycle
+      trend_complete, project_desc,project_budget,
+      status,business_id,business_parent_id,project_cycle
       )
     values (#{projectName,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR},
       #{trendComplete,jdbcType=VARCHAR}, #{projectDesc,jdbcType=VARCHAR},
-      #{projectBudget,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{businessId,jdbcType=VARCHAR},#{businessParentId,jdbcType=VARCHAR},#{objectCycle,jdbcType=VARCHAR},
+      #{projectBudget,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{businessId,jdbcType=VARCHAR},#{businessParentId,jdbcType=VARCHAR},#{projectCycle,jdbcType=VARCHAR}
       )
   </insert>
 

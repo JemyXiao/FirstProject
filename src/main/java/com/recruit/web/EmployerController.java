@@ -10,6 +10,8 @@ import com.recruit.entity.ResultModel;
 import com.recruit.entity.dto.EmployerDto;
 import com.recruit.entity.vo.EmployerViewHeaderObject;
 import com.recruit.service.EmployerService;
+import com.recruit.util.ErrorCode;
+import com.recruit.util.ErrorMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +31,7 @@ public class EmployerController {
     @RequestMapping(value = "/employer/add", method = RequestMethod.POST)
     public ResultModel save(@RequestBody EmployerDto record) {
         employerService.addEmployer(record);
-        return new ResultModel(200, "发布信息待审核");
+        return new ResultModel(200, JSON.toJSON(ErrorCode.OK));
     }
     @Operation(name = "employerCount")
     @RequestMapping(value = "/employer/queryDetail/{id}", method = RequestMethod.GET)

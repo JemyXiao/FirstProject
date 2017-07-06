@@ -38,7 +38,7 @@ public class EmployerDto {
     /**
      * 项目周期
      */
-    private String objectCycle;
+    private String projectCycle;
     /**
      * 公司名称
      */
@@ -53,6 +53,12 @@ public class EmployerDto {
      * @return
      */
     private String status;
+
+    /**
+     * 发布者id
+     * @return
+     */
+    private Long masterId;
 
     @JSONField(serialize = false)
     private int pageNumber;
@@ -116,12 +122,12 @@ public class EmployerDto {
         this.projectBudget = projectBudget;
     }
 
-    public String getObjectCycle() {
-        return objectCycle;
+    public String getProjectCycle() {
+        return projectCycle;
     }
 
-    public void setObjectCycle(String objectCycle) {
-        this.objectCycle = objectCycle;
+    public void setProjectCycle(String projectCycle) {
+        this.projectCycle = projectCycle;
     }
 
     public String getCompanyName() {
@@ -162,5 +168,13 @@ public class EmployerDto {
 
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public Long getMasterId() {
+        return masterId;
+    }
+
+    public void setMasterId(Long masterId) {
+        this.masterId = masterId;
     }
 }

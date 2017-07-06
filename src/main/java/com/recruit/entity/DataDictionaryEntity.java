@@ -7,7 +7,7 @@ public class DataDictionaryEntity {
     private Long id;
     private Long code;
     private String value;
-    private String Desc;
+    private String desc;
 
     public Long getId() {
         return id;
@@ -34,10 +34,10 @@ public class DataDictionaryEntity {
     }
 
     public String getDesc() {
-        return Desc;
+        return desc;
     }
 
     public void setDesc(String desc) {
-        Desc = desc;
+        this.desc = desc;
     }
 }

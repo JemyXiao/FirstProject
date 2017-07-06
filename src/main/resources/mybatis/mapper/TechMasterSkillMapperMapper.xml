@@ -12,15 +12,11 @@
         where id = #{id,jdbcType=BIGINT}
     </delete>
 
-    <insert id="insert" parameterType="com.recruit.entity.RecruitTechMaster" useGeneratedKeys="true"
+    <insert id="insert" parameterType="com.recruit.entity.TechMasterBasicSkillMapper" useGeneratedKeys="true"
             keyProperty="id">
         insert into t_recruit_techmaster_skill_mapping (tech_master_id, skill_id)
-        values
-        <foreach collection="recruitBaseSkills" item="baseSkill" index="index" separator=",">
-            (
-            #{id}, #{baseSkill.id}
-            )
-        </foreach>
+        values(#{techMasterId},#{skillId})
+
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.recruit.entity.TechMasterBasicSkillMapper">
         update t_recruit_techmaster_skill_mapping

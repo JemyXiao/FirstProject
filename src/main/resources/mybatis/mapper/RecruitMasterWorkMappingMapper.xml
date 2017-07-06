@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruit.mapper.RecruitMasterWorkMappingMapper" >
+  <resultMap id="BaseResultMap" type="com.recruit.entity.RecruitMasterWorkMapping" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="tech_master_id" property="techMasterId" jdbcType="BIGINT" />
+    <result column="work_case_id" property="workCaseId" jdbcType="BIGINT" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, tech_master_id, work_case_id, created_at, updated_at
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruit.entity.RecruitMasterWorkMappingExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_recruit_master_work_mapping
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_recruit_master_work_mapping
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_recruit_master_work_mapping
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.recruit.entity.RecruitMasterWorkMappingExample" >
+    delete from t_recruit_master_work_mapping
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.recruit.entity.RecruitMasterWorkMapping" useGeneratedKeys="true"
+          keyProperty="id"  >
+    insert into t_recruit_master_work_mapping (tech_master_id, work_case_id)
+    values (#{techMasterId,jdbcType=BIGINT}, #{workCaseId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.recruit.entity.RecruitMasterWorkMapping" >
+    insert into t_recruit_master_work_mapping
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="techMasterId != null" >
+        tech_master_id,
+      </if>
+      <if test="workCaseId != null" >
+        work_case_id,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="updatedAt != null" >
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="techMasterId != null" >
+        #{techMasterId,jdbcType=BIGINT},
+      </if>
+      <if test="workCaseId != null" >
+        #{workCaseId,jdbcType=BIGINT},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.recruit.entity.RecruitMasterWorkMappingExample" resultType="java.lang.Integer" >
+    select count(*) from t_recruit_master_work_mapping
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_recruit_master_work_mapping
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.techMasterId != null" >
+        tech_master_id = #{record.techMasterId,jdbcType=BIGINT},
+      </if>
+      <if test="record.workCaseId != null" >
+        work_case_id = #{record.workCaseId,jdbcType=BIGINT},
+      </if>
+      <if test="record.createdAt != null" >
+        created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedAt != null" >
+        updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_recruit_master_work_mapping
+    set id = #{record.id,jdbcType=BIGINT},
+      tech_master_id = #{record.techMasterId,jdbcType=BIGINT},
+      work_case_id = #{record.workCaseId,jdbcType=BIGINT},
+      created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{record.updatedAt,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.RecruitMasterWorkMapping" >
+    update t_recruit_master_work_mapping
+    <set >
+      <if test="techMasterId != null" >
+        tech_master_id = #{techMasterId,jdbcType=BIGINT},
+      </if>
+      <if test="workCaseId != null" >
+        work_case_id = #{workCaseId,jdbcType=BIGINT},
+      </if>
+      <if test="createdAt != null" >
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.recruit.entity.RecruitMasterWorkMapping" >
+    update t_recruit_master_work_mapping
+    set tech_master_id = #{techMasterId,jdbcType=BIGINT},
+      work_case_id = #{workCaseId,jdbcType=BIGINT},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

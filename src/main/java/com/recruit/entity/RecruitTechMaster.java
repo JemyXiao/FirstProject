@@ -3,38 +3,84 @@ package com.recruit.entity;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 牛人实体类
+ */
 public class RecruitTechMaster {
+
     private Long id;
-
+    /**
+     * 昵称
+     */
     private String nickName;
-
+    /**
+     * 登录信息id
+     */
     private String openId;
-
+    /**
+     * 日薪资(8小时)
+     */
     private String dailyWage;
-
+    /**
+     * 城市id
+     */
     private Long cityId;
-
+    /**
+     * 城市名称
+     */
     private String cityName;
-
+    /**
+     * 区域id
+     */
     private Long areaId;
-
+    /**
+     * 性别
+     */
     private String sex;
-
+    /**
+     * 状态(审核中，审核通过)
+     */
     private String status;
-
-    private String personalInfo;
-
+    /**
+     * 职位头衔
+     */
+    private String jobTitle;
+    /**
+     * 职业类型
+     */
+    private List<Long> jobType;
+    /**
+     * 工作经验
+     */
     private String workExperience;
-
+    /**
+     * 联系方式
+     */
     private String phone;
+
+    /**
+     * 牛人评分
+     */
+    private Integer score;
+    /**
+     * 个人介绍
+     *
+     */
+     private String selfIntroduction;
+
+    /**
+     * 擅长技能
+     */
+    private List<Long> skills;
+
+    /**
+     * 作品案例
+     */
+    private List<RecruitMasterWorkCase> worksCases;
 
     private Date createdAt;
 
     private Date updatedAt;
-
-    private Integer score;
-
-    private List<RecruitBaseSkill> recruitBaseSkills;
 
     public Long getId() {
         return id;
@@ -49,7 +95,7 @@ public class RecruitTechMaster {
     }
 
     public void setNickName(String nickName) {
-        this.nickName = nickName == null ? null : nickName.trim();
+        this.nickName = nickName;
     }
 
     public String getOpenId() {
@@ -57,7 +103,7 @@ public class RecruitTechMaster {
     }
 
     public void setOpenId(String openId) {
-        this.openId = openId == null ? null : openId.trim();
+        this.openId = openId;
     }
 
     public String getDailyWage() {
@@ -65,7 +111,7 @@ public class RecruitTechMaster {
     }
 
     public void setDailyWage(String dailyWage) {
-        this.dailyWage = dailyWage == null ? null : dailyWage.trim();
+        this.dailyWage = dailyWage;
     }
 
     public Long getCityId() {
@@ -74,6 +120,14 @@ public class RecruitTechMaster {
 
     public void setCityId(Long cityId) {
         this.cityId = cityId;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     public Long getAreaId() {
@@ -89,7 +143,7 @@ public class RecruitTechMaster {
     }
 
     public void setSex(String sex) {
-        this.sex = sex == null ? null : sex.trim();
+        this.sex = sex;
     }
 
     public String getStatus() {
@@ -97,15 +151,23 @@ public class RecruitTechMaster {
     }
 
     public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+        this.status = status;
     }
 
-    public String getPersonalInfo() {
-        return personalInfo;
+    public String getJobTitle() {
+        return jobTitle;
     }
 
-    public void setPersonalInfo(String personalInfo) {
-        this.personalInfo = personalInfo == null ? null : personalInfo.trim();
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    public List<Long> getJobType() {
+        return jobType;
+    }
+
+    public void setJobType(List<Long> jobType) {
+        this.jobType = jobType;
     }
 
     public String getWorkExperience() {
@@ -113,7 +175,7 @@ public class RecruitTechMaster {
     }
 
     public void setWorkExperience(String workExperience) {
-        this.workExperience = workExperience == null ? null : workExperience.trim();
+        this.workExperience = workExperience;
     }
 
     public String getPhone() {
@@ -121,7 +183,7 @@ public class RecruitTechMaster {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone;
     }
 
     public Date getCreatedAt() {
@@ -148,19 +210,27 @@ public class RecruitTechMaster {
         this.score = score;
     }
 
-    public List<RecruitBaseSkill> getRecruitBaseSkills() {
-        return recruitBaseSkills;
+    public String getSelfIntroduction() {
+        return selfIntroduction;
     }
 
-    public void setRecruitBaseSkills(List<RecruitBaseSkill> recruitBaseSkills) {
-        this.recruitBaseSkills = recruitBaseSkills;
+    public void setSelfIntroduction(String selfIntroduction) {
+        this.selfIntroduction = selfIntroduction;
     }
 
-    public String getCityName() {
-        return cityName;
+    public List<Long> getSkills() {
+        return skills;
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public void setSkills(List<Long> skills) {
+        this.skills = skills;
+    }
+
+    public List<RecruitMasterWorkCase> getWorksCases() {
+        return worksCases;
+    }
+
+    public void setWorksCases(List<RecruitMasterWorkCase> worksCases) {
+        this.worksCases = worksCases;
     }
 }
