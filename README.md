@@ -272,7 +272,7 @@ this is my first project
                    ]
                }
                
-4.完善牛人信息
+4.完善牛人基础信息
 
          链接：/techMaster/update
          
@@ -286,24 +286,7 @@ this is my first project
             	"workExperience":"yuuoo",
             	"phone":"276343422",
             	"selfIntroduction":"woaid",
-            	"skills":[1,2,3],
-            	"worksCases":[
-            		{
-            			"workName":"aiai",
-            			"responsibilities":"rere",
-            			"industryId":1,
-            			"industryName":"软件",
-            			"worksLink":"www.rer",
-            			"worksDesc":"woaini"
-            		},
-            		{
-            		    "workName":"popo",
-            			"responsibilities":"",
-            			"industryId":2,
-            			"industryName":"职责",
-            			"worksLink":"wwww.ele",
-            			"worksDesc":"nimenmienn"	
-            		}]
+            	"skills":[1,2,3]
             }
           
       返回数据：
@@ -311,9 +294,27 @@ this is my first project
             "code":200,
             "data":"添加成功"
           }
-5.添加发布信息
+ 5.更新作品案例
+            链接：/techMasterWorksCase/update        
+            请求类型:POST
+            参数：
+                 
+               {
+                "workName":"aiai",
+                "responsibilities":"rere",
+                "industryId":1,
+                "industryName":"软件",
+                "worksLink":"www.rer",
+                "worksDesc":"woaini"
+             		}
+            返回数据：
+                      {
+                        "code":200,
+                        "data":"添加成功"
+                      }
+6.添加发布信息
 
-         链接：/techMaster/add
+         链接：/employer/add
          
          请求类型:POST
                    
