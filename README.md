@@ -505,7 +505,7 @@ this is my first project
                            }
 9.查询牛人大厅
                       
-                      链接：/techMaster/getEmployer
+                      链接：/techMaster/queryMasterList
                                          
                          请求类型:GET 
                                          

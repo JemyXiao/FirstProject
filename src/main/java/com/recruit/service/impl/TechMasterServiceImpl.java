@@ -55,11 +55,13 @@ public class TechMasterServiceImpl implements TechMasterService {
         //更新master
         int masterNum = techMasterMapper.updateByPrimaryKeySelective(record);
         //更新或插入skill
-        for (Long skillId : record.getSkills()) {
-            TechMasterBasicSkillMapper mapper = new TechMasterBasicSkillMapper();
-            mapper.setSkillId(skillId);
-            mapper.setTechMasterId(record.getId());
-            skillMapperMapper.insert(mapper);
+        if (record.getSkills()!=null) {
+            for (Long skillId : record.getSkills()) {
+                TechMasterBasicSkillMapper mapper = new TechMasterBasicSkillMapper();
+                mapper.setSkillId(skillId);
+                mapper.setTechMasterId(record.getId());
+                skillMapperMapper.insert(mapper);
+            }
         }
         return masterNum;
     }
