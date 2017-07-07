@@ -3,19 +3,18 @@ package com.recruit.web;
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.recruit.entity.EmployerBasic;
 import com.recruit.entity.RecruitMasterWorkCase;
 import com.recruit.entity.RecruitTechMaster;
 import com.recruit.entity.ResultModel;
 import com.recruit.entity.dto.EmployerDto;
 import com.recruit.service.TechMasterService;
+import org.springframework.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -101,8 +100,8 @@ public class TechMasterController {
     public ResultModel queryMasterList(HttpServletRequest request) {
         int pageSize = Integer.parseInt(request.getParameter("pageSize"));
         int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-        int cityId = request.getParameter("cityId")==null?0:Integer.parseInt(request.getParameter("cityId"));
-        int industryId = request.getParameter("industryId")==null?0:Integer.parseInt(request.getParameter("industryId"));
+        int cityId = StringUtils.isEmpty(request.getParameter("cityId"))?0:Integer.parseInt(request.getParameter("cityId"));
+        int industryId = StringUtils.isEmpty(request.getParameter("industryId"))?0:Integer.parseInt(request.getParameter("industryId"));
         String queryParam = request.getParameter("queryParam");
         Map<String,Object> map = new HashMap();
         map.put("cityId",cityId);

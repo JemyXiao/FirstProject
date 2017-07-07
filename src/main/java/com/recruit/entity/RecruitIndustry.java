@@ -1,5 +1,7 @@
 package com.recruit.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 
 public class RecruitIndustry {
@@ -8,9 +10,9 @@ public class RecruitIndustry {
     private Long industryCode;
 
     private String industryName;
-
+    @JSONField(serialize = false)
     private Date createdAt;
-
+    @JSONField(serialize = false)
     private Date updatedAt;
 
     public Long getId() {

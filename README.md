@@ -550,4 +550,95 @@ this is my first project
                                          ],
                                          "total": 1
                                      }
-                                 }    
+                                 }  
+                                   
+                                   
+10.行业信息查询
+                                 
+                                 链接：/industry/getAllIndustry
+                                                                         
+                                 请求类型:GET  
+                                   
+                                 返回数据：
+                                 {
+                                     "code": 200,
+                                     "data": [
+                                         {
+                                             "id": 1,
+                                             "industryCode": 100,
+                                             "industryName": "智能硬件",
+                                             "createdAt": 1499395796000,
+                                             "updatedAt": 1499395796000
+                                         },
+                                         {
+                                             "id": 2,
+                                             "industryCode": 101,
+                                             "industryName": "互联网产业",
+                                             "createdAt": 1499395797000,
+                                             "updatedAt": 1499395797000
+                                         },
+                                         {
+                                             "id": 3,
+                                             "industryCode": 102,
+                                             "industryName": "商业零售",
+                                             "createdAt": 1499395797000,
+                                             "updatedAt": 1499395797000
+                                         },
+                                         {
+                                             "id": 4,
+                                             "industryCode": 103,
+                                             "industryName": "文化娱乐",
+                                             "createdAt": 1499395797000,
+                                             "updatedAt": 1499395797000
+                                         },
+                                         {
+                                             "id": 5,
+                                             "industryCode": 104,
+                                             "industryName": "共享经济",
+                                             "createdAt": 1499395797000,
+                                             "updatedAt": 1499395797000
+                                         },
+                                         {
+                                             "id": 6,
+                                             "industryCode": 105,
+                                             "industryName": "快消品",
+                                             "createdAt": 1499395797000,
+                                             "updatedAt": 1499395797000
+                                         },
+                                         {
+                                             "id": 7,
+                                             "industryCode": 106,
+                                             "industryName": "服装",
+                                             "createdAt": 1499395797000,
+                                             "updatedAt": 1499395797000
+                                         },
+                                         {
+                                             "id": 8,
+                                             "industryCode": 107,
+                                             "industryName": "美食餐饮",
+                                             "createdAt": 1499395797000,
+                                             "updatedAt": 1499395797000
+                                         },
+                                         {
+                                             "id": 9,
+                                             "industryCode": 108,
+                                             "industryName": "美容医疗",
+                                             "createdAt": 1499395797000,
+                                             "updatedAt": 1499395797000
+                                         },
+                                         {
+                                             "id": 10,
+                                             "industryCode": 109,
+                                             "industryName": "共享经济",
+                                             "createdAt": 1499395797000,
+                                             "updatedAt": 1499395797000
+                                         },
+                                         {
+                                             "id": 11,
+                                             "industryCode": 110,
+                                             "industryName": "家具建材",
+                                             "createdAt": 1499395797000,
+                                             "updatedAt": 1499395797000
+                                         }
+                                     ]
+                                 }
