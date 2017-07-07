@@ -16,17 +16,17 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class RecruitExceptionHandlerAdvice {
     private static final Logger logger = LoggerFactory.getLogger(RecruitExceptionHandlerAdvice.class);
-    @Autowired
-    private MailSenderHelper mailSenderHelper;
+//    @Autowired
+//    private MailSenderHelper mailSenderHelper;
     @ExceptionHandler(value = {Exception.class})
     public ResultModel exception(Exception ex) {
         logger.error("error happens", ex);
         ResultModel result = new ResultModel(400);
         result.setError(ex.getMessage());
         result.setMessage("error: " + ex.getMessage());
-        MailContract mailContract = new MailContract();
-        mailContract.setTo(new String[]{"jinming.xiao@ele.me"});
-        mailSenderHelper.sendMail(mailContract,"erro");
+//        MailContract mailContract = new MailContract();
+//        mailContract.setTo(new String[]{"jinming.xiao@ele.me"});
+//        mailSenderHelper.sendMail(mailContract,"erro");
         return result;
     }
 }

@@ -72,6 +72,14 @@ public class RecruitTechMaster {
      * 擅长技能
      */
     private List<Long> skills;
+    /**
+     * 行业id
+     */
+    private Long industryId;
+    /**
+     * 行业名称
+     */
+    private String industryName;
 
     /**
      * 作品案例
@@ -232,5 +240,21 @@ public class RecruitTechMaster {
 
     public void setWorksCases(List<RecruitMasterWorkCase> worksCases) {
         this.worksCases = worksCases;
+    }
+
+    public Long getIndustryId() {
+        return industryId;
+    }
+
+    public void setIndustryId(Long industryId) {
+        this.industryId = industryId;
+    }
+
+    public String getIndustryName() {
+        return industryName;
+    }
+
+    public void setIndustryName(String industryName) {
+        this.industryName = industryName;
     }
 }

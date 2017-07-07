@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -87,44 +88,62 @@ public class TechMasterController {
      * todo
      */
     @RequestMapping(value = "/techMaster/applyEmployer/{id}", method = RequestMethod.GET)
-    public ResultModel applyEmployer(@PathVariable("id") long id,HttpServletRequest request) {
-        techMasterService.applyEmployer(id,request);
+    public ResultModel applyEmployer(@PathVariable("id") long id, HttpServletRequest request) {
+        techMasterService.applyEmployer(id, request);
         return new ResultModel(200, JSON.toJSON("申请成功"));
     }
 
-        /**
-         * 查询牛人列表
-         * todo
-         */
+    /**
+     * 查询牛人列表
+     * todo
+     */
+    @RequestMapping(value = "/techMaster/queryMasterList", method = RequestMethod.GET)
+    public ResultModel queryMasterList(HttpServletRequest request) {
+        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+        int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+        int cityId = request.getParameter("cityId")==null?0:Integer.parseInt(request.getParameter("cityId"));
+        int industryId = request.getParameter("industryId")==null?0:Integer.parseInt(request.getParameter("industryId"));
+        String queryParam = request.getParameter("queryParam");
+        Map<String,Object> map = new HashMap();
+        map.put("cityId",cityId);
+        map.put("industryId",industryId);
+        map.put("queryParam",queryParam);
+        map.put("status","待审核");
+        PageInfo pageInfo = PageHelper.startPage(pageNumber, pageSize).doSelectPageInfo(() -> techMasterService.selectAllMaster(map));
+        Map<String, Object> mapResult = new LinkedHashMap<>();
+        mapResult.put("rows", pageInfo.getList());
+        mapResult.put("total", pageInfo.getTotal());
+        return new ResultModel(200, JSON.toJSON(mapResult));
+    }
 
-        /**
-         * 个人发出、接收招募信息
-         * todo
-         */
-        @RequestMapping(value = "/techMaster/getEmployer", method = RequestMethod.GET)
-        public ResultModel getEmployerByMasterId (HttpServletRequest request){
-            int pageSize = Integer.parseInt(request.getParameter("pageSize"));
-            int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-            String status = request.getParameter("status");
-            //获取登录人信息
+    /**
+     * 个人发出、接收招募信息
+     * todo
+     */
+    @RequestMapping(value = "/techMaster/getEmployer", method = RequestMethod.GET)
+    public ResultModel getEmployerByMasterId(HttpServletRequest request) {
+        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+        int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+        String status = request.getParameter("status");
+        //获取登录人信息
 //        RecruitTechMaster techMaster = techMasterService.getTechMaster(request);
-            //查询发出方信息
+        //查询发出方信息
 //        if (status.equals("send")) {
 //
 //        }else {
 //
 //        }
-            EmployerDto record = new EmployerDto();
-            record.setPageNumber(pageNumber);
-            record.setPageSize(pageSize);
-            record.setMasterId(1L);
-            PageInfo pageInfo = PageHelper.startPage(pageNumber, pageSize).doSelectPageInfo(() -> techMasterService.getEmployerByMasterId(record));
-            Map<String, Object> map = new LinkedHashMap<>();
-            map.put("rows", pageInfo.getList());
-            map.put("total", pageInfo.getTotal());
-            return new ResultModel(200, map);
-
-        }
-
+        EmployerDto record = new EmployerDto();
+        record.setPageNumber(pageNumber);
+        record.setPageSize(pageSize);
+        record.setMasterId(1L);
+        PageInfo pageInfo = PageHelper.startPage(pageNumber, pageSize).doSelectPageInfo(() -> techMasterService.getEmployerByMasterId(record));
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("rows", pageInfo.getList());
+        map.put("total", pageInfo.getTotal());
+        return new ResultModel(200, map);
 
     }
+
+
+}

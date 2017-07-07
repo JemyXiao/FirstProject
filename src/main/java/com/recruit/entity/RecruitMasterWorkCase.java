@@ -12,14 +12,6 @@ public class RecruitMasterWorkCase {
      */
     private String responsibilities;
     /**
-     * 行业id
-     */
-    private Long industryId;
-    /**
-     * 行业名称
-     */
-    private String industryName;
-    /**
      * 作品链接
      */
     private String worksLink;
@@ -50,22 +42,6 @@ public class RecruitMasterWorkCase {
 
     public void setResponsibilities(String responsibilities) {
         this.responsibilities = responsibilities;
-    }
-
-    public Long getIndustryId() {
-        return industryId;
-    }
-
-    public void setIndustryId(Long industryId) {
-        this.industryId = industryId;
-    }
-
-    public String getIndustryName() {
-        return industryName;
-    }
-
-    public void setIndustryName(String industryName) {
-        this.industryName = industryName;
     }
 
     public String getWorksLink() {

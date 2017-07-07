@@ -1,178 +1,217 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.recruit.mapper.RecruitTechMasterMapper" >
-  <resultMap id="BaseResultMap" type="com.recruit.entity.RecruitTechMaster" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
-    <result column="open_id" property="openId" jdbcType="VARCHAR" />
-    <result column="daily_wage" property="dailyWage" jdbcType="VARCHAR" />
-    <result column="city_id" property="cityId" jdbcType="BIGINT" />
-    <result column="area_id" property="areaId" jdbcType="BIGINT" />
-    <result column="sex" property="sex" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="VARCHAR" />
-    <result column="personal_info" property="personalInfo" jdbcType="VARCHAR" />
-    <result column="work_experience" property="workExperience" jdbcType="VARCHAR" />
-    <result column="phone" property="phone" jdbcType="VARCHAR" />
-    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
-    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
-    <result column="score" property="score" jdbcType="INTEGER" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, nick_name, open_id, daily_wage, city_id, area_id, sex, status, personal_info, 
+<mapper namespace="com.recruit.mapper.RecruitTechMasterMapper">
+    <sql id="Base_Column_List">
+    id, nick_name, open_id, daily_wage, city_id, area_id, sex, status, self_introduction,
     work_experience, phone, created_at, updated_at, score
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
-    <include refid="Base_Column_List" />
-    from t_recruit_tech_master
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    <resultMap id="BaseResultMap" type="com.recruit.entity.RecruitTechMaster">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="nick_name" property="nickName" jdbcType="VARCHAR"/>
+        <result column="job_title" property="jobTitle" jdbcType="VARCHAR"/>
+        <result column="daily_wage" property="dailyWage" jdbcType="VARCHAR"/>
+        <result column="city_id" property="cityId" jdbcType="BIGINT"/>
+        <result column="industry_id" property="industryId" jdbcType="BIGINT"/>
+        <result column="city_name" property="cityName" jdbcType="VARCHAR"/>
+        <result column="industry_name" property="industryName" jdbcType="VARCHAR"/>
+        <result column="area_id" property="areaId" jdbcType="BIGINT"/>
+        <result column="sex" property="sex" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="self_introduction" property="selfIntroduction" jdbcType="VARCHAR"/>
+        <result column="work_experience" property="workExperience" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
+        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
+        <result column="score" property="score" jdbcType="INTEGER"/>
+    </resultMap>
+    <select id="selectAllMaster" resultMap="BaseResultMap" parameterType="map">
+        SELECT
+        trtm.id, trtm.self_introduction,trtm.job_title,trtm.nick_name, trtm.daily_wage,
+        trtm.city_id,trc.city_name,trtm.sex, trtm.status,
+        trtm.self_introduction,
+        trtm.work_experience, trtm.phone,tri.id AS industry_id,tri.industry_name
+        FROM t_recruit_tech_master trtm
+        LEFT JOIN t_recruit_city trc
+        ON trtm.city_id = trc.id
+        LEFT JOIN t_recruit_industry tri
+        ON tri.id = trtm.industry_id
+        <if test="queryParam!=null and queryParam !=''">
+            LEFT JOIN t_recruit_techmaster_skill_mapping mapping
+            ON trtm.id = mapping.tech_master_id
+            LEFT JOIN t_recruit_base_skill trbs
+            ON mapping.skill_id = trbs.id
+        </if>
+        WHERE 1=1
+        <if test="status != null and status!=''">
+            and trtm.status = #{status}
+        </if>
+        <if test="cityId != null and cityId!=0">
+            and trc.id = #{cityId}
+        </if>
+        <if test="industryId != null and industryId!=0">
+            and trtm.industry_id = #{industryId}
+        </if>
+        <if test="queryParam!=null and queryParam !=''">
+            and trbs.skill_name LIKE CONCAT(CONCAT('%', #{queryParam}), '%')
+        </if>
+        ORDER BY trtm.updated_at DESC
+
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from t_recruit_tech_master
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_recruit_tech_master
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.recruit.entity.RecruitTechMaster" useGeneratedKeys="true"
-          keyProperty="id" >
+    <insert id="insert" parameterType="com.recruit.entity.RecruitTechMaster" useGeneratedKeys="true"
+            keyProperty="id">
     insert into t_recruit_tech_master (id, nick_name, open_id, 
       daily_wage, city_id,
-      sex, status, personal_info, 
+      sex, status, self_introduction,
       work_experience, phone)
     values (#{id,jdbcType=BIGINT}, #{nickName,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
       #{dailyWage,jdbcType=VARCHAR}, #{cityId,jdbcType=BIGINT},
-      #{sex,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{personalInfo,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{selfIntroduction,jdbcType=VARCHAR},
       #{workExperience,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.recruit.entity.RecruitTechMaster" >
-    insert into t_recruit_tech_master
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="nickName != null" >
-        nick_name,
-      </if>
-      <if test="openId != null" >
-        open_id,
-      </if>
-      <if test="dailyWage != null" >
-        daily_wage,
-      </if>
-      <if test="cityId != null" >
-        city_id,
-      </if>
-      <if test="areaId != null" >
-        area_id,
-      </if>
-      <if test="sex != null" >
-        sex,
-      </if>
-      <if test="status != null" >
-        status,
-      </if>
-      <if test="personalInfo != null" >
-        personal_info,
-      </if>
-      <if test="workExperience != null" >
-        work_experience,
-      </if>
-      <if test="phone != null" >
-        phone,
-      </if>
-      <if test="createdAt != null" >
-        created_at,
-      </if>
-      <if test="updatedAt != null" >
-        updated_at,
-      </if>
-      <if test="score != null" >
-        score,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
-      <if test="nickName != null" >
-        #{nickName,jdbcType=VARCHAR},
-      </if>
-      <if test="openId != null" >
-        #{openId,jdbcType=VARCHAR},
-      </if>
-      <if test="dailyWage != null" >
-        #{dailyWage,jdbcType=VARCHAR},
-      </if>
-      <if test="cityId != null" >
-        #{cityId,jdbcType=BIGINT},
-      </if>
-      <if test="areaId != null" >
-        #{areaId,jdbcType=BIGINT},
-      </if>
-      <if test="sex != null" >
-        #{sex,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="personalInfo != null" >
-        #{personalInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="workExperience != null" >
-        #{workExperience,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null" >
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="createdAt != null" >
-        #{createdAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatedAt != null" >
-        #{updatedAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="score != null" >
-        #{score,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.RecruitTechMaster" >
-    update t_recruit_tech_master
-    <set >
-      <if test="nickName != null" >
-        nick_name = #{nickName,jdbcType=VARCHAR},
-      </if>
-      <if test="dailyWage != null" >
-        daily_wage = #{dailyWage,jdbcType=VARCHAR},
-      </if>
-      <if test="cityId != null" >
-        city_id = #{cityId,jdbcType=BIGINT},
-      </if>
-      <if test="areaId != null" >
-        area_id = #{areaId,jdbcType=BIGINT},
-      </if>
-      <if test="sex != null" >
-        sex = #{sex,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="jobTitle != null" >
-        job_title = #{jobTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="selfIntroduction != null" >
-        self_introduction = #{selfIntroduction,jdbcType=VARCHAR},
-      </if>
-      <if test="workExperience != null" >
-        work_experience = #{workExperience,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null" >
-        phone = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="score != null" >
-        score = #{score,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.recruit.entity.RecruitTechMaster" >
+    <insert id="insertSelective" parameterType="com.recruit.entity.RecruitTechMaster">
+        insert into t_recruit_tech_master
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="nickName != null">
+                nick_name,
+            </if>
+            <if test="openId != null">
+                open_id,
+            </if>
+            <if test="dailyWage != null">
+                daily_wage,
+            </if>
+            <if test="cityId != null">
+                city_id,
+            </if>
+            <if test="areaId != null">
+                area_id,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="personalInfo != null">
+                personal_info,
+            </if>
+            <if test="workExperience != null">
+                work_experience,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="createdAt != null">
+                created_at,
+            </if>
+            <if test="updatedAt != null">
+                updated_at,
+            </if>
+            <if test="score != null">
+                score,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="nickName != null">
+                #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="openId != null">
+                #{openId,jdbcType=VARCHAR},
+            </if>
+            <if test="dailyWage != null">
+                #{dailyWage,jdbcType=VARCHAR},
+            </if>
+            <if test="cityId != null">
+                #{cityId,jdbcType=BIGINT},
+            </if>
+            <if test="areaId != null">
+                #{areaId,jdbcType=BIGINT},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="personalInfo != null">
+                #{personalInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="workExperience != null">
+                #{workExperience,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="createdAt != null">
+                #{createdAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedAt != null">
+                #{updatedAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="score != null">
+                #{score,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.RecruitTechMaster">
+        update t_recruit_tech_master
+        <set>
+            <if test="nickName != null">
+                nick_name = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="dailyWage != null">
+                daily_wage = #{dailyWage,jdbcType=VARCHAR},
+            </if>
+            <if test="cityId != null">
+                city_id = #{cityId,jdbcType=BIGINT},
+            </if>
+            <if test="areaId != null">
+                area_id = #{areaId,jdbcType=BIGINT},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="jobTitle != null">
+                job_title = #{jobTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="selfIntroduction != null">
+                self_introduction = #{selfIntroduction,jdbcType=VARCHAR},
+            </if>
+            <if test="industryId != null and industryId!=0">
+                industry_id = #{industryId,jdbcType=VARCHAR},
+            </if>
+            <if test="workExperience != null">
+                work_experience = #{workExperience,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="score != null">
+                score = #{score,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.recruit.entity.RecruitTechMaster">
     update t_recruit_tech_master
     set nick_name = #{nickName,jdbcType=VARCHAR},
       open_id = #{openId,jdbcType=VARCHAR},

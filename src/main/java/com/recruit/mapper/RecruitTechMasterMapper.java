@@ -2,6 +2,9 @@ package com.recruit.mapper;
 
 import com.recruit.entity.RecruitTechMaster;
 
+import java.util.List;
+import java.util.Map;
+
 public interface RecruitTechMasterMapper {
 
     int deleteByPrimaryKey(Long id);
@@ -15,4 +18,6 @@ public interface RecruitTechMasterMapper {
     int updateByPrimaryKeySelective(RecruitTechMaster record);
 
     int updateByPrimaryKey(RecruitTechMaster record);
+
+    List<RecruitTechMaster> selectAllMaster(Map map);
 }

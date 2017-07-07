@@ -48,6 +48,6 @@ public class EmployerController {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("rows", pageInfo.getList());
         map.put("total", pageInfo.getTotal());
-        return new ResultModel(200, map);
+        return new ResultModel(200, JSON.toJSON(map));
     }
 }

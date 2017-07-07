@@ -7,6 +7,7 @@ import com.recruit.entity.dto.EmployerDto;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by jmx on 17/6/21.
@@ -25,4 +26,7 @@ public interface TechMasterService {
     RecruitTechMaster getTechMaster(HttpServletRequest request);
 
     List<EmployerBasic> getEmployerByMasterId(EmployerDto record);
+
+    List<RecruitTechMaster> selectAllMaster(Map map);
+
 }

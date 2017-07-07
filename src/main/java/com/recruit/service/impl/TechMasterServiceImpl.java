@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by jmx on 17/6/21.
@@ -60,14 +61,6 @@ public class TechMasterServiceImpl implements TechMasterService {
             mapper.setTechMasterId(record.getId());
             skillMapperMapper.insert(mapper);
         }
-//        //更新或插入worksCase
-//        for (RecruitMasterWorkCase workCase : record.getWorksCases()) {
-//            masterWorkCaseMapper.insert(workCase);
-//            RecruitMasterWorkMapping mapping = new RecruitMasterWorkMapping();
-//            mapping.setTechMasterId(record.getId());
-//            mapping.setWorkCaseId(workCase.getId());
-//            masterWorkMappingMapper.insert(mapping);
-//        }
         return masterNum;
     }
 
@@ -118,5 +111,10 @@ public class TechMasterServiceImpl implements TechMasterService {
     @Override
     public List<EmployerBasic> getEmployerByMasterId(EmployerDto record) {
         return employerService.queryEmployerViewHeader(record);
+    }
+
+    @Override
+    public List<RecruitTechMaster> selectAllMaster(Map map) {
+        return techMasterMapper.selectAllMaster(map);
     }
 }
