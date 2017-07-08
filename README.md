@@ -645,7 +645,7 @@ this is my first project
  11. 牛人详情接口
      
                      
-                     链接：/techMaster/queryMasterList
+                     链接：/techMaster/queryMasterDetail
                                                             
                                             请求类型:GET 
                                                             
