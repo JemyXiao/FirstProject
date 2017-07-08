@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.recruit.entity.RecruitBaseSkill" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="skill_name" property="skillName" jdbcType="VARCHAR" />
+    <result column="skill_type" property="skillType" jdbcType="VARCHAR" />
     <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
     <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
     <result column="skill_code" property="skillCode" jdbcType="VARCHAR" />
@@ -67,12 +68,20 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, skill_name, created_at, updated_at, skill_code
+    id, skill_name, created_at, updated_at, skill_code,skill_type
   </sql>
   <select id="selectALLSkill" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List" />
     from t_recruit_base_skill
+  </select>
+  <select id="selectSkillByMasterId" resultMap="BaseResultMap" parameterType="Long">
+    SELECT
+    skill.id, skill.skill_name, skill.created_at, skill.updated_at, skill.skill_code
+    from t_recruit_base_skill skill
+    LEFT  JOIN t_recruit_techmaster_skill_mapping mapping
+    ON skill.id = mapping.skill_id
+    WHERE mapping.tech_master_id = #{id}
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 

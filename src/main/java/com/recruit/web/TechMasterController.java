@@ -8,8 +8,8 @@ import com.recruit.entity.RecruitTechMaster;
 import com.recruit.entity.ResultModel;
 import com.recruit.entity.dto.EmployerDto;
 import com.recruit.service.TechMasterService;
-import org.springframework.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -100,19 +100,33 @@ public class TechMasterController {
     public ResultModel queryMasterList(HttpServletRequest request) {
         int pageSize = Integer.parseInt(request.getParameter("pageSize"));
         int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-        int cityId = StringUtils.isEmpty(request.getParameter("cityId"))?0:Integer.parseInt(request.getParameter("cityId"));
-        int industryId = StringUtils.isEmpty(request.getParameter("industryId"))?0:Integer.parseInt(request.getParameter("industryId"));
+        int cityId = StringUtils.isEmpty(request.getParameter("cityId")) ? 0 : Integer.parseInt(request.getParameter("cityId"));
+        int industryId = StringUtils.isEmpty(request.getParameter("industryId")) ? 0 : Integer.parseInt(request.getParameter("industryId"));
         String queryParam = request.getParameter("queryParam");
-        Map<String,Object> map = new HashMap();
-        map.put("cityId",cityId);
-        map.put("industryId",industryId);
-        map.put("queryParam",queryParam);
-        map.put("status","待审核");
+        Map<String, Object> map = new HashMap();
+        map.put("cityId", cityId);
+        map.put("industryId", industryId);
+        map.put("queryParam", queryParam);
+        map.put("status", "待审核");
         PageInfo pageInfo = PageHelper.startPage(pageNumber, pageSize).doSelectPageInfo(() -> techMasterService.selectAllMaster(map));
         Map<String, Object> mapResult = new LinkedHashMap<>();
         mapResult.put("rows", pageInfo.getList());
         mapResult.put("total", pageInfo.getTotal());
         return new ResultModel(200, JSON.toJSON(mapResult));
+    }
+
+    /**
+     * 查询牛人详情
+     * todo
+     */
+    @RequestMapping(value = "/techMaster/queryMasterDetail", method = RequestMethod.GET)
+    public ResultModel queryEmployerDetail(HttpServletRequest request) {
+        Long id = 1L;
+        if (!StringUtils.isEmpty(request.getParameter("id"))) {
+            id = Long.valueOf(request.getParameter("id"));
+        }
+        RecruitTechMaster master = techMasterService.getTechMasterById(id);
+        return new ResultModel(200, master);
     }
 
     /**

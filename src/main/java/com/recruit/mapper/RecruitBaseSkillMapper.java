@@ -3,6 +3,7 @@ package com.recruit.mapper;
 import com.recruit.entity.RecruitBaseSkill;
 
 import java.util.List;
+import java.util.Map;
 
 public interface RecruitBaseSkillMapper {
     int deleteByPrimaryKey(Long id);
@@ -12,6 +13,8 @@ public interface RecruitBaseSkillMapper {
     int insertSelective(RecruitBaseSkill record);
 
     List<RecruitBaseSkill> selectALLSkill();
+
+    List<RecruitBaseSkill> selectSkillByMasterId(Long id);
 
     RecruitBaseSkill selectByPrimaryKey(Long id);
 

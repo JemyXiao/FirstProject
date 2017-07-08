@@ -48,7 +48,7 @@ public class RecruitTechMaster {
     /**
      * 职业类型
      */
-    private List<Long> jobType;
+    private String recruitType;
     /**
      * 工作经验
      */
@@ -64,9 +64,8 @@ public class RecruitTechMaster {
     private Integer score;
     /**
      * 个人介绍
-     *
      */
-     private String selfIntroduction;
+    private String selfIntroduction;
 
     /**
      * 擅长技能
@@ -85,6 +84,11 @@ public class RecruitTechMaster {
      * 作品案例
      */
     private List<RecruitMasterWorkCase> worksCases;
+
+    /**
+     *
+     */
+    private List<RecruitBaseSkill> baseSkillList;
 
     private Date createdAt;
 
@@ -170,12 +174,12 @@ public class RecruitTechMaster {
         this.jobTitle = jobTitle;
     }
 
-    public List<Long> getJobType() {
-        return jobType;
+    public String getRecruitType() {
+        return recruitType;
     }
 
-    public void setJobType(List<Long> jobType) {
-        this.jobType = jobType;
+    public void setRecruitType(String recruitType) {
+        this.recruitType = recruitType;
     }
 
     public String getWorkExperience() {
@@ -256,5 +260,13 @@ public class RecruitTechMaster {
 
     public void setIndustryName(String industryName) {
         this.industryName = industryName;
+    }
+
+    public List<RecruitBaseSkill> getBaseSkillList() {
+        return baseSkillList;
+    }
+
+    public void setBaseSkillList(List<RecruitBaseSkill> baseSkillList) {
+        this.baseSkillList = baseSkillList;
     }
 }

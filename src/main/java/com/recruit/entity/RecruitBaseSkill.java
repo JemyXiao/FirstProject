@@ -8,6 +8,9 @@ public class RecruitBaseSkill {
     private Long id;
 
     private String skillName;
+
+    private String skillType;
+
     @JSONField(serialize = false)
     private Date createdAt;
     @JSONField(serialize = false)
@@ -53,5 +56,13 @@ public class RecruitBaseSkill {
 
     public void setSkillCode(String skillCode) {
         this.skillCode = skillCode == null ? null : skillCode.trim();
+    }
+
+    public String getSkillType() {
+        return skillType;
+    }
+
+    public void setSkillType(String skillType) {
+        this.skillType = skillType;
     }
 }

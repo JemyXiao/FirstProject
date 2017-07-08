@@ -19,6 +19,8 @@ public interface RecruitMasterWorkCaseMapper {
 
     List<RecruitMasterWorkCase> selectByExample(RecruitMasterWorkCaseExample example);
 
+    List<RecruitMasterWorkCase> selectByMasterId(Long masterId);
+
     RecruitMasterWorkCase selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") RecruitMasterWorkCase record, @Param("example") RecruitMasterWorkCaseExample example);

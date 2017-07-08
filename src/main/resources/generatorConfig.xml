@@ -43,13 +43,21 @@
         </javaClientGenerator>
 
         <!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等-->
-        <table tableName="t_recruit_city" domainObjectName="RecruitCity" >
+        <!--<table tableName="t_recruit_works_case" domainObjectName="RecruitMasterWorkCase">-->
+
+        <!--</table>-->
+        <table tableName="t_recruit_industry" domainObjectName="RecruitIndustry">
         </table>
-        <table tableName="t_recruit_tech_master" domainObjectName="recruitTechMaster" >
-        </table>
-        <table tableName="t_recruit_business" domainObjectName="recruitBusiness" >
-        </table>
-        <table tableName="t_recruit_base_skill" domainObjectName="RecruitBaseSkill" >
-        </table>
+        <!--<table tableName="t_recruit_master_work_mapping" domainObjectName="RecruitMasterWorkMapping">-->
+
+        <!--</table>-->
+        <!--<table tableName="t_recruit_city" domainObjectName="RecruitCity" >-->
+        <!--</table>-->
+        <!--<table tableName="t_recruit_tech_master" domainObjectName="recruitTechMaster" >-->
+        <!--</table>-->
+        <!--<table tableName="t_recruit_business" domainObjectName="recruitBusiness" >-->
+        <!--</table>-->
+        <!--<table tableName="t_recruit_base_skill" domainObjectName="RecruitBaseSkill" >-->
+        <!--</table>-->
     </context>
 </generatorConfiguration>

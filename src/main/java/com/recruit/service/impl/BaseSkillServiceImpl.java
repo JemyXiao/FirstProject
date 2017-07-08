@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by jmx on 2017/6/24.
@@ -26,5 +27,10 @@ public class BaseSkillServiceImpl implements BaseSkillService {
     @Override
     public List<RecruitBaseSkill> getBaseSkillInfo() {
         return baseSkillMapper.selectALLSkill();
+    }
+
+    @Override
+    public List<RecruitBaseSkill> getBaseSkillInfo(Long id) {
+        return baseSkillMapper.selectSkillByMasterId(id);
     }
 }

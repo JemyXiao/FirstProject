@@ -4,9 +4,7 @@
   <resultMap id="BaseResultMap" type="com.recruit.entity.RecruitMasterWorkCase" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="work_name" property="workName" jdbcType="VARCHAR" />
-    <result column="work_responsibility" property="workResponsibility" jdbcType="VARCHAR" />
-    <result column="industry_id" property="industryId" jdbcType="BIGINT" />
-    <result column="industry_name" property="industryName" jdbcType="VARCHAR" />
+    <result column="work_responsibility" property="responsibilities" jdbcType="VARCHAR" />
     <result column="works_link" property="worksLink" jdbcType="VARCHAR" />
     <result column="works_desc" property="worksDesc" jdbcType="VARCHAR" />
     <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
@@ -71,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, work_name, work_responsibility, industry_id, industry_name, works_link, works_desc, 
+    id, work_name, work_responsibility ,works_link, works_desc,
     created_at, updated_at
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruit.entity.RecruitMasterWorkCaseExample" >
@@ -176,6 +174,14 @@
       </if>
     </trim>
   </insert>
+  <select id="selectByMasterId" parameterType="Long" resultMap="BaseResultMap">
+    SELECT
+    trwc.id, trwc.work_name,trwc.work_responsibility,trwc.works_link, trwc.works_desc
+    FROM t_recruit_works_case trwc
+    LEFT JOIN t_recruit_master_work_mapping mapping
+    ON trwc.id = mapping.work_case_id
+    WHERE mapping.tech_master_id = #{masterId}
+  </select>
   <select id="countByExample" parameterType="com.recruit.entity.RecruitMasterWorkCaseExample" resultType="java.lang.Integer" >
     select count(*) from t_recruit_works_case
     <if test="_parameter != null" >

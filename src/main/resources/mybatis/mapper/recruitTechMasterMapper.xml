@@ -3,7 +3,7 @@
 <mapper namespace="com.recruit.mapper.RecruitTechMasterMapper">
     <sql id="Base_Column_List">
     id, nick_name, open_id, daily_wage, city_id, area_id, sex, status, self_introduction,
-    work_experience, phone, created_at, updated_at, score
+    work_experience,job_title,industry_id, phone, created_at, updated_at, score
   </sql>
     <resultMap id="BaseResultMap" type="com.recruit.entity.RecruitTechMaster">
         <id column="id" property="id" jdbcType="BIGINT"/>
@@ -53,6 +53,9 @@
         </if>
         <if test="queryParam!=null and queryParam !=''">
             and trbs.skill_name LIKE CONCAT(CONCAT('%', #{queryParam}), '%')
+        </if>
+        <if test="id!=null and id!=0">
+           and trtm.id = #{id}
         </if>
         ORDER BY trtm.updated_at DESC
 

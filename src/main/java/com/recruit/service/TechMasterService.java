@@ -25,6 +25,8 @@ public interface TechMasterService {
 
     RecruitTechMaster getTechMaster(HttpServletRequest request);
 
+    RecruitTechMaster getTechMasterById(Long id);
+
     List<EmployerBasic> getEmployerByMasterId(EmployerDto record);
 
     List<RecruitTechMaster> selectAllMaster(Map map);
