@@ -2,83 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3a23eea-ce8d-457a-8519-ecefdfc273b4" name="Default" comment="接口文档提交">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/Application.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/common/aop/Operation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/common/aop/OperatorRecord.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/common/exception/RecruitExceptionHandlerAdvice.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/common/exception/RecruitValidationException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/common/guava/AsyncEvtBusHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/common/guava/EventListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/common/mail/MailContract.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/common/mail/MailSender$Builder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/common/mail/MailSender.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/common/mail/MailSenderHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/common/mail/PassWordDecoder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/EmployerBasic.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/EmployerDetailEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/EmployerExample$Criteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/EmployerExample$Criterion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/EmployerExample$GeneratedCriteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/EmployerExample.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/RecruitBaseSkill.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/RecruitBaseSkillExample$Criteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/RecruitBaseSkillExample$Criterion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/RecruitBaseSkillExample$GeneratedCriteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/RecruitBaseSkillExample.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/RecruitBusiness.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/RecruitCity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/RecruitCityExample$Criteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/RecruitCityExample$Criterion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/RecruitCityExample$GeneratedCriteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/RecruitCityExample.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/RecruitTechMaster.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/ResultModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/UserEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/recruitBusinessExample$Criteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/recruitBusinessExample$Criterion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/recruitBusinessExample$GeneratedCriteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/recruitBusinessExample.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/recruitTechMasterExample$Criteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/recruitTechMasterExample$Criterion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/recruitTechMasterExample$GeneratedCriteria.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/recruitTechMasterExample.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/entity/vo/EmployerViewHeaderObject.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/enums/UserSexEnum.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/mapper/EmployerMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/mapper/RecruitBaseSkillMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/mapper/RecruitCityMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/mapper/UserMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/mapper/recruitBusinessMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/mapper/recruitTechMasterMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/service/EmployerService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/service/TechMasterService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/service/impl/EmployerServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/service/impl/TechMasterServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/util/ErrorCode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/util/ErrorMsg.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/web/BaseSkillController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/web/CityController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/web/EmployerController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/web/TechMasterController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/recruit/web/UserController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/generatorConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/EmployerMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/RecruitBaseSkillMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/RecruitCityMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/UserMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/recruitBusinessMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/recruitTechMasterMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/mybatis-config.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/soluo-recruit-1.0.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/soluo-recruit-1.0.0.jar.original" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/com/recruit/ApplicationTests.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/com/recruit/mapper/UserMapperTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_5_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_39.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_9.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_2_5_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_2_4_Final.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20140107.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_21.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_21.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_21.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_21.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_4_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_4_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_1_4_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_4_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_4_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_4_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_4_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_4_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_4_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_4_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_4_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_4_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_3_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/soluo-recruit.iml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/recruit/web/TechMasterController.java" afterPath="$PROJECT_DIR$/src/main/java/com/recruit/web/TechMasterController.java" />
     </list>
     <ignored path="soluo-recruit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,11 +74,79 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TechMasterController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/TechMasterController.java">
+      <file leaf-file-name="recruitTechMasterMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/recruitTechMasterMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="1083">
+              <caret line="57" column="14" lean-forward="false" selection-start-line="57" selection-start-column="14" selection-end-line="57" selection-end-column="14" />
+              <folding>
+                <marker date="1499505133000" expanded="true" signature="1891:2116" ph="SELECT , cit... " />
+                <marker date="1499505133000" expanded="true" signature="1891:2636" ph="SELECT trtm.... t_recruit_tech_master" />
+                <marker date="1499505133000" expanded="true" signature="1891:3228" ph="SELECT trtm.... t_recruit_tech_master" />
+                <marker date="1499505133000" expanded="true" signature="3346:3472" ph="select from t_recruit_tech_master" />
+                <marker date="1499505133000" expanded="true" signature="3559:3629" ph="delete from " />
+                <marker date="1499505133000" expanded="true" signature="3777:4255" ph="insert into t_recruit_tech_master... " />
+                <marker date="1499505133000" expanded="true" signature="7293:8807" ph="update t_rec... " />
+                <marker date="1499505133000" expanded="true" signature="8916:9592" ph="update t_rec... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecruitTechMaster.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitTechMaster.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding>
+                <element signature="e#2800#2801#0" expanded="true" />
+                <element signature="e#2834#2835#0" expanded="true" />
+                <element signature="e#2888#2889#0" expanded="true" />
+                <element signature="e#2934#2935#0" expanded="true" />
+                <element signature="e#4562#4563#0" expanded="true" />
+                <element signature="e#4610#4611#0" expanded="true" />
+                <element signature="e#4666#4667#0" expanded="true" />
+                <element signature="e#4702#4703#0" expanded="true" />
+                <element signature="e#4776#4777#0" expanded="true" />
+                <element signature="e#4826#4827#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecruitBaseSkillMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/RecruitBaseSkillMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="76" lean-forward="false" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
+              <folding>
+                <marker date="1499506473000" expanded="true" signature="3226:3303" ph="SELECT from t_recruit_base_skill" />
+                <marker date="1499506473000" expanded="true" signature="3405:3666" ph="SELECT from t_recruit_base_skill" />
+                <marker date="1499506473000" expanded="true" signature="3776:3891" ph="select from t_recruit_base_skill" />
+                <marker date="1499506473000" expanded="true" signature="3975:4044" ph="delete from " />
+                <marker date="1499506473000" expanded="true" signature="4137:4399" ph="insert into t_recruit_base_skill... " />
+                <marker date="1499506473000" expanded="true" signature="5501:5802" ph="update t_rec... " />
+                <marker date="1499506473000" expanded="true" signature="6010:6279" ph="update t_rec... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseSkillController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/BaseSkillController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="24" column="48" lean-forward="false" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -114,8 +156,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="3572">
-                <caret line="188" column="27" lean-forward="false" selection-start-line="188" selection-start-column="27" selection-end-line="188" selection-end-column="27" />
+              <first_editor relative-caret-position="12293">
+                <caret line="647" column="53" lean-forward="false" selection-start-line="647" selection-start-column="53" selection-end-line="647" selection-end-column="53" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -123,99 +165,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmployerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/EmployerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecruitTechMaster.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitTechMaster.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RecruitBaseSkill.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitBaseSkill.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="171">
+              <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="28" />
+              <folding>
+                <element signature="e#1111#1112#0" expanded="true" />
+                <element signature="e#1187#1188#0" expanded="true" />
+                <element signature="e#1223#1224#0" expanded="true" />
+                <element signature="e#1255#1256#0" expanded="true" />
+                <element signature="e#1305#1306#0" expanded="true" />
+                <element signature="e#1347#1348#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TechMasterController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/TechMasterController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="899">
+              <caret line="111" column="6" lean-forward="true" selection-start-line="111" selection-start-column="6" selection-end-line="111" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recruitTechMasterMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/recruitTechMasterMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2204">
-              <caret line="116" column="29" lean-forward="false" selection-start-line="116" selection-start-column="29" selection-end-line="116" selection-end-column="29" />
-              <folding>
-                <marker date="1498408386000" expanded="true" signature="3925:4054" ph="select from t_recruit_tech_master" />
-                <marker date="1498408386000" expanded="true" signature="4338:4454" ph="select from t_recruit_tech_master" />
-                <marker date="1498408386000" expanded="true" signature="4538:4608" ph="delete from " />
-                <marker date="1498408386000" expanded="true" signature="4718:4751" ph="delete from " />
-                <marker date="1498408386000" expanded="true" signature="4989:5461" ph="insert into t_recruit_tech_master... " />
-                <marker date="1498408386000" expanded="true" signature="7966:8008" ph="select count... t_recruit_tech_master" />
-                <marker date="1498408386000" expanded="true" signature="9931:10702" ph="update t_rec... " />
-                <marker date="1498408386000" expanded="true" signature="10920:12261" ph="update t_rec... " />
-                <marker date="1498408386000" expanded="true" signature="12367:13043" ph="update t_rec... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TechMasterServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/TechMasterServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TechMasterSkillMapperMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/TechMasterSkillMapperMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-              <folding>
-                <marker date="1498408940000" expanded="true" signature="406:493" ph="delete from " />
-                <marker date="1498408940000" expanded="true" signature="1034:1224" ph="update t_rec... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmployerBusinessMapperMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/EmployerBusinessMapperMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-              <folding>
-                <marker date="1498408965000" expanded="true" signature="407:495" ph="delete from " />
-                <marker date="1498408965000" expanded="true" signature="653:918" ph="insert into t_recruit_employer_business_mapping... " />
-                <marker date="1498408965000" expanded="true" signature="1036:1228" ph="update t_rec... " />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -226,50 +210,55 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>spring-boo</find>
-      <find>spring-boot</find>
-      <find>spring-boot-</find>
-      <find>spring-boot-ma</find>
-      <find>spring-boot-m</find>
-      <find>spring-boot-my</find>
-      <find>spring-boot-myb</find>
-      <find>spring-boot-myba</find>
-      <find>spring-boot-mybat</find>
-      <find>spring-boot-mybati</find>
-      <find>spring-boot-mybatis</find>
-      <find>spring-boot-mybatis-</find>
-      <find>spring-boot-mybatis-x</find>
-      <find>spring-boot-mybatis-xm</find>
-      <find>soluo-recruit</find>
-      <find>groupTemplate</find>
-      <find>emailPort</find>
-      <find>emailPassword</find>
-      <find>RecruitValidationException</find>
-      <find>邮件风险提醒</find>
-      <find>recruitBusiness</find>
-      <find>EmployerHeaderEntity</find>
-      <find>EmployerEntity</find>
-      <find>http://maven.dev.elenet.me/nexus</find>
-      <find>surefire-reports</find>
+      <find>objectCycle</find>
+      <find>NUMBER</find>
+      <find>pagehelper.version</find>
+      <find>ViewHeaderResultMap</find>
+      <find>EmpSkillMapperMapper</find>
+      <find>RecruitBaseSkill</find>
+      <find>t_recruit_employer_bu</find>
+      <find>project_budget</find>
+      <find>RecruitMasterWorkCaseMapper</find>
+      <find>skillMapperMapper</find>
+      <find>RecruitIndustryMapper</find>
       <find>Example_Where_Clause</find>
-      <find>queryEmployerDetail</find>
+      <find>Update_By_Example_Where_Clause</find>
+      <find>updateByPrimaryKey</find>
+      <find>updateByExample</find>
+      <find>BaseResultMap</find>
+      <find>update</find>
+      <find>queryEmployerViewHeader</find>
       <find>insert</find>
-      <find>target</find>
-      <find>gitignore</find>
+      <find>personal_info</find>
+      <find>updateByPrimaryKeySelective</find>
+      <find>selectAllMaster</find>
+      <find>tri.industry_id</find>
+      <find>selectByExample</find>
+      <find>industry_id</find>
+      <find>selectByPrimaryKey</find>
+      <find>work_responsibility</find>
+      <find>workResponsibility</find>
+      <find>Base_Column_List</find>
+      <find>iml</find>
     </findStrings>
     <replaceStrings>
       <replace>t_recruit_employer</replace>
+      <replace>soluo</replace>
+      <replace>projectName</replace>
+      <replace>responsibilities</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/src/main/resources/mybatis/mapper</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/recruit/entity/vo</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -288,57 +277,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/common/aop/Operation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/common/aop/OperatorRecord.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/common/guava/EventListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/common/mail/MailSender.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/EmployerEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitBusiness.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/ResultModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/vo/EmployerViewProject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/EmployerDetailEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/EmployerBasic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/vo/EmployerViewHeaderObject.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mybatis-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/EmployerService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/impl/EmployerServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/mapper/EmployerMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/web/EmployerController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/TechMasterService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/config/Constant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/enums/EmpStatusEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mybatis-config.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/common/exception/RecruitExceptionHandlerAdvice.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/common/mail/MailSenderHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/CityService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitCityMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/RecruitCityMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/impl/CityServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/BaseSkillService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/BusinessService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/mapper/EmpSkillMapperMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/impl/EmployerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/EmpSkillMappeMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/DataDictionaryEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/util/ErrorCode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/common/exception/CorsFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/common/filter/CorsFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/WorksCase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/dto/EmployerDto.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/RecruitIndustryMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/TechMasterSkillMapperMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/mapper/TechMasterSkillMapperMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/RecruitMasterWorkMappingMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/common/filter/RecruitFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/EmployerMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/EmpMasterMapperEntityMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/impl/BusinessServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/impl/CityServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/impl/DataDictionaryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/impl/EmpOperatorServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/vo/TechMasterViewHeaderVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitMasterWorkCase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitTechMasterMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/web/EmployerController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/common/exception/RecruitExceptionHandlerAdvice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitIndustryMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/web/IndustryController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/IndustryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/impl/IndustryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitIndustry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/TechMasterService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/BaseSkillService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitBaseSkillMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/impl/BaseSkillServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/RecruitBaseSkillMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitBusinessMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/recruitBusinessMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/mapper/DataDictionaryMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/DataDictionaryService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/impl/DataDictionaryServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/DataDictionaryEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/DataDictionaryMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/EmployerMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/web/DataDictionaryController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/web/BusinessController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/web/BaseSkillController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recruit/web/CityController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitMasterWorkCaseMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/RecruitMasterWorkCaseMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitTechMaster.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/recruitTechMasterMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/recruit/service/impl/TechMasterServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/TechMasterSkillMapperMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/EmployerBusinessMapperMapper.xml" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/recruitTechMasterMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/recruit/web/TechMasterController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitBaseSkill.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/RecruitBaseSkillMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -519,6 +508,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -545,145 +537,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soluo-recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soluo-recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soluo-recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soluo-recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soluo-recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soluo-recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soluo-recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soluo-recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soluo-recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soluo-recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="recruit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -694,24 +549,26 @@
     <property name="settings.editor.splitter.proportion" value="0.24121557" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.47931033" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore&#10;/Users/caiyongqiao/workspace/soluo-recruit/logs/recruit-2017-06-26.0.log" />
+    <property name="SearchEverywhereHistoryKey" value="Fil&#9;PSI&#9;JAVA://com.recruit.common.exception.CorsFilter&#10;RecruitBaseSkill&#9;PSI&#9;JAVA://com.recruit.entity.RecruitBaseSkill&#10;RecruitBusinessMapper&#9;FILE&#9;file:///Users/caiyongqiao/workspace/soluo-recruit/src/main/java/com/recruit/mapper/RecruitBusinessMapper.java&#10;EmpMasterMapperEntityMapper&#9;FILE&#9;file:///Users/caiyongqiao/workspace/soluo-recruit/src/main/java/com/recruit/mapper/EmpMasterMapperEntityMapper.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.recruit.mapper" />
+      <recent name="com.recruit.entity" />
       <recent name="com.recruit.service.impl" />
       <recent name="com.recruit.service" />
       <recent name="com.recruit.web" />
-      <recent name="com.recruit.common.mail" />
-      <recent name="com.recruit.mapper" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/com/recruit/common/guava" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/recruit/common/mail" />
       <recent name="$PROJECT_DIR$/src/main/resources/mybatis/mapper" />
       <recent name="$PROJECT_DIR$/src/main/java/com/recruit/mapper" />
       <recent name="$PROJECT_DIR$/src/main/java/com/recruit/entity" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/recruit/common/guava" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/recruit/common/mail" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1211,6 +1068,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e3a23eea-ce8d-457a-8519-ecefdfc273b4" name="Default" comment="" />
@@ -1234,7 +1094,26 @@
       <workItem from="1498188583537" duration="19184000" />
       <workItem from="1498444914829" duration="562000" />
       <workItem from="1498445504587" duration="661000" />
-      <workItem from="1498446170820" duration="41000" />
+      <workItem from="1498446170820" duration="14020000" />
+      <workItem from="1498533993944" duration="1144000" />
+      <workItem from="1498535274291" duration="3242000" />
+      <workItem from="1498572039869" duration="2597000" />
+      <workItem from="1498574849810" duration="8968000" />
+      <workItem from="1498638494249" duration="627000" />
+      <workItem from="1498644702610" duration="1310000" />
+      <workItem from="1498659643473" duration="7000" />
+      <workItem from="1498661080440" duration="10092000" />
+      <workItem from="1498730129756" duration="3205000" />
+      <workItem from="1498746510193" duration="29096000" />
+      <workItem from="1498969876842" duration="6535000" />
+      <workItem from="1499050177760" duration="14841000" />
+      <workItem from="1499182603933" duration="7710000" />
+      <workItem from="1499237820781" duration="12883000" />
+      <workItem from="1499312543744" duration="256000" />
+      <workItem from="1499319028079" duration="18935000" />
+      <workItem from="1499393923886" duration="734000" />
+      <workItem from="1499421600674" duration="20721000" />
+      <workItem from="1499671230440" duration="644000" />
     </task>
     <task id="LOCAL-00001" summary="操作对应关系表">
       <created>1498134316288</created>
@@ -1264,11 +1143,123 @@
       <option name="project" value="LOCAL" />
       <updated>1498446132003</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="接口文档提交">
+      <created>1498446246394</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1498446246394</updated>
+    </task>
+    <task id="LOCAL-00006" summary="接口文档提交">
+      <created>1498670874136</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1498670874136</updated>
+    </task>
+    <task id="LOCAL-00007" summary="接口文档提交">
+      <created>1498671139340</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1498671139340</updated>
+    </task>
+    <task id="LOCAL-00008" summary="接口文档提交">
+      <created>1498837477662</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1498837477662</updated>
+    </task>
+    <task id="LOCAL-00009" summary="接口文档提交">
+      <created>1499008789313</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1499008789313</updated>
+    </task>
+    <task id="LOCAL-00010" summary="接口文档提交">
+      <created>1499008940176</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1499008940176</updated>
+    </task>
+    <task id="LOCAL-00011" summary="修改分页查询接口">
+      <created>1499084136525</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1499084136525</updated>
+    </task>
+    <task id="LOCAL-00012" summary="接口文档提交">
+      <created>1499339469349</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1499339469350</updated>
+    </task>
+    <task id="LOCAL-00013" summary="接口文档提交">
+      <created>1499352740146</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1499352740146</updated>
+    </task>
+    <task id="LOCAL-00014" summary="接口文档提交">
+      <created>1499354476292</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1499354476292</updated>
+    </task>
+    <task id="LOCAL-00015" summary="接口文档提交">
+      <created>1499357958995</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1499357958995</updated>
+    </task>
+    <task id="LOCAL-00016" summary="接口文档提交">
+      <created>1499442636972</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1499442636972</updated>
+    </task>
+    <task id="LOCAL-00017" summary="接口文档提交">
+      <created>1499444042505</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1499444042505</updated>
+    </task>
+    <task id="LOCAL-00018" summary="接口文档提交">
+      <created>1499447140596</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1499447140596</updated>
+    </task>
+    <task id="LOCAL-00019" summary="接口文档提交">
+      <created>1499506955120</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1499506955120</updated>
+    </task>
+    <task id="LOCAL-00020" summary="接口文档提交">
+      <created>1499507023267</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1499507023267</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69538000" />
+    <option name="totallyTimeSpent" value="227064000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-322" y="-1057" width="1920" height="1057" extended-state="6" />
@@ -1280,113 +1271,164 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3253886" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53652596" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37226278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29927006" sideWeight="0.512987" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5351812" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33471504" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6176166" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5554404" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29927006" sideWeight="0.48701298" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22921109" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38756478" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24525547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32846716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50362694" sideWeight="0.4978678" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5046632" sideWeight="0.4978678" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="操作对应关系表" />
+    <MESSAGE value="修改分页查询接口" />
     <MESSAGE value="接口文档提交" />
     <option name="LAST_COMMIT_MESSAGE" value="接口文档提交" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/common/exception/RecruitExceptionHandlerAdvice.java</url>
-          <line>23</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/common/exception/RecruitExceptionHandlerAdvice.java</url>
-          <line>24</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/common/mail/MailSenderHelper.java</url>
-          <line>49</line>
-          <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/common/mail/MailSenderHelper.java</url>
-          <line>51</line>
-          <properties />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/web/EmployerController.java</url>
-          <line>25</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/web/CityController.java</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/web/CityController.java</url>
-          <line>28</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/recruit/web/TechMasterController.java</url>
-          <line>18</line>
+          <line>53</line>
           <properties />
-          <option name="timeStamp" value="18" />
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/recruit/web/TechMasterController.java</url>
-          <line>19</line>
+          <line>54</line>
           <properties />
-          <option name="timeStamp" value="19" />
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/web/TechMasterController.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/TechMasterServiceImpl.java</url>
+          <line>59</line>
+          <properties />
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/TechMasterServiceImpl.java</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/TechMasterServiceImpl.java</url>
+          <line>75</line>
+          <properties />
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/TechMasterServiceImpl.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/web/TechMasterController.java</url>
+          <line>137</line>
+          <properties />
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/web/TechMasterController.java</url>
+          <line>148</line>
+          <properties />
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/TechMasterServiceImpl.java</url>
+          <line>130</line>
+          <properties />
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/EmployerServiceImpl.java</url>
+          <line>58</line>
+          <properties />
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/EmployerServiceImpl.java</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/TechMasterServiceImpl.java</url>
+          <line>96</line>
+          <properties />
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/recruit/web/IndustryController.java</url>
           <line>21</line>
           <properties />
-          <option name="timeStamp" value="20" />
+          <option name="timeStamp" value="107" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="21" />
+      <option name="time" value="108" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1395,448 +1437,440 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4">
-          <caret line="89" column="26" lean-forward="false" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/sun/mail/javax.mail/1.5.6/javax.mail-1.5.6.jar!/com/sun/mail/smtp/SMTPTransport.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="1446" column="0" lean-forward="false" selection-start-line="1446" selection-start-column="0" selection-end-line="1446" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.0/mybatis-3.4.0.jar!/org/apache/ibatis/binding/MapperProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/common/mail/MailSenderHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="51" column="31" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/common/mail/MailSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/CityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitCityMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/RecruitCityMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="72" column="27" lean-forward="false" selection-start-line="72" selection-start-column="14" selection-end-line="72" selection-end-column="27" />
-          <folding>
-            <marker date="1498315738000" expanded="true" signature="3201:3272" ph="SELECT from t_recruit_city" />
-            <marker date="1498315738000" expanded="true" signature="3402:3524" ph="select from t_recruit_city" />
-            <marker date="1498315738000" expanded="true" signature="3808:3917" ph="select from t_recruit_city" />
-            <marker date="1498315738000" expanded="true" signature="4001:4064" ph="delete from " />
-            <marker date="1498315738000" expanded="true" signature="4168:4194" ph="delete from " />
-            <marker date="1498315738000" expanded="true" signature="4375:4678" ph="insert into t_recruit_city... " />
-            <marker date="1498315738000" expanded="true" signature="5970:6005" ph="select count... t_recruit_city" />
-            <marker date="1498315738000" expanded="true" signature="7049:7391" ph="update t_rec... " />
-            <marker date="1498315738000" expanded="true" signature="7603:8177" ph="update t_rec... " />
-            <marker date="1498315738000" expanded="true" signature="8277:8580" ph="update t_rec... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/BaseSkillService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/BusinessService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/CityServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/BusinessServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/BaseSkillServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="19" column="27" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitBaseSkillMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="41" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitBusinessMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/recruitBusinessMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="75" column="27" lean-forward="true" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
-          <folding>
-            <marker date="1498325347000" expanded="true" signature="3242:3317" ph="SELECT from t_recruit_business" />
-            <marker date="1498325347000" expanded="true" signature="3451:3577" ph="select from t_recruit_business" />
-            <marker date="1498325347000" expanded="true" signature="3861:3974" ph="select from t_recruit_business" />
-            <marker date="1498325347000" expanded="true" signature="4058:4125" ph="delete from " />
-            <marker date="1498325347000" expanded="true" signature="4233:4263" ph="delete from " />
-            <marker date="1498325347000" expanded="true" signature="4448:4774" ph="insert into t_recruit_business... " />
-            <marker date="1498325347000" expanded="true" signature="6117:6156" ph="select count... t_recruit_business" />
-            <marker date="1498325347000" expanded="true" signature="7233:7598" ph="update t_rec... " />
-            <marker date="1498325347000" expanded="true" signature="7814:8421" ph="update t_rec... " />
-            <marker date="1498325347000" expanded="true" signature="8525:8851" ph="update t_rec... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/DataDictionaryService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitMasterWorkMapping.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/DataDictionaryServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/common/filter/RecruitFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/RecruitBaseSkillMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="70" selection-end-column="8" />
-          <folding>
-            <marker date="1498325268000" expanded="true" signature="3140:3217" ph="SELECT from t_recruit_base_skill" />
-            <marker date="1498325268000" expanded="true" signature="3352:3480" ph="select from t_recruit_base_skill" />
-            <marker date="1498325268000" expanded="true" signature="3764:3879" ph="select from t_recruit_base_skill" />
-            <marker date="1498325268000" expanded="true" signature="3963:4032" ph="delete from " />
-            <marker date="1498325268000" expanded="true" signature="4141:4173" ph="delete from " />
-            <marker date="1498325268000" expanded="true" signature="4359:4621" ph="insert into t_recruit_base_skill... " />
-            <marker date="1498325268000" expanded="true" signature="5792:5833" ph="select count... t_recruit_base_skill" />
-            <marker date="1498325268000" expanded="true" signature="6783:7084" ph="update t_rec... " />
-            <marker date="1498325268000" expanded="true" signature="7301:7795" ph="update t_rec... " />
-            <marker date="1498325268000" expanded="true" signature="7900:8169" ph="update t_rec... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/enums/UserSexEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/enums/PriceBudgetEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/enums/ProjectCycle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/enums/TrendCompleteEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/DataDictionaryEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/mapper/DataDictionaryMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="48" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mybatis-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/DataDictionaryMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-          <folding>
-            <marker date="1498373696000" expanded="true" signature="762:892" ph="SELECT FROM t_recruit_data_dictionary" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/EmployerServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="33" column="49" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="49" />
+        <state relative-caret-position="361">
+          <caret line="26" column="39" lean-forward="false" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/mapper/EmployerMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="15" column="50" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/EmployerDetailEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="44" lean-forward="false" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/EmployerBasic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="25" />
+        <state relative-caret-position="194">
+          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/EmployerMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="68" column="29" lean-forward="true" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
+        <state relative-caret-position="100">
+          <caret line="42" column="37" lean-forward="true" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/EmpMasterMapperEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/mapper/EmpMasterMapperEntityMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/EmpMasterMapperEntityMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="12" lean-forward="false" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/BusinessServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/CityServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/DataDictionaryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/EmployerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="57" column="31" lean-forward="false" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
           <folding>
-            <marker date="1498375056000" expanded="true" signature="2756:3284" ph="SELECT tre.i... t_recruit_employer" />
-            <marker date="1498375056000" expanded="true" signature="3425:3950" ph="SELECT tre.i... t_recruit_employer" />
-            <marker date="1498375056000" expanded="true" signature="4265:4388" ph="select from t_recruit_employer" />
-            <marker date="1498375056000" expanded="true" signature="4475:4542" ph="delete from " />
-            <marker date="1498375056000" expanded="true" signature="4694:5073" ph="insert into t_recruit_employer... " />
-            <marker date="1498375056000" expanded="true" signature="5197:6269" ph="update t_rec... " />
-            <marker date="1498375056000" expanded="true" signature="6381:6856" ph="update t_rec... " />
+            <element signature="imports" expanded="false" />
+            <element signature="e#3137#3138#0" expanded="false" />
+            <element signature="e#3164#3165#0" expanded="false" />
+            <element signature="e#3236#3237#0" expanded="false" />
+            <element signature="e#3301#3302#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/EmpOperatorServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="29" />
+        <state relative-caret-position="152">
+          <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/TechMasterBasicSkillMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/ResultModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/DataDictionaryController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/vo/TechMasterViewHeaderVo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="13" column="15" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+        <state relative-caret-position="-22">
+          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/pagehelper/pagehelper/5.0.3/pagehelper-5.0.3.jar!/com/github/pagehelper/ISelect.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/common/exception/RecruitValidationException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/common/mail/MailSenderHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="48" column="16" lean-forward="false" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/common/exception/RecruitExceptionHandlerAdvice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="20" column="48" lean-forward="false" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="49" column="16" lean-forward="false" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/BusinessController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="24" column="3" lean-forward="false" selection-start-line="24" selection-start-column="3" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.3.RELEASE/spring-web-4.3.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.3.3.RELEASE/spring-core-4.3.3.RELEASE.jar!/org/springframework/util/StringUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/RecruitIndustryMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="71" column="29" lean-forward="false" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitIndustryMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/IndustryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/IndustryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/IndustryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/BusinessController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitIndustry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/EmployerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/TechMasterService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="15" column="15" lean-forward="false" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/BaseSkillController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="15" column="15" lean-forward="false" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/CityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitCity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/common/exception/RecruitExceptionHandlerAdvice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/mapper/TechMasterSkillMapperMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitBaseSkill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitTechMaster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/TechMasterServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/recruitTechMasterMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2204">
-          <caret line="116" column="29" lean-forward="false" selection-start-line="116" selection-start-column="29" selection-end-line="116" selection-end-column="29" />
-          <folding>
-            <marker date="1498408386000" expanded="true" signature="3925:4054" ph="select from t_recruit_tech_master" />
-            <marker date="1498408386000" expanded="true" signature="4338:4454" ph="select from t_recruit_tech_master" />
-            <marker date="1498408386000" expanded="true" signature="4538:4608" ph="delete from " />
-            <marker date="1498408386000" expanded="true" signature="4718:4751" ph="delete from " />
-            <marker date="1498408386000" expanded="true" signature="4989:5461" ph="insert into t_recruit_tech_master... " />
-            <marker date="1498408386000" expanded="true" signature="7966:8008" ph="select count... t_recruit_tech_master" />
-            <marker date="1498408386000" expanded="true" signature="9931:10702" ph="update t_rec... " />
-            <marker date="1498408386000" expanded="true" signature="10920:12261" ph="update t_rec... " />
-            <marker date="1498408386000" expanded="true" signature="12367:13043" ph="update t_rec... " />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/TechMasterSkillMapperMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+        <state relative-caret-position="295">
+          <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/BaseSkillService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitBaseSkillMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/BaseSkillServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="33" column="55" lean-forward="false" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitMasterWorkCaseExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitMasterWorkCaseMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitMasterWorkCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="12" column="35" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/mapper/RecruitTechMasterMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/service/impl/TechMasterServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1900">
+          <caret line="118" column="32" lean-forward="false" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
           <folding>
-            <marker date="1498408940000" expanded="true" signature="406:493" ph="delete from " />
-            <marker date="1498408940000" expanded="true" signature="1034:1224" ph="update t_rec... " />
+            <element signature="e#4780#4781#0" expanded="true" />
+            <element signature="e#4840#4841#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/EmployerBusinessMapperMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/RecruitMasterWorkCaseMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+        <state relative-caret-position="209">
+          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding>
-            <marker date="1498408965000" expanded="true" signature="407:495" ph="delete from " />
-            <marker date="1498408965000" expanded="true" signature="653:918" ph="insert into t_recruit_employer_business_mapping... " />
-            <marker date="1498408965000" expanded="true" signature="1036:1228" ph="update t_rec... " />
+            <marker date="1499504352000" expanded="true" signature="3416:3544" ph="select from t_recruit_works_case" />
+            <marker date="1499504352000" expanded="true" signature="3828:3943" ph="select from t_recruit_works_case" />
+            <marker date="1499504352000" expanded="true" signature="4027:4096" ph="delete from " />
+            <marker date="1499504352000" expanded="true" signature="4210:4242" ph="delete from " />
+            <marker date="1499504352000" expanded="true" signature="4485:4849" ph="insert into t_recruit_works_case... " />
+            <marker date="1499504352000" expanded="true" signature="6652:6861" ph="SELECT FROM t_recruit_works_case" />
+            <marker date="1499504352000" expanded="true" signature="6652:6916" ph="SELECT FROM t_recruit_works_case" />
+            <marker date="1499504352000" expanded="true" signature="7060:7101" ph="select count... t_recruit_works_case" />
+            <marker date="1499504352000" expanded="true" signature="8542:9092" ph="update t_rec... " />
+            <marker date="1499504352000" expanded="true" signature="9314:10243" ph="update t_rec... " />
+            <marker date="1499504352000" expanded="true" signature="10353:10843" ph="update t_rec... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/recruitTechMasterMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1083">
+          <caret line="57" column="14" lean-forward="false" selection-start-line="57" selection-start-column="14" selection-end-line="57" selection-end-column="14" />
+          <folding>
+            <marker date="1499505133000" expanded="true" signature="1891:2116" ph="SELECT , cit... " />
+            <marker date="1499505133000" expanded="true" signature="1891:2636" ph="SELECT trtm.... t_recruit_tech_master" />
+            <marker date="1499505133000" expanded="true" signature="1891:3228" ph="SELECT trtm.... t_recruit_tech_master" />
+            <marker date="1499505133000" expanded="true" signature="3346:3472" ph="select from t_recruit_tech_master" />
+            <marker date="1499505133000" expanded="true" signature="3559:3629" ph="delete from " />
+            <marker date="1499505133000" expanded="true" signature="3777:4255" ph="insert into t_recruit_tech_master... " />
+            <marker date="1499505133000" expanded="true" signature="7293:8807" ph="update t_rec... " />
+            <marker date="1499505133000" expanded="true" signature="8916:9592" ph="update t_rec... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitBaseSkill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="28" />
+          <folding>
+            <element signature="e#1111#1112#0" expanded="true" />
+            <element signature="e#1187#1188#0" expanded="true" />
+            <element signature="e#1223#1224#0" expanded="true" />
+            <element signature="e#1255#1256#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/RecruitBaseSkillMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="76" lean-forward="false" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
+          <folding>
+            <marker date="1499506473000" expanded="true" signature="3226:3303" ph="SELECT from t_recruit_base_skill" />
+            <marker date="1499506473000" expanded="true" signature="3405:3666" ph="SELECT from t_recruit_base_skill" />
+            <marker date="1499506473000" expanded="true" signature="3776:3891" ph="select from t_recruit_base_skill" />
+            <marker date="1499506473000" expanded="true" signature="3975:4044" ph="delete from " />
+            <marker date="1499506473000" expanded="true" signature="4137:4399" ph="insert into t_recruit_base_skill... " />
+            <marker date="1499506473000" expanded="true" signature="5501:5802" ph="update t_rec... " />
+            <marker date="1499506473000" expanded="true" signature="6010:6279" ph="update t_rec... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/BaseSkillController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="24" column="48" lean-forward="false" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="3572">
-            <caret line="188" column="27" lean-forward="false" selection-start-line="188" selection-start-column="27" selection-end-line="188" selection-end-column="27" />
+          <first_editor relative-caret-position="12293">
+            <caret line="647" column="53" lean-forward="false" selection-start-line="647" selection-start-column="53" selection-end-line="647" selection-end-column="53" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.git/info/exclude">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/entity/RecruitTechMaster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="133">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="e#2800#2801#0" expanded="true" />
+            <element signature="e#2834#2835#0" expanded="true" />
+            <element signature="e#2888#2889#0" expanded="true" />
+            <element signature="e#2934#2935#0" expanded="true" />
+            <element signature="e#4562#4563#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#4666#4667#0" expanded="true" />
+            <element signature="e#4702#4703#0" expanded="true" />
+            <element signature="e#4776#4777#0" expanded="true" />
+            <element signature="e#4826#4827#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/soluo-recruit.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/EmployerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="15" />
+        <state relative-caret-position="304">
+          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/recruit/web/TechMasterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="899">
+          <caret line="111" column="6" lean-forward="true" selection-start-line="111" selection-start-column="6" selection-end-line="111" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1858,7 +1892,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited>Spring</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1897,7 +1931,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.47931033" />
                 <option value="0.6" />
               </list>
             </option>

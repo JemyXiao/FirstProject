@@ -23,7 +23,7 @@ soa-backup
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:
- # .idea/tasks.xml
+  .idea/workspace.xml
 # .idea/dictionaries
 
 # Sensitive or high-churn files:
