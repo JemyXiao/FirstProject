@@ -95,29 +95,8 @@
     <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.EmployerDetailEntity">
         update t_recruit_employer
         <set>
-            <if test="projectName != null">
-                issue_name = #{projectName,jdbcType=VARCHAR},
-            </if>
-            <if test="companyName != null">
-                company_name = #{companyName,jdbcType=VARCHAR},
-            </if>
-            <if test="trendComplete != null">
-                trend_complete = #{trendComplete,jdbcType=VARCHAR},
-            </if>
-            <if test="projectDesc != null">
-                project_desc = #{projectDesc,jdbcType=VARCHAR},
-            </if>
-            <if test="publisher != null">
-                publisher = #{publisher,jdbcType=VARCHAR},
-            </if>
-            <if test="status != null">
+            <if test="status != null and status!='' ">
                 status = #{status,jdbcType=VARCHAR},
-            </if>
-            <if test="createdAt != null">
-                created_at = #{createdAt,jdbcType=TIMESTAMP},
-            </if>
-            <if test="updatedAt != null">
-                updated_at = #{updatedAt,jdbcType=TIMESTAMP},
             </if>
         </set>
         where id = #{id,jdbcType=BIGINT}

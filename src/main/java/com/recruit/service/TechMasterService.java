@@ -31,4 +31,6 @@ public interface TechMasterService {
 
     List<RecruitTechMaster> selectAllMaster(Map map);
 
+    int checkTechMaster(Map map);
+
 }

@@ -1,6 +1,7 @@
 package com.recruit.entity.dto;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.recruit.common.validate.DV;
 
 import javax.persistence.Transient;
 import java.util.List;
@@ -14,6 +15,7 @@ public class EmployerDto {
     /**
      * 項目類型一级类型
      */
+    @DV(description = "项目类型")
     private Long businessParentId;
     /**
      * 项目类型二级类型
@@ -26,18 +28,22 @@ public class EmployerDto {
     /**
      * 项目名称
      */
+    @DV(description = "项目名称")
     private String projectName;
     /**
      * 项目描述
      */
+    @DV(description = "项目描述")
     private String projectDesc;
     /**
      * 价格预算
      */
+    @DV(description = "价格预算")
     private String projectBudget;
     /**
      * 项目周期
      */
+    @DV(description = "项目周期")
     private String projectCycle;
     /**
      * 公司名称
@@ -46,6 +52,7 @@ public class EmployerDto {
     /**
      * 倾向让谁完成项目
      */
+    @DV(description = "倾向让谁完成项目")
     private String trendComplete;
 
     /**

@@ -21,4 +21,6 @@ public interface EmployerService {
     List<EmpMasterMapperEntity> queryEmpMasterMap(EmpMasterMapperEntity record);
 
     int queryCountViewCount(EmployerDto record);
+
+    int checkEmp(Long id,String status);
 }

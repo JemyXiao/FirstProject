@@ -42,7 +42,7 @@
             ON mapping.skill_id = trbs.id
         </if>
         WHERE 1=1
-        <if test="status != null and status!=''">
+        <if test="status != null and status!='' ">
             and trtm.status = #{status}
         </if>
         <if test="cityId != null and cityId!=0">
@@ -55,7 +55,7 @@
             and trbs.skill_name LIKE CONCAT(CONCAT('%', #{queryParam}), '%')
         </if>
         <if test="id!=null and id!=0">
-           and trtm.id = #{id}
+            and trtm.id = #{id}
         </if>
         ORDER BY trtm.updated_at DESC
 
@@ -213,6 +213,11 @@
             </if>
         </set>
         where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="checkTechMaster" parameterType="map">
+          update t_recruit_tech_master
+          SET status = #{status,jdbcType=VARCHAR}
+          where id = #{id,jdbcType=BIGINT}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.recruit.entity.RecruitTechMaster">
     update t_recruit_tech_master

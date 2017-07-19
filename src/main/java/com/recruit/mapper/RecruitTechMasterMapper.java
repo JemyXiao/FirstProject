@@ -20,4 +20,6 @@ public interface RecruitTechMasterMapper {
     int updateByPrimaryKey(RecruitTechMaster record);
 
     List<RecruitTechMaster> selectAllMaster(Map map);
+
+    int checkTechMaster(Map map);
 }

@@ -135,4 +135,14 @@ public class TechMasterServiceImpl implements TechMasterService {
     public List<RecruitTechMaster> selectAllMaster(Map map) {
         return techMasterMapper.selectAllMaster(map);
     }
+
+    /**
+     * 用户审核
+     * @param map
+     * @return
+     */
+    @Override
+    public int checkTechMaster(Map map) {
+        return techMasterMapper.checkTechMaster(map);
+    }
 }

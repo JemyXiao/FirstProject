@@ -22,8 +22,7 @@ public class RecruitExceptionHandlerAdvice {
     public ResultModel exception(Exception ex) {
         logger.error("error happens", ex);
         ResultModel result = new ResultModel(400);
-        result.setError(ex.getMessage());
-        result.setMessage("error: " + ex.getMessage());
+        result.setMessage(ex.getMessage());
 //        MailContract mailContract = new MailContract();
 //        mailContract.setTo(new String[]{"jinming.xiao@ele.me"});
 //        mailSenderHelper.sendMail(mailContract,"erro");

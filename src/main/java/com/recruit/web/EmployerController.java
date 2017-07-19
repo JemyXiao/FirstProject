@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.recruit.common.aop.Operation;
+import com.recruit.common.validate.ValidateService;
 import com.recruit.entity.EmployerBasic;
 import com.recruit.entity.EmployerDetailEntity;
 import com.recruit.entity.ResultModel;
@@ -29,7 +30,8 @@ public class EmployerController {
     private EmployerService employerService;
 
     @RequestMapping(value = "/employer/add", method = RequestMethod.POST)
-    public ResultModel save(@RequestBody EmployerDto record) {
+    public ResultModel save(@RequestBody EmployerDto record) throws Exception {
+        ValidateService.valid(record);
         employerService.addEmployer(record);
         return new ResultModel(200, JSON.toJSON(ErrorCode.OK));
     }

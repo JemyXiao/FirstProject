@@ -11,9 +11,12 @@ this is my first project
               | status           |    是     |  状态(默认待审核)                               |
               | businessParentId |    否     |  类型查询参数                    |
               | pageNumber       |    否     |  分页                                  |
-              | pageSize         |    否     |  分页                                  |
-        返回数据： 
-      {
+              | pageSize         |    否     |  分页  
+                                              
+                                             |
+         
+         返回数据： 
+          {
           "code": 200,
           "data": {
               "rows": [
@@ -713,3 +716,250 @@ this is my first project
                                                        "updatedAt": null
                                                    }
                                                }
+                                               
+                                               
+                                              
+12.任务列表查询
+                    
+                    链接：/admin/queryEmpList
+                                                             
+                         请求类型:GET 
+                                         
+                         参数:      | name             |  是否必须    |  描述                                   |
+                                   | -----------      | ---------  | ------------------------------------- |
+                                   | status           |    是      |     列表状态()                                  |
+                                   | pageNumber       |    是      |     分页                                  |
+                                   | pageSize         |    是      |     分页                               
+                       返回数据： 
+                                 {
+                                 "code": 200,
+                                 "data": {
+                                     "rows": [
+                                         {
+                                             "id": 7,
+                                             "openId": null,
+                                             "projectBudget": 5000,
+                                             "projectName": "母鸡啊",
+                                             "status": "待审核",
+                                             "businessId": 2,
+                                             "businessParentId": 1,
+                                             "baseSkills": [],
+                                             "recruitBusiness": {
+                                                 "id": 2,
+                                                 "businessName": "室内设计",
+                                                 "businessCode": "10001",
+                                                 "parentId": 1,
+                                                 "children": null,
+                                                 "parentBusiness": {
+                                                     "id": 1,
+                                                     "businessName": "设计",
+                                                     "businessCode": "100",
+                                                     "parentId": 0,
+                                                     "children": null,
+                                                     "parentBusiness": null,
+                                                     "createdAt": 1498015320000,
+                                                     "updatedAt": 1498015320000
+                                                 },
+                                                 "createdAt": 1498015336000,
+                                                 "updatedAt": 1498015336000
+                                             },
+                                             "visitCount": 4,
+                                             "applyCount": 0,
+                                             "recommendCount": 0,
+                                             "createdAt": 1498828386000,
+                                             "updatedAt": 1498829672000
+                                         },
+                                         {
+                                             "id": 6,
+                                             "openId": null,
+                                             "projectBudget": 0,
+                                             "projectName": "母鸡啊",
+                                             "status": "待审核",
+                                             "businessId": 2,
+                                             "businessParentId": 1,
+                                             "baseSkills": [],
+                                             "recruitBusiness": {
+                                                 "id": 2,
+                                                 "businessName": "室内设计",
+                                                 "businessCode": "10001",
+                                                 "parentId": 1,
+                                                 "children": null,
+                                                 "parentBusiness": {
+                                                     "id": 1,
+                                                     "businessName": "设计",
+                                                     "businessCode": "100",
+                                                     "parentId": 0,
+                                                     "children": null,
+                                                     "parentBusiness": null,
+                                                     "createdAt": 1498015320000,
+                                                     "updatedAt": 1498015320000
+                                                 },
+                                                 "createdAt": 1498015336000,
+                                                 "updatedAt": 1498015336000
+                                             },
+                                             "visitCount": 0,
+                                             "applyCount": 0,
+                                             "recommendCount": 0,
+                                             "createdAt": 1498827445000,
+                                             "updatedAt": 1498827445000
+                                         },
+                                         {
+                                             "id": 3,
+                                             "openId": null,
+                                             "projectBudget": 0,
+                                             "projectName": "测试发布项目",
+                                             "status": "待审核",
+                                             "businessId": 5,
+                                             "businessParentId": 6,
+                                             "baseSkills": [
+                                                 {
+                                                     "id": 2,
+                                                     "skillName": "室内设计",
+                                                     "createdAt": null,
+                                                     "updatedAt": null,
+                                                     "skillCode": "10001"
+                                                 },
+                                                 {
+                                                     "id": 3,
+                                                     "skillName": "室外实际",
+                                                     "createdAt": null,
+                                                     "updatedAt": null,
+                                                     "skillCode": "10002"
+                                                 },
+                                                 {
+                                                     "id": 5,
+                                                     "skillName": "室内摄影",
+                                                     "createdAt": null,
+                                                     "updatedAt": null,
+                                                     "skillCode": "20001"
+                                                 }
+                                             ],
+                                             "recruitBusiness": {
+                                                 "id": 5,
+                                                 "businessName": "室内摄影",
+                                                 "businessCode": "20001",
+                                                 "parentId": 4,
+                                                 "children": null,
+                                                 "parentBusiness": {
+                                                     "id": 6,
+                                                     "businessName": "室外摄影",
+                                                     "businessCode": "20001",
+                                                     "parentId": 4,
+                                                     "children": null,
+                                                     "parentBusiness": null,
+                                                     "createdAt": 1498584026000,
+                                                     "updatedAt": 1498584026000
+                                                 },
+                                                 "createdAt": 1498584026000,
+                                                 "updatedAt": 1498584026000
+                                             },
+                                             "visitCount": 0,
+                                             "applyCount": 0,
+                                             "recommendCount": 0,
+                                             "createdAt": 1498670647000,
+                                             "updatedAt": 1498810101000
+                                         }
+                                     ],
+                                     "total": 5
+                                 }
+                             }
+                         
+13.用户详情接口               
+                  
+                   链接：/admin/detailEmp
+                                                                               
+                   请求类型:GET 
+                                   
+                   参数:      | name             |  是否必须    |  描述                                   |
+                             | -----------      | ---------  | ------------------------------------- |
+                             | id                |    是          任务id                             | 
+                                                                 
+                                                                                         
+                    
+                    返回数据： 
+                               {
+                                   "code": 200,
+                                   "data": {
+                                       "id": 7,
+                                       "openId": null,
+                                       "projectBudget": 5000,
+                                       "projectName": "母鸡啊",
+                                       "status": "待审核",
+                                       "businessId": 2,
+                                       "businessParentId": 1,
+                                       "baseSkills": [
+                                           {
+                                               "id": 1,
+                                               "skillName": "软件开发",
+                                               "createdAt": null,
+                                               "updatedAt": null,
+                                               "skillCode": "100"
+                                           },
+                                           {
+                                               "id": 2,
+                                               "skillName": "网站设计",
+                                               "createdAt": null,
+                                               "updatedAt": null,
+                                               "skillCode": "101"
+                                           },
+                                           {
+                                               "id": 3,
+                                               "skillName": "室内装潢",
+                                               "createdAt": null,
+                                               "updatedAt": null,
+                                               "skillCode": "201"
+                                           }
+                                       ],
+                                       "recruitBusiness": {
+                                           "id": 2,
+                                           "businessName": "室内设计",
+                                           "businessCode": "10001",
+                                           "parentId": 1,
+                                           "children": null,
+                                           "parentBusiness": {
+                                               "id": 1,
+                                               "businessName": "设计",
+                                               "businessCode": "100",
+                                               "parentId": 0,
+                                               "children": null,
+                                               "parentBusiness": null,
+                                               "createdAt": 1498015320000,
+                                               "updatedAt": 1498015320000
+                                           },
+                                           "createdAt": 1498015336000,
+                                           "updatedAt": 1498015336000
+                                       },
+                                       "visitCount": 4,
+                                       "applyCount": 0,
+                                       "recommendCount": 0,
+                                       "createdAt": 1498828386000,
+                                       "updatedAt": 1498829672000,
+                                       "companyName": "上海",
+                                       "trendComplete": "company",
+                                       "projectDesc": "缝纫机啊",
+                                       "publisher": "",
+                                       "phone": null,
+                                       "projectCycle": "一周以内"
+                                   }
+                               }
+14.任务审核接口
+              
+              
+               链接：/admin/checkEmp
+                                                                                             
+                                 请求类型:GET 
+                                                 
+                                 参数:      | name             |  是否必须    |  描述                                   |
+                                           | -----------      | ---------  | ------------------------------------- |
+                                           | id                |    是          任务id                             | 
+                                           | status           |    是      |    审核状态(通过，不通过)                                 |                                     
+               
+                               
+                               
+                               返回数据：
+                                         {
+                                           "code":200,
+                                           "data":"操作成功"
+                                         }
+                               
+                               

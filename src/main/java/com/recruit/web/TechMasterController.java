@@ -120,7 +120,7 @@ public class TechMasterController {
      * todo
      */
     @RequestMapping(value = "/techMaster/queryMasterDetail", method = RequestMethod.GET)
-    public ResultModel queryEmployerDetail(HttpServletRequest request) {
+    public ResultModel queryMasterDetail(HttpServletRequest request) {
         Long id = 1L;
         if (!StringUtils.isEmpty(request.getParameter("id"))) {
             id = Long.valueOf(request.getParameter("id"));

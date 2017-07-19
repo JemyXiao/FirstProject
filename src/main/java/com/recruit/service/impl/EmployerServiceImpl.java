@@ -83,4 +83,17 @@ public class EmployerServiceImpl implements EmployerService {
     public int queryCountViewCount(EmployerDto record) {
         return employerMapper.queryCountViewCount(record);
     }
+
+    /**
+     * 审核任务
+     * @param id
+     * @return
+     */
+    @Override
+    public int checkEmp(Long id,String status) {
+        EmployerDetailEntity record = new EmployerDetailEntity();
+        record.setStatus(status);
+        record.setId(id);
+        return employerMapper.updateByPrimaryKeySelective(record);
+    }
 }

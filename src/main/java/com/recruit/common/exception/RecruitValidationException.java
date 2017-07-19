@@ -13,6 +13,30 @@ public class RecruitValidationException extends RuntimeException {
         this.data = data;
     }
 
+    public RecruitValidationException() {
+        super();
+    }
+
+    public RecruitValidationException(String message) {
+        super(message);
+    }
+
+    public int getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
     public RecruitValidationException(String message, int errorCode, Object data) {
         super(message);
         this.errorCode = errorCode;
