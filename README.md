@@ -962,4 +962,140 @@ this is my first project
                                            "data":"操作成功"
                                          }
                                
+                          
+15.用户列表接口
                                
+                          链接：/admin/queryMasterList
+                                                                                    
+                            请求类型:GET 
+                                            
+                            参数:      | name             |  是否必须    |  描述                                   |
+                                      | -----------      | ---------  | ------------------------------------- |
+                                      | status           |    是      |     用户状态()                                  |
+                                      | pageNumber       |    是      |     分页                                  |
+                                      | pageSize         |    是      |     分页     
+                                      
+                                      
+                                      返回参数：
+                                      
+                                           {
+                                               "code": 200,
+                                               "data": {
+                                                   "rows": [
+                                                       {
+                                                           "industryName": "智能硬件",
+                                                           "nickName": "jinming.xiao",
+                                                           "openId": null,
+                                                           "jobTitle": "woaini,woow",
+                                                           "sex": "MAN",
+                                                           "workExperience": "5",
+                                                           "selfIntroduction": null,
+                                                           "worksCases": null,
+                                                           "cityId": 1,
+                                                           "skills": null,
+                                                           "createdAt": null,
+                                                           "score": null,
+                                                           "industryId": 1,
+                                                           "areaId": null,
+                                                           "cityName": "上海",
+                                                           "phone": "12345678912",
+                                                           "dailyWage": "500",
+                                                           "id": 5,
+                                                           "jobType": null,
+                                                           "status": "待审核",
+                                                           "updatedAt": null
+                                                       }
+                                                   ],
+                                                   "total": 1
+                                               }
+                                           } 
+16.用户详情接口
+
+               链接：/admin/queryMasterDetail
+                
+               请求类型:GET 
+                                                  
+                  参数:      | name             |  是否必须    |  描述                                   |
+                            | -----------      | ---------  | ------------------------------------- |
+                            | id                |    是          用户id                             | 
+                   
+                返回数据：
+                       {
+                           "code": 200,
+                           "data": {
+                               "id": 1,
+                               "nickName": "dsds",
+                               "openId": null,
+                               "dailyWage": "1233",
+                               "cityId": 1,
+                               "cityName": "上海",
+                               "areaId": null,
+                               "sex": "MAN",
+                               "status": "待审核",
+                               "jobTitle": "woaini,woow",
+                               "recruitType": null,
+                               "workExperience": "yuuoo",
+                               "phone": "276343422",
+                               "score": null,
+                               "selfIntroduction": "woaid",
+                               "skills": null,
+                               "industryId": 2,
+                               "industryName": "互联网产业",
+                               "worksCases": [
+                                   {
+                                       "id": 6,
+                                       "workName": "aiai",
+                                       "responsibilities": "rere",
+                                       "worksLink": "www.rer",
+                                       "worksDesc": "woaini"
+                                   }
+                               ],
+                               "baseSkillList": [
+                                   {
+                                       "id": 1,
+                                       "skillName": "软件开发",
+                                       "createdAt": 1498377131000,
+                                       "updatedAt": 1498377131000,
+                                       "skillCode": "100"
+                                   },
+                                   {
+                                       "id": 2,
+                                       "skillName": "网站设计",
+                                       "createdAt": 1498377131000,
+                                       "updatedAt": 1498377131000,
+                                       "skillCode": "101"
+                                   },
+                                   {
+                                       "id": 3,
+                                       "skillName": "室内装潢",
+                                       "createdAt": 1498377131000,
+                                       "updatedAt": 1498444679000,
+                                       "skillCode": "201"
+                                   }
+                               ],
+                               "createdAt": null,
+                               "updatedAt": null
+                           }
+                       } 
+                                      
+                                      
+                                      
+17.用户审核接口
+ 
+ 
+        链接：/admin/checkMaster
+                                                                                                    
+            请求类型:GET 
+                            
+            参数:      | name             |  是否必须    |  描述                                   |
+                      | -----------      | ---------  | ------------------------------------- |
+                      | id                |    是          任务id                             | 
+                      | status           |    是      |    审核状态(通过，不通过)                                 |    
+                      
+                      
+         返回数据：
+                   {
+                     "code":200,
+                     "data":"操作成功"
+                   }
+              

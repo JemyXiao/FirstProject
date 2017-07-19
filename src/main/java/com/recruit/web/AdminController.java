@@ -68,7 +68,7 @@ public class AdminController {
     /**
      * 用户列表查询
      */
-    @GetMapping("queryMasterList")
+    @GetMapping("/queryMasterList")
     public ResultModel queryMasterList(HttpServletRequest request) {
         int pageSize = Integer.parseInt(request.getParameter("pageSize"));
         int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
@@ -84,7 +84,7 @@ public class AdminController {
     /**
      * 用户详情查询
      */
-    @GetMapping("queryMasterDetail")
+    @GetMapping("/queryMasterDetail")
     public ResultModel queryMasterDetail(HttpServletRequest request) {
         Long id = Long.valueOf(request.getParameter("id"));
         RecruitTechMaster master = techMasterService.getTechMasterById(id);
@@ -93,7 +93,7 @@ public class AdminController {
     /**
      * 用户审核
      */
-    @GetMapping("checkMaster")
+    @GetMapping("/checkMaster")
     public ResultModel checkMaster(HttpServletRequest request) {
         Long id = Long.valueOf(request.getParameter("id"));
         String status = request.getParameter("status");
