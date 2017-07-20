@@ -28,4 +28,8 @@ public interface RecruitIndustryMapper {
     int updateByPrimaryKeySelective(RecruitIndustry record);
 
     int updateByPrimaryKey(RecruitIndustry record);
+
+    long selectMaxCode();
+
+    RecruitIndustry selectIndustry(String industryName);
 }

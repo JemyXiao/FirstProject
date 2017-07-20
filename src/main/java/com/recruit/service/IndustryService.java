@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface IndustryService {
     List<RecruitIndustry> queryAllIndustry();
+
+    int insert(RecruitIndustry recruitIndustry);
 }

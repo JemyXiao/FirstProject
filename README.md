@@ -1098,4 +1098,264 @@ this is my first project
                      "code":200,
                      "data":"操作成功"
                    }
-              
+
+18.城市列表接口 
+             
+             链接：/admin/queryCityList
+                                                                          
+              请求类型:GET 
+                              
+              参数:      | name             |  是否必须    |  描述                                   |
+                        | -----------      | ---------  | ------------------------------------- |
+                        | pageNumber       |    是      |     分页                                  |
+                        | pageSize         |    是      |     分页                               
+              返回数据： 
+                        {
+                               "code": 200,
+                               "data": [
+                                 
+                                 "rows":[  
+                                  
+                                 {
+                                       "id": 1,
+                                       "cityName": "上海",
+                                       "hotTop": 10,
+                                       "createdAt": 1498376435000,
+                                       "updatedAt": 1498376435000,
+                                       "cityCode": "100"
+                                   },
+                                   {
+                                       "id": 2,
+                                       "cityName": "北京",
+                                       "hotTop": 10,
+                                       "createdAt": 1498376435000,
+                                       "updatedAt": 1498376435000,
+                                       "cityCode": "101"
+                                   },
+                                   {
+                                       "id": 3,
+                                       "cityName": "珠海",
+                                       "hotTop": 10,
+                                       "createdAt": 1498376435000,
+                                       "updatedAt": 1498376435000,
+                                       "cityCode": "102"
+                                   },
+                                   {
+                                       "id": 4,
+                                       "cityName": "广州",
+                                       "hotTop": 10,
+                                       "createdAt": 1498376435000,
+                                       "updatedAt": 1498376435000,
+                                       "cityCode": "103"
+                                   },
+                                   {
+                                       "id": 5,
+                                       "cityName": "哈尔滨",
+                                       "hotTop": 0,
+                                       "createdAt": 1498376435000,
+                                       "updatedAt": 1498376435000,
+                                       "cityCode": "104"
+                                   }],
+                                   "total": 5
+                               ]
+                       }
+                       
+                       
+19.城市列表接口 
+ 
+                     链接：/admin/addCity
+                                                                                              
+                     请求类型:POST
+                      
+                     请求参数：
+                           {
+                             "cityName":"上海",
+                             "hotTop":10
+                           }
+                      返回数据：
+                           {
+                             "code":200,
+                             "data":"添加成功"
+                           }
+                           
+20.行业列表接口
+                  
+                     链接：/admin/queryAllIndustry
+
+                     请求类型:GET
+                     参数:        
+                             | name             |  是否必须    |  描述                                   |
+                             | -----------      | ---------  | ------------------------------------- |
+                             | pageNumber       |    是      |     分页                                  |
+                             | pageSize         |    是      |     分页                               
+                     
+                     返回数据：  
+                        {
+                          "code": 200,
+                           "rows":[
+                                "data": [
+                              {
+                                  "id": 1,
+                                  "industryCode": 100,
+                                  "industryName": "智能硬件",
+                                  "createdAt": 1499395796000,
+                                  "updatedAt": 1499395796000
+                              },
+                              {
+                                  "id": 2,
+                                  "industryCode": 101,
+                                  "industryName": "互联网产业",
+                                  "createdAt": 1499395797000,
+                                  "updatedAt": 1499395797000
+                              },
+                              {
+                                  "id": 3,
+                                  "industryCode": 102,
+                                  "industryName": "商业零售",
+                                  "createdAt": 1499395797000,
+                                  "updatedAt": 1499395797000
+                              },
+                              {
+                                  "id": 4,
+                                  "industryCode": 103,
+                                  "industryName": "文化娱乐",
+                                  "createdAt": 1499395797000,
+                                  "updatedAt": 1499395797000
+                              },
+                              {
+                                  "id": 5,
+                                  "industryCode": 104,
+                                  "industryName": "共享经济",
+                                  "createdAt": 1499395797000,
+                                  "updatedAt": 1499395797000
+                              },
+                              {
+                                  "id": 6,
+                                  "industryCode": 105,
+                                  "industryName": "快消品",
+                                  "createdAt": 1499395797000,
+                                  "updatedAt": 1499395797000
+                              },
+                              {
+                                  "id": 7,
+                                  "industryCode": 106,
+                                  "industryName": "服装",
+                                  "createdAt": 1499395797000,
+                                  "updatedAt": 1499395797000
+                              },
+                              {
+                                  "id": 8,
+                                  "industryCode": 107,
+                                  "industryName": "美食餐饮",
+                                  "createdAt": 1499395797000,
+                                  "updatedAt": 1499395797000
+                              },
+                              {
+                                  "id": 9,
+                                  "industryCode": 108,
+                                  "industryName": "美容医疗",
+                                  "createdAt": 1499395797000,
+                                  "updatedAt": 1499395797000
+                              },
+                              {
+                                  "id": 10,
+                                  "industryCode": 109,
+                                  "industryName": "共享经济",
+                                  "createdAt": 1499395797000,
+                                  "updatedAt": 1499395797000
+                              },
+                              {
+                                  "id": 11,
+                                  "industryCode": 110,
+                                  "industryName": "家具建材",
+                                  "createdAt": 1499395797000,
+                                  "updatedAt": 1499395797000
+                              }
+                          ],
+                          "total":10
+                          
+                      }
+                      
+21.行业新增接口
+
+    链接：/admin/addCity
+                                                                                                 
+    请求类型:POST
+     
+    请求参数：
+          {
+            "industryName":"金属机械"
+          }
+     返回数据：
+          {
+            "code":200,
+            "data":"添加成功"
+          }
+               
+22.技能查询列表接口
+  
+     链接：/admin/getAllIndustry
+    
+     请求类型:GET
+     
+     参数:        
+             | name             |  是否必须    |  描述                                   |
+             | -----------      | ---------  | ------------------------------------- |
+             | pageNumber       |    是      |     分页                                  |
+             | pageSize         |    是      |     分页                               
+     返回数据：
+                           
+           {
+               "code": 200,
+               "data": {
+                   "rows": [
+                       {
+                           "skillName": "Photoshop ",
+                           "skillType": "设计",
+                           "skillCode": 100,
+                           "id": 1
+                       },
+                       {
+                           "skillName": "illusrator",
+                           "skillType": "设计",
+                           "skillCode": 101,
+                           "id": 2
+                       },
+                       {
+                           "skillName": "平面设计",
+                           "skillType": "设计",
+                           "skillCode": 102,
+                           "id": 3
+                       },
+                       {
+                           "skillName": "标志设计",
+                           "skillType": "设计",
+                           "skillCode": 103,
+                           "id": 4
+                       },
+                       {
+                           "skillName": "VI设计",
+                           "skillType": "设计",
+                           "skillCode": 104,
+                           "id": 5
+                       }
+                   ],
+                   "total": 22
+               }
+           }
+           
+23.技能新增接口
+  
+      链接：/admin/addSkill
+                                                                                                   
+      请求类型:POST
+       
+      请求参数：
+            {
+              "skillName":"软件工程"
+            }
+       返回数据：
+            {
+              "code":200,
+              "data":"添加成功"
+            }         

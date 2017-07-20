@@ -7,7 +7,7 @@
     <result column="hot_top" property="hotTop" jdbcType="INTEGER" />
     <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
     <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
-    <result column="city_code" property="cityCode" jdbcType="VARCHAR" />
+    <result column="city_code" property="cityCode" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -95,6 +95,21 @@
     from t_recruit_city
     where id = #{id,jdbcType=BIGINT}
   </select>
+  <select id="selectCityBySelect" parameterType="com.recruit.entity.RecruitCity" resultType="com.recruit.entity.RecruitCity">
+    SELECT
+    <include refid="Base_Column_List"/>
+    from t_recruit_city
+    WHERE 1=1
+    <if test="cityName!=null and cityName!=''">
+     and city_name = #{cityName}
+    </if>
+  </select>
+
+  <select id="maxCityCode" resultType="Long">
+    SELECT max(city_code)+1
+    FROM t_recruit_city
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from t_recruit_city
     where id = #{id,jdbcType=BIGINT}
@@ -106,11 +121,8 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.recruit.entity.RecruitCity" >
-    insert into t_recruit_city (id, city_name, hot_top, 
-      created_at, updated_at, city_code
-      )
-    values (#{id,jdbcType=BIGINT}, #{cityName,jdbcType=VARCHAR}, #{hotTop,jdbcType=INTEGER}, 
-      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{cityCode,jdbcType=VARCHAR}
+    insert into t_recruit_city (city_name, city_code,hot_top)
+    values (#{cityName,jdbcType=VARCHAR}, #{cityCode,jdbcType=BIGINT},#{hotTop,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.recruit.entity.RecruitCity" >
@@ -152,7 +164,7 @@
         #{updatedAt,jdbcType=TIMESTAMP},
       </if>
       <if test="cityCode != null" >
-        #{cityCode,jdbcType=VARCHAR},
+        #{cityCode,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -181,7 +193,7 @@
         updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
       </if>
       <if test="record.cityCode != null" >
-        city_code = #{record.cityCode,jdbcType=VARCHAR},
+        city_code = #{record.cityCode,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -216,7 +228,7 @@
         updated_at = #{updatedAt,jdbcType=TIMESTAMP},
       </if>
       <if test="cityCode != null" >
-        city_code = #{cityCode,jdbcType=VARCHAR},
+        city_code = #{cityCode,jdbcType=BIGINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -227,7 +239,7 @@
       hot_top = #{hotTop,jdbcType=INTEGER},
       created_at = #{createdAt,jdbcType=TIMESTAMP},
       updated_at = #{updatedAt,jdbcType=TIMESTAMP},
-      city_code = #{cityCode,jdbcType=VARCHAR}
+      city_code = #{cityCode,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

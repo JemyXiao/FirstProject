@@ -21,4 +21,8 @@ public interface RecruitBaseSkillMapper {
     int updateByPrimaryKeySelective(RecruitBaseSkill record);
 
     int updateByPrimaryKey(RecruitBaseSkill record);
+
+    long maxSkillCode(String skillType);
+
+    RecruitBaseSkill selectBySelect(RecruitBaseSkill record);
 }

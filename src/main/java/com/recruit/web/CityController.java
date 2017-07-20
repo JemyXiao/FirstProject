@@ -1,6 +1,5 @@
 package com.recruit.web;
 
-import com.recruit.common.aop.Operation;
 import com.recruit.entity.RecruitCity;
 import com.recruit.entity.ResultModel;
 import com.recruit.service.CityService;

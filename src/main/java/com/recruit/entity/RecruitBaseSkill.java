@@ -1,9 +1,13 @@
 package com.recruit.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.Date;
 
+@Data
 public class RecruitBaseSkill {
     private Long id;
 
@@ -13,56 +17,15 @@ public class RecruitBaseSkill {
 
     @JSONField(serialize = false)
     private Date createdAt;
+
     @JSONField(serialize = false)
     private Date updatedAt;
 
-    private String skillCode;
+    private Long skillCode;
 
-    public Long getId() {
-        return id;
+    public RecruitBaseSkill(String skillName) {
+        this.skillName = skillName;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getSkillName() {
-        return skillName;
-    }
-
-    public void setSkillName(String skillName) {
-        this.skillName = skillName == null ? null : skillName.trim();
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getSkillCode() {
-        return skillCode;
-    }
-
-    public void setSkillCode(String skillCode) {
-        this.skillCode = skillCode == null ? null : skillCode.trim();
-    }
-
-    public String getSkillType() {
-        return skillType;
-    }
-
-    public void setSkillType(String skillType) {
-        this.skillType = skillType;
+    public RecruitBaseSkill() {
     }
 }

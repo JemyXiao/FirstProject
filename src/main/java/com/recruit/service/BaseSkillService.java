@@ -10,6 +10,12 @@ import java.util.Map;
  * Created by jmx on 2017/6/24.
  */
 public interface BaseSkillService {
+
     List<RecruitBaseSkill> getBaseSkillInfo();
+
     List<RecruitBaseSkill> getBaseSkillInfo(Long id);
+
+    int insert(RecruitBaseSkill record);
+
+    int delete(Long id);
 }

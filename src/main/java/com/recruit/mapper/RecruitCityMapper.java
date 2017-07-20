@@ -30,4 +30,8 @@ public interface RecruitCityMapper {
     int updateByPrimaryKeySelective(RecruitCity record);
 
     int updateByPrimaryKey(RecruitCity record);
+
+    RecruitCity selectCityBySelect(RecruitCity record);
+
+    Long maxCityCode();
 }

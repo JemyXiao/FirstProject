@@ -1,9 +1,10 @@
 package com.recruit.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Data;
 
 import java.util.Date;
-
+@Data
 public class RecruitCity {
     private Long id;
 
@@ -15,53 +16,12 @@ public class RecruitCity {
     @JSONField(serialize = false)
     private Date updatedAt;
 
-    private String cityCode;
+    private Long cityCode;
 
-    public Long getId() {
-        return id;
+    public RecruitCity() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName == null ? null : cityName.trim();
-    }
-
-    public Integer getHotTop() {
-        return hotTop;
-    }
-
-    public void setHotTop(Integer hotTop) {
-        this.hotTop = hotTop;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getCityCode() {
-        return cityCode;
-    }
-
-    public void setCityCode(String cityCode) {
-        this.cityCode = cityCode == null ? null : cityCode.trim();
+    public RecruitCity(String cityName) {
+        this.cityName = cityName;
     }
 }

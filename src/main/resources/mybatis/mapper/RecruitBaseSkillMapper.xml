@@ -7,7 +7,7 @@
     <result column="skill_type" property="skillType" jdbcType="VARCHAR" />
     <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
     <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
-    <result column="skill_code" property="skillCode" jdbcType="VARCHAR" />
+    <result column="skill_code" property="skillCode" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -89,16 +89,22 @@
     from t_recruit_base_skill
     where id = #{id,jdbcType=BIGINT}
   </select>
+ <select id="maxSkillCode" parameterType="string" resultType="Long">
+   SELECT  max(skill_code)+1
+   FROM t_recruit_base_skill
+   WHERE skill_type = #{skillType,jdbcType=VARCHAR}
+ </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from t_recruit_base_skill
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
   <insert id="insert" parameterType="com.recruit.entity.RecruitBaseSkill" >
-    insert into t_recruit_base_skill (id, skill_name, created_at, 
-      updated_at, skill_code)
-    values (#{id,jdbcType=BIGINT}, #{skillName,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
-      #{updatedAt,jdbcType=TIMESTAMP}, #{skillCode,jdbcType=VARCHAR})
+    insert into t_recruit_base_skill (skill_name, skill_code,skill_type)
+    values (#{skillName,jdbcType=VARCHAR} ,#{skillCode,jdbcType=BIGINT},#{skillType,jdbcType=VARCHAR})
   </insert>
+
   <insert id="insertSelective" parameterType="com.recruit.entity.RecruitBaseSkill" >
     insert into t_recruit_base_skill
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -132,7 +138,7 @@
         #{updatedAt,jdbcType=TIMESTAMP},
       </if>
       <if test="skillCode != null" >
-        #{skillCode,jdbcType=VARCHAR},
+        #{skillCode,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -142,7 +148,7 @@
       skill_name = #{record.skillName,jdbcType=VARCHAR},
       created_at = #{record.createdAt,jdbcType=TIMESTAMP},
       updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
-      skill_code = #{record.skillCode,jdbcType=VARCHAR}
+      skill_code = #{record.skillCode,jdbcType=BIGINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -152,7 +158,23 @@
     set skill_name = #{skillName,jdbcType=VARCHAR},
       created_at = #{createdAt,jdbcType=TIMESTAMP},
       updated_at = #{updatedAt,jdbcType=TIMESTAMP},
-      skill_code = #{skillCode,jdbcType=VARCHAR}
+      skill_code = #{skillCode,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectBySelect" parameterType="com.recruit.entity.RecruitBaseSkill" resultType="com.recruit.entity.RecruitBaseSkill">
+    SELECT
+    <include refid="Base_Column_List" />
+    from t_recruit_base_skill
+    WHERE 1=1
+    <if test="skillName!=null and skillName!=''">
+      and skill_name = #{skillName}
+    </if>
+    <if test="skillType!=null and skillType!=''">
+      and skill_type = #{skillType}
+    </if>
+    <if test="skillCode!=null and skillCode!=0 ">
+      and skill_code = #{skillCode}
+    </if>
+  </select>
 </mapper>

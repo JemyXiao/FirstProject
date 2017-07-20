@@ -3,20 +3,17 @@ package com.recruit.web;
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.recruit.entity.EmployerDetailEntity;
-import com.recruit.entity.RecruitTechMaster;
-import com.recruit.entity.ResultModel;
+import com.recruit.entity.*;
 import com.recruit.entity.dto.EmployerDto;
-import com.recruit.service.EmployerService;
-import com.recruit.service.TechMasterService;
+import com.recruit.service.*;
 import com.recruit.util.ErrorCode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,6 +29,15 @@ public class AdminController {
 
     @Autowired
     private TechMasterService techMasterService;
+
+    @Autowired
+    private BaseSkillService baseSkillService;
+
+    @Autowired
+    private CityService cityService;
+
+    @Autowired
+    private IndustryService industryService;
 
     /**
      * 任务列表查询
@@ -81,6 +87,7 @@ public class AdminController {
         mapResult.put("total", pageInfo.getTotal());
         return new ResultModel(200, JSON.toJSON(mapResult));
     }
+
     /**
      * 用户详情查询
      */
@@ -90,6 +97,7 @@ public class AdminController {
         RecruitTechMaster master = techMasterService.getTechMasterById(id);
         return new ResultModel(200, master);
     }
+
     /**
      * 用户审核
      */
@@ -97,10 +105,90 @@ public class AdminController {
     public ResultModel checkMaster(HttpServletRequest request) {
         Long id = Long.valueOf(request.getParameter("id"));
         String status = request.getParameter("status");
-        Map<String,Object> map = new HashMap<>();
-        map.put("id",id);
-        map.put("status",status);
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", id);
+        map.put("status", status);
         techMasterService.checkTechMaster(map);
         return new ResultModel(200, JSON.toJSON(ErrorCode.OK));
     }
+
+    /**
+     * 技能新增
+     */
+    @PostMapping(value = "/addSkill")
+    public ResultModel addSkill(@RequestBody RecruitBaseSkill record) {
+        baseSkillService.insert(record);
+        return new ResultModel(200, JSON.toJSON(ErrorCode.OK));
+    }
+
+    /**
+     * 技能删除
+     */
+    @GetMapping("/deleteSkill")
+    public ResultModel deleteSkill(HttpServletRequest request) {
+        Long id = Long.parseLong(request.getParameter("id"));
+        baseSkillService.delete(id);
+        return new ResultModel(200, JSON.toJSON(ErrorCode.DELETE_OK));
+    }
+
+    /**
+     * 技能查询
+     */
+    @GetMapping("/querySkillList")
+    public ResultModel querySkillList(HttpServletRequest request) {
+        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+        int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+        PageInfo pageInfo = PageHelper.startPage(pageNumber, pageSize).doSelectPageInfo(() -> baseSkillService.getBaseSkillInfo());
+        Map<String, Object> mapResult = new LinkedHashMap<>();
+        mapResult.put("rows", pageInfo.getList());
+        mapResult.put("total", pageInfo.getTotal());
+        return new ResultModel(200, JSON.toJSON(mapResult));
+    }
+
+    /**
+     * 城市列表
+     */
+    @GetMapping("/queryCityList")
+    public ResultModel queryCityList(HttpServletRequest request) {
+        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+        int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+        PageInfo pageInfo = PageHelper.startPage(pageNumber, pageSize).doSelectPageInfo(() -> cityService.getAllCity());
+        Map<String, Object> mapResult = new LinkedHashMap<>();
+        mapResult.put("rows", pageInfo.getList());
+        mapResult.put("total", pageInfo.getTotal());
+        return new ResultModel(200, JSON.toJSON(mapResult));
+    }
+
+    /**
+     * 新增城市
+     */
+    @GetMapping("/addCity")
+    public ResultModel addCity(@RequestBody RecruitCity record) {
+        cityService.insert(record);
+        return new ResultModel(200, JSON.toJSON(ErrorCode.INSERT_OK));
+    }
+
+    /**
+     * 行业查询
+     */
+    @GetMapping("/queryAllIndustry")
+    public ResultModel queryAllIndustry(HttpServletRequest request) {
+        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+        int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+        PageInfo pageInfo = PageHelper.startPage(pageNumber, pageSize).doSelectPageInfo(() -> industryService.queryAllIndustry());
+        Map<String, Object> mapResult = new LinkedHashMap<>();
+        mapResult.put("rows", pageInfo.getList());
+        mapResult.put("total", pageInfo.getTotal());
+        return new ResultModel(200, JSON.toJSON(mapResult));
+    }
+
+    /**
+     * 行业新增
+     */
+    @PostMapping("/addIndustry")
+    public ResultModel addIndustry(@RequestBody RecruitIndustry industry) {
+        industryService.insert(industry);
+        return new ResultModel(200, JSON.toJSON(ErrorCode.INSERT_OK));
+    }
+
 }
