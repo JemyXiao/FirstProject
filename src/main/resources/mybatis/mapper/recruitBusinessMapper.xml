@@ -21,23 +21,37 @@
     <include refid="Base_Column_List" />
     from t_recruit_business parent
   </select>
+
+  <select id="selectBusinessType" parameterType="map" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    from t_recruit_business parent
+    WHERE 1=1
+    <if test="parentId!=null and parentId!=''">
+      and parent_id = #{parentId}
+    </if>
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from t_recruit_business
     where id = #{id,jdbcType=BIGINT}
   </select>
+  <select id="queryMaxCode" parameterType="Long" resultType="Long">
+    SELECT max(business_code)+1
+    FROM t_recruit_business
+    WHERE parent_id = #{parentId}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from t_recruit_business
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.recruit.entity.RecruitBusiness" >
-    insert into t_recruit_business (id, business_name, business_code, 
-      parent_id, created_at, updated_at
+    insert into t_recruit_business (business_name, business_code,
+      parent_id
       )
-    values (#{id,jdbcType=BIGINT}, #{businessName,jdbcType=VARCHAR}, #{businessCode,jdbcType=VARCHAR}, 
-      #{parentId,jdbcType=BIGINT}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}
-      )
+    values (#{businessName,jdbcType=VARCHAR}, #{businessCode,jdbcType=VARCHAR},
+      #{parentId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.recruit.entity.RecruitBusiness" >
     insert into t_recruit_business

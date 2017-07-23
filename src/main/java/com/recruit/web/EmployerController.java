@@ -5,19 +5,15 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.recruit.common.aop.Operation;
 import com.recruit.common.validate.ValidateService;
-import com.recruit.entity.EmployerBasic;
 import com.recruit.entity.EmployerDetailEntity;
 import com.recruit.entity.ResultModel;
 import com.recruit.entity.dto.EmployerDto;
-import com.recruit.entity.vo.EmployerViewHeaderObject;
 import com.recruit.service.EmployerService;
 import com.recruit.util.ErrorCode;
-import com.recruit.util.ErrorMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

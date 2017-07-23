@@ -10,11 +10,23 @@
     <sql id="Base_Column_List">
         id, data_code, data_value,data_desc
     </sql>
-    <select id="getDataDictionary" parameterType="Long" resultMap="BaseResultMap">
+    <select id="getDataDictionary" parameterType="map" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
         FROM
         t_recruit_data_dictionary
-        WHERE data_code = #{code}
+        WHERE 1=1
+        <if test="code!=null and code!=0">
+           and data_code = #{code}
+        </if>
     </select>
+    <select id="queryNextValue" parameterType="Long" resultType="Long">
+        SELECT max(data_value)+1
+        FROM t_recruit_data_dictionary
+        where data_code = #{code}
+    </select>
+    <insert id="insert" parameterType="com.recruit.entity.DataDictionaryEntity">
+        INSERT INTO t_recruit_data_dictionary (data_code,data_value,data_desc)
+        VALUES (#{code},#{value},#{desc})
+    </insert>
 </mapper>

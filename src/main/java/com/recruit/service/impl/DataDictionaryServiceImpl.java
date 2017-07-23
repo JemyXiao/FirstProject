@@ -11,17 +11,27 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 /**
- * Created by jmx on 2017/6/24.
+ * Created by jmx
+ * 2017/6/24
  */
 @Service
 @Transactional
 public class DataDictionaryServiceImpl implements DataDictionaryService {
-@Autowired
-private DataDictionaryMapper mapper;
+    @Autowired
+    private DataDictionaryMapper mapper;
+
     @Override
-    public List<DataDictionaryEntity> getDataDictionary(Long code) {
-        return mapper.getDataDictionary(code);
+    public List<DataDictionaryEntity> getDataDictionary(Map map) {
+        return mapper.getDataDictionary(map);
+    }
+
+    @Override
+    public int insert(DataDictionaryEntity entity) {
+        long value = mapper.queryNextValue(entity.getCode());
+        entity.setValue(String.valueOf(value));
+        return mapper.insert(entity);
     }
 }

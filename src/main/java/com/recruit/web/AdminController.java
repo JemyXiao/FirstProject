@@ -39,6 +39,12 @@ public class AdminController {
     @Autowired
     private IndustryService industryService;
 
+    @Autowired
+    private DataDictionaryService dataDictionaryService;
+
+    @Autowired
+    private BusinessService businessService;
+
     /**
      * 任务列表查询
      */
@@ -191,4 +197,55 @@ public class AdminController {
         return new ResultModel(200, JSON.toJSON(ErrorCode.INSERT_OK));
     }
 
+    /**
+     * 数据字典查询
+     */
+    @GetMapping("/queryDataDictionary")
+    public ResultModel queryDataDictionary(HttpServletRequest request) {
+        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+        int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+        PageInfo pageInfo = PageHelper.startPage(pageNumber, pageSize).doSelectPageInfo(() -> dataDictionaryService.getDataDictionary(new HashMap()));
+        Map<String, Object> mapResult = new LinkedHashMap<>();
+        mapResult.put("rows", pageInfo.getList());
+        mapResult.put("total", pageInfo.getTotal());
+        return new ResultModel(200, JSON.toJSON(mapResult));
+    }
+
+    /**
+     * 数据字新增
+     */
+    @PostMapping("/addDataDictionary")
+    public ResultModel addDataDictionary(@RequestBody DataDictionaryEntity entity) {
+        dataDictionaryService.insert(entity);
+        return new ResultModel(200, JSON.toJSON(ErrorCode.INSERT_OK));
+    }
+
+    /**
+     * 业务类型(策划，设计，活动，影视)
+     */
+    @GetMapping("/queryBusinessType")
+    public ResultModel queryBusinessType() {
+        Map<String, Object> map = new HashMap();
+        map.put("parentId", 0);
+        List<RecruitBusiness> businessList = businessService.getBusinessType(map);
+        return new ResultModel(200, businessList);
+    }
+
+    /**
+     * 查询所有业务数据
+     */
+    @GetMapping("/queryBusinessList")
+    public ResultModel queryBusinessList(HttpServletRequest request) {
+        List<RecruitBusiness> businessList = businessService.getBusinessInfo();
+        return new ResultModel(200, businessList);
+    }
+
+    /**
+     * 新增业务
+     */
+    @PostMapping("/addBusiness")
+    public ResultModel addBusiness(@RequestBody RecruitBusiness record) {
+        businessService.insert(record);
+        return new ResultModel(200, JSON.toJSON(ErrorCode.INSERT_OK));
+    }
 }

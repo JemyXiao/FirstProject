@@ -1294,7 +1294,7 @@ this is my first project
                
 22.技能查询列表接口
   
-     链接：/admin/getAllIndustry
+     链接：/admin/getSkillList
     
      请求类型:GET
      
@@ -1359,4 +1359,693 @@ this is my first project
             {
               "code":200,
               "data":"添加成功"
-            }         
+            }   
+            
+                  
+23.业务类型大类查询接口
+  
+      链接：/admin/queryBusinessType 
+                                                                                                   
+      请求类型:GET
+       
+       返回数据：
+            {
+                "code": 200,
+                "data": [
+                    {
+                        "id": 1,
+                        "businessName": "策划",
+                        "businessCode": "200",
+                        "parentId": 0,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 2,
+                        "businessName": "品牌策划系统服务",
+                        "businessCode": "20001",
+                        "parentId": 1,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 3,
+                        "businessName": "年度营销方案",
+                        "businessCode": "20002",
+                        "parentId": 1,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 4,
+                        "businessName": "招商会策划",
+                        "businessCode": "20003",
+                        "parentId": 1,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 5,
+                        "businessName": "数字营销／微信、APP引流／事件营销",
+                        "businessCode": "20004",
+                        "parentId": 1,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 6,
+                        "businessName": "设计",
+                        "businessCode": "100",
+                        "parentId": 0,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 7,
+                        "businessName": "VI设计",
+                        "businessCode": "10001",
+                        "parentId": 6,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 8,
+                        "businessName": "BP设计",
+                        "businessCode": "10002",
+                        "parentId": 6,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 9,
+                        "businessName": "SI空间设计",
+                        "businessCode": "10003",
+                        "parentId": 6,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 10,
+                        "businessName": "展会设计／办公商业设计",
+                        "businessCode": "10004",
+                        "parentId": 6,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 11,
+                        "businessName": "插画设计",
+                        "businessCode": "10005",
+                        "parentId": 6,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 12,
+                        "businessName": "活动",
+                        "businessCode": "300",
+                        "parentId": 0,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 13,
+                        "businessName": "新闻发布会／新品发布会",
+                        "businessCode": "30001",
+                        "parentId": 12,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 14,
+                        "businessName": "线上活动",
+                        "businessCode": "30002",
+                        "parentId": 12,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 15,
+                        "businessName": "高端时装秀",
+                        "businessCode": "30003",
+                        "parentId": 12,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 16,
+                        "businessName": "高端年会",
+                        "businessCode": "30004",
+                        "parentId": 12,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 17,
+                        "businessName": "会展活动",
+                        "businessCode": "30005",
+                        "parentId": 12,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 18,
+                        "businessName": "明星代言",
+                        "businessCode": "30006",
+                        "parentId": 12,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 19,
+                        "businessName": "影视",
+                        "businessCode": "400",
+                        "parentId": 0,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 20,
+                        "businessName": "品牌微电影 定制",
+                        "businessCode": "40001",
+                        "parentId": 19,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 21,
+                        "businessName": "品牌微栏目 定制",
+                        "businessCode": "40002",
+                        "parentId": 19,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 22,
+                        "businessName": "视频广告 定制",
+                        "businessCode": "40003",
+                        "parentId": 19,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 23,
+                        "businessName": "动漫动画 定制",
+                        "businessCode": "40004",
+                        "parentId": 19,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 24,
+                        "businessName": "高端平面摄影",
+                        "businessCode": "40005",
+                        "parentId": 19,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 25,
+                        "businessName": "品牌短视频 定制",
+                        "businessCode": "40006",
+                        "parentId": 19,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 26,
+                        "businessName": "其他",
+                        "businessCode": "500",
+                        "parentId": 0,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 27,
+                        "businessName": "定制 商业计划书／融资计划书",
+                        "businessCode": "50001",
+                        "parentId": 26,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 28,
+                        "businessName": "公司命名／品牌命名／产品命名",
+                        "businessCode": "50002",
+                        "parentId": 26,
+                        "children": null,
+                        "parentBusiness": null,
+                        "createdAt": null,
+                        "updatedAt": null
+                    }
+                ]
+            } 
+               
+                
+24.业务新增接口
+  
+      链接：/admin/addBusiness
+                                                                                                   
+      请求类型:POST
+       
+      请求参数：
+            {
+            	"parentId":1,
+            	"businessName":"網吧念經"
+            }
+       返回数据：
+            {
+              "code":200,
+              "data":"添加成功"
+            } 
+            
+            
+25.数据字典新增接口
+  
+      链接：/admin/addDataDictionary
+                                                                                                   
+      请求类型:POST
+       
+      请求参数：
+            {
+                "code":100,
+                "desc":"外包公司"
+            }
+       返回数据：
+            {
+              "code":200,
+              "data":"添加成功"
+            } 
+            
+            
+26.数据字典列表接口
+                    
+           
+           链接：/admin/queryDataDictionary
+
+           请求类型:GET
+           参数:        
+                   | name             |  是否必须    |  描述                                   |
+                   | -----------      | ---------  | ------------------------------------- |
+                   | pageNumber       |    是      |     分页                                  |
+                   | pageSize         |    是      |     分页                       
+                   
+                   
+                   
+           返回数据：{
+                    "code": 200,
+                    "data": {
+                        "rows": [
+                            {
+                                "code": 100,
+                                "id": 1,
+                                "value": "1",
+                                "desc": "个人"
+                            },
+                            {
+                                "code": 100,
+                                "id": 2,
+                                "value": "2",
+                                "desc": "公司"
+                            },
+                            {
+                                "code": 200,
+                                "id": 3,
+                                "value": "1",
+                                "desc": "男"
+                            },
+                            {
+                                "code": 200,
+                                "id": 4,
+                                "value": "2",
+                                "desc": "女"
+                            },
+                            {
+                                "code": 300,
+                                "id": 5,
+                                "value": "1",
+                                "desc": "一周之内"
+                            }
+                        ],
+                        "total": 8
+                    }
+                }
+                 
+                 
+27.业务数据列表接口
+
+ 
+ 
+    链接：/admin/queryBusinessList
+ 
+    请求类型:GET
+    
+    返回数据：
+      {
+          "code": 200,
+          "data": [
+              {
+                  "id": 1,
+                  "businessName": "策划",
+                  "businessCode": "200",
+                  "parentId": 0,
+                  "children": [
+                      {
+                          "id": 2,
+                          "businessName": "品牌策划系统服务",
+                          "businessCode": "20001",
+                          "parentId": 1,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499694668000,
+                          "updatedAt": 1499696124000
+                      },
+                      {
+                          "id": 3,
+                          "businessName": "年度营销方案",
+                          "businessCode": "20002",
+                          "parentId": 1,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499694668000,
+                          "updatedAt": 1499696124000
+                      },
+                      {
+                          "id": 4,
+                          "businessName": "招商会策划",
+                          "businessCode": "20003",
+                          "parentId": 1,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499694668000,
+                          "updatedAt": 1499696124000
+                      },
+                      {
+                          "id": 5,
+                          "businessName": "数字营销／微信、APP引流／事件营销",
+                          "businessCode": "20004",
+                          "parentId": 1,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499694668000,
+                          "updatedAt": 1499696124000
+                      }
+                  ],
+                  "parentBusiness": null,
+                  "createdAt": 1499694768000,
+                  "updatedAt": 1499694768000
+              },
+              {
+                  "id": 6,
+                  "businessName": "设计",
+                  "businessCode": "100",
+                  "parentId": 0,
+                  "children": [
+                      {
+                          "id": 7,
+                          "businessName": "VI设计",
+                          "businessCode": "10001",
+                          "parentId": 6,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499694932000,
+                          "updatedAt": 1499696141000
+                      },
+                      {
+                          "id": 8,
+                          "businessName": "BP设计",
+                          "businessCode": "10002",
+                          "parentId": 6,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499694932000,
+                          "updatedAt": 1499696141000
+                      },
+                      {
+                          "id": 9,
+                          "businessName": "SI空间设计",
+                          "businessCode": "10003",
+                          "parentId": 6,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499694932000,
+                          "updatedAt": 1499696141000
+                      },
+                      {
+                          "id": 10,
+                          "businessName": "展会设计／办公商业设计",
+                          "businessCode": "10004",
+                          "parentId": 6,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499694932000,
+                          "updatedAt": 1499696141000
+                      },
+                      {
+                          "id": 11,
+                          "businessName": "插画设计",
+                          "businessCode": "10005",
+                          "parentId": 6,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499694932000,
+                          "updatedAt": 1499696141000
+                      }
+                  ],
+                  "parentBusiness": null,
+                  "createdAt": 1499694823000,
+                  "updatedAt": 1499694823000
+              },
+              {
+                  "id": 12,
+                  "businessName": "活动",
+                  "businessCode": "300",
+                  "parentId": 0,
+                  "children": [
+                      {
+                          "id": 13,
+                          "businessName": "新闻发布会／新品发布会",
+                          "businessCode": "30001",
+                          "parentId": 12,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499695904000,
+                          "updatedAt": 1499695924000
+                      },
+                      {
+                          "id": 14,
+                          "businessName": "线上活动",
+                          "businessCode": "30002",
+                          "parentId": 12,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499695904000,
+                          "updatedAt": 1499695924000
+                      },
+                      {
+                          "id": 15,
+                          "businessName": "高端时装秀",
+                          "businessCode": "30003",
+                          "parentId": 12,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499695904000,
+                          "updatedAt": 1499695924000
+                      },
+                      {
+                          "id": 16,
+                          "businessName": "高端年会",
+                          "businessCode": "30004",
+                          "parentId": 12,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499695904000,
+                          "updatedAt": 1499695924000
+                      },
+                      {
+                          "id": 17,
+                          "businessName": "会展活动",
+                          "businessCode": "30005",
+                          "parentId": 12,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499695904000,
+                          "updatedAt": 1499695924000
+                      },
+                      {
+                          "id": 18,
+                          "businessName": "明星代言",
+                          "businessCode": "30006",
+                          "parentId": 12,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499695904000,
+                          "updatedAt": 1499695924000
+                      }
+                  ],
+                  "parentBusiness": null,
+                  "createdAt": 1499695881000,
+                  "updatedAt": 1499695889000
+              },
+              {
+                  "id": 19,
+                  "businessName": "影视",
+                  "businessCode": "400",
+                  "parentId": 0,
+                  "children": [
+                      {
+                          "id": 20,
+                          "businessName": "品牌微电影 定制",
+                          "businessCode": "40001",
+                          "parentId": 19,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499695985000,
+                          "updatedAt": 1499695985000
+                      },
+                      {
+                          "id": 21,
+                          "businessName": "品牌微栏目 定制",
+                          "businessCode": "40002",
+                          "parentId": 19,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499695985000,
+                          "updatedAt": 1499695985000
+                      },
+                      {
+                          "id": 22,
+                          "businessName": "视频广告 定制",
+                          "businessCode": "40003",
+                          "parentId": 19,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499695985000,
+                          "updatedAt": 1499695985000
+                      },
+                      {
+                          "id": 23,
+                          "businessName": "动漫动画 定制",
+                          "businessCode": "40004",
+                          "parentId": 19,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499695985000,
+                          "updatedAt": 1499695985000
+                      },
+                      {
+                          "id": 24,
+                          "businessName": "高端平面摄影",
+                          "businessCode": "40005",
+                          "parentId": 19,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499695985000,
+                          "updatedAt": 1499695985000
+                      },
+                      {
+                          "id": 25,
+                          "businessName": "品牌短视频 定制",
+                          "businessCode": "40006",
+                          "parentId": 19,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499695985000,
+                          "updatedAt": 1499696011000
+                      }
+                  ],
+                  "parentBusiness": null,
+                  "createdAt": 1499695945000,
+                  "updatedAt": 1499695958000
+              },
+              {
+                  "id": 26,
+                  "businessName": "其他",
+                  "businessCode": "500",
+                  "parentId": 0,
+                  "children": [
+                      {
+                          "id": 27,
+                          "businessName": "定制 商业计划书／融资计划书",
+                          "businessCode": "50001",
+                          "parentId": 26,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499696094000,
+                          "updatedAt": 1499696163000
+                      },
+                      {
+                          "id": 28,
+                          "businessName": "公司命名／品牌命名／产品命名",
+                          "businessCode": "50002",
+                          "parentId": 26,
+                          "children": null,
+                          "parentBusiness": null,
+                          "createdAt": 1499696094000,
+                          "updatedAt": 1499696163000
+                      }
+                  ],
+                  "parentBusiness": null,
+                  "createdAt": 1499696068000,
+                  "updatedAt": 1499696081000
+              }
+          ]
+      }
+            
+            
+            
+            

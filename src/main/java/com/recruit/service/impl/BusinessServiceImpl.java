@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -44,5 +45,17 @@ public class BusinessServiceImpl implements BusinessService {
             business.setChildren(childLists);
         }
         return newBusinessList;
+    }
+
+    @Override
+    public List<RecruitBusiness> getBusinessType(Map map) {
+        return businessMapper.selectBusinessType(map);
+    }
+
+    @Override
+    public int insert(RecruitBusiness business) {
+        long code = businessMapper.queryMaxCode(business.getParentId());
+        business.setBusinessCode(String.valueOf(code));
+        return businessMapper.insert(business);
     }
 }

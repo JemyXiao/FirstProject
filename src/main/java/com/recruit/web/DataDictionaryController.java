@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by jmx on 17/6/18.
@@ -22,7 +24,9 @@ public class DataDictionaryController {
 
     @RequestMapping(value = "/dataDictionary/getByCode/{id}", method = RequestMethod.GET)
     public ResultModel selectDictionary(@PathVariable("id") long id) {
-        List<DataDictionaryEntity> dataDictionaryEntities = dataDictionaryService.getDataDictionary(id);
+        Map<String,Object> map = new HashMap<>();
+        map.put("code",id);
+        List<DataDictionaryEntity> dataDictionaryEntities = dataDictionaryService.getDataDictionary(map);
         return new ResultModel(200,dataDictionaryEntities);
     }
 }
