@@ -1,13 +1,15 @@
 package com.recruit.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Data;
 
 import java.util.Date;
 
 /**
- * Created by jmx on 2017/6/22.
- *
+ * Created by jmx
+ * 2017/6/22.
  */
+@Data
 public class EmployerBusinessMapper {
     private Long id;
     private Long employerId;

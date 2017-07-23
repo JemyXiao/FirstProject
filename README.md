@@ -1278,7 +1278,7 @@ this is my first project
                       
 21.行业新增接口
 
-    链接：/admin/addCity
+    链接：/admin/addIndustry
                                                                                                  
     请求类型:POST
      
@@ -1352,7 +1352,8 @@ this is my first project
        
       请求参数：
             {
-              "skillName":"软件工程"
+              "skillName":"软件工程",
+              "skillType":"设计"
             }
        返回数据：
             {

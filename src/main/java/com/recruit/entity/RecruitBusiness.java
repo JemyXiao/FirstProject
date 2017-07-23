@@ -1,10 +1,12 @@
 package com.recruit.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
 
+@Data
 public class RecruitBusiness {
     private Long id;
 
@@ -20,70 +22,8 @@ public class RecruitBusiness {
 
     @JSONField(serialize = false)
     private Date createdAt;
+
     @JSONField(serialize = false)
     private Date updatedAt;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getBusinessName() {
-        return businessName;
-    }
-
-    public void setBusinessName(String businessName) {
-        this.businessName = businessName == null ? null : businessName.trim();
-    }
-
-    public String getBusinessCode() {
-        return businessCode;
-    }
-
-    public void setBusinessCode(String businessCode) {
-        this.businessCode = businessCode == null ? null : businessCode.trim();
-    }
-
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public List<RecruitBusiness> getChildren() {
-        return children;
-    }
-
-    public void setChildren(List<RecruitBusiness> children) {
-        this.children = children;
-    }
-
-    public RecruitBusiness getParentBusiness() {
-        return parentBusiness;
-    }
-
-    public void setParentBusiness(RecruitBusiness parentBusiness) {
-        this.parentBusiness = parentBusiness;
-    }
 }

@@ -11,8 +11,10 @@ public class RecruitCity {
     private String cityName;
 
     private Integer hotTop;
+
     @JSONField(serialize = false)
     private Date createdAt;
+
     @JSONField(serialize = false)
     private Date updatedAt;
 

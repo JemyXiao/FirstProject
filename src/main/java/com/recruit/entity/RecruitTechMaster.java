@@ -1,11 +1,14 @@
 package com.recruit.entity;
 
+import lombok.Data;
+
 import java.util.Date;
 import java.util.List;
 
 /**
  * 牛人实体类
  */
+@Data
 public class RecruitTechMaster {
 
     private Long id;
@@ -86,187 +89,16 @@ public class RecruitTechMaster {
     private List<RecruitMasterWorkCase> worksCases;
 
     /**
-     *
+     * 技能列表
      */
     private List<RecruitBaseSkill> baseSkillList;
-
+    /**
+     * 创建时间
+     */
     private Date createdAt;
-
+    /**
+     * 更新时间
+     */
     private Date updatedAt;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public String getOpenId() {
-        return openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public String getDailyWage() {
-        return dailyWage;
-    }
-
-    public void setDailyWage(String dailyWage) {
-        this.dailyWage = dailyWage;
-    }
-
-    public Long getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(Long cityId) {
-        this.cityId = cityId;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public Long getAreaId() {
-        return areaId;
-    }
-
-    public void setAreaId(Long areaId) {
-        this.areaId = areaId;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getJobTitle() {
-        return jobTitle;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
-
-    public String getRecruitType() {
-        return recruitType;
-    }
-
-    public void setRecruitType(String recruitType) {
-        this.recruitType = recruitType;
-    }
-
-    public String getWorkExperience() {
-        return workExperience;
-    }
-
-    public void setWorkExperience(String workExperience) {
-        this.workExperience = workExperience;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
-    public String getSelfIntroduction() {
-        return selfIntroduction;
-    }
-
-    public void setSelfIntroduction(String selfIntroduction) {
-        this.selfIntroduction = selfIntroduction;
-    }
-
-    public List<Long> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(List<Long> skills) {
-        this.skills = skills;
-    }
-
-    public List<RecruitMasterWorkCase> getWorksCases() {
-        return worksCases;
-    }
-
-    public void setWorksCases(List<RecruitMasterWorkCase> worksCases) {
-        this.worksCases = worksCases;
-    }
-
-    public Long getIndustryId() {
-        return industryId;
-    }
-
-    public void setIndustryId(Long industryId) {
-        this.industryId = industryId;
-    }
-
-    public String getIndustryName() {
-        return industryName;
-    }
-
-    public void setIndustryName(String industryName) {
-        this.industryName = industryName;
-    }
-
-    public List<RecruitBaseSkill> getBaseSkillList() {
-        return baseSkillList;
-    }
-
-    public void setBaseSkillList(List<RecruitBaseSkill> baseSkillList) {
-        this.baseSkillList = baseSkillList;
-    }
 }

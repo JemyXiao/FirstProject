@@ -1,8 +1,14 @@
 package com.recruit.entity;
 
-public class RecruitMasterWorkCase {
-    private Long id ;
+import lombok.Data;
 
+/**
+ * 牛人工作經驗
+ */
+@Data
+public class RecruitMasterWorkCase {
+
+    private Long id;
     /**
      * 工作经验
      */
@@ -19,44 +25,4 @@ public class RecruitMasterWorkCase {
      * 作品描述
      */
     private String worksDesc;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getWorkName() {
-        return workName;
-    }
-
-    public void setWorkName(String workName) {
-        this.workName = workName;
-    }
-
-    public String getResponsibilities() {
-        return responsibilities;
-    }
-
-    public void setResponsibilities(String responsibilities) {
-        this.responsibilities = responsibilities;
-    }
-
-    public String getWorksLink() {
-        return worksLink;
-    }
-
-    public void setWorksLink(String worksLink) {
-        this.worksLink = worksLink;
-    }
-
-    public String getWorksDesc() {
-        return worksDesc;
-    }
-
-    public void setWorksDesc(String worksDesc) {
-        this.worksDesc = worksDesc;
-    }
 }

@@ -162,7 +162,7 @@ public class AdminController {
     /**
      * 新增城市
      */
-    @GetMapping("/addCity")
+    @PostMapping("/addCity")
     public ResultModel addCity(@RequestBody RecruitCity record) {
         cityService.insert(record);
         return new ResultModel(200, JSON.toJSON(ErrorCode.INSERT_OK));
