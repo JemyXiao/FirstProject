@@ -12,4 +12,6 @@ public interface CityService {
     List<RecruitCity> getAllCity();
 
     int insert(RecruitCity record);
+
+    int fail(Long id);
 }

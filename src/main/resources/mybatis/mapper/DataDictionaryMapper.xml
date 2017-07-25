@@ -16,6 +16,7 @@
         FROM
         t_recruit_data_dictionary
         WHERE 1=1
+        and status = 0
         <if test="code!=null and code!=0">
            and data_code = #{code}
         </if>
@@ -29,4 +30,9 @@
         INSERT INTO t_recruit_data_dictionary (data_code,data_value,data_desc)
         VALUES (#{code},#{value},#{desc})
     </insert>
+    <update id="failData" parameterType="Long">
+        UPDATE t_recruit_data_dictionary
+        set status = 1
+        where id = #{id}
+    </update>
 </mapper>

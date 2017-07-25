@@ -175,6 +175,15 @@ public class AdminController {
     }
 
     /**
+     * 城市失效
+     */
+    @GetMapping ("/failCity")
+    public ResultModel failCity(HttpServletRequest request) {
+        cityService.fail(Long.valueOf(request.getParameter("id")));
+        return new ResultModel(200, JSON.toJSON(ErrorCode.DELETE_OK));
+    }
+
+    /**
      * 行业查询
      */
     @GetMapping("/queryAllIndustry")
@@ -198,6 +207,15 @@ public class AdminController {
     }
 
     /**
+     * 行业信息失效
+     */
+    @GetMapping ("/failIndustry")
+    public ResultModel failIndustry(HttpServletRequest request) {
+        industryService.fail(Long.valueOf(request.getParameter("id")));
+        return new ResultModel(200, JSON.toJSON(ErrorCode.DELETE_OK));
+    }
+
+    /**
      * 数据字典查询
      */
     @GetMapping("/queryDataDictionary")
@@ -218,6 +236,14 @@ public class AdminController {
     public ResultModel addDataDictionary(@RequestBody DataDictionaryEntity entity) {
         dataDictionaryService.insert(entity);
         return new ResultModel(200, JSON.toJSON(ErrorCode.INSERT_OK));
+    }
+    /**
+     * 数据字失效
+     */
+    @GetMapping ("/failDataDictionary")
+    public ResultModel failDataDictionary(HttpServletRequest request) {
+        industryService.fail(Long.valueOf(request.getParameter("id")));
+        return new ResultModel(200, JSON.toJSON(ErrorCode.DELETE_OK));
     }
 
     /**

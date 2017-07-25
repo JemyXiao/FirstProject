@@ -47,4 +47,9 @@ public class IndustryServiceImpl implements IndustryService {
         recruitIndustry.setIndustryCode(code);
         return mapper.insert(recruitIndustry);
     }
+
+    @Override
+    public int fail(Long id) {
+        return mapper.deleteByPrimaryKey(id);
+    }
 }

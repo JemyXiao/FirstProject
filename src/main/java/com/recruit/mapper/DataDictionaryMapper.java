@@ -16,4 +16,6 @@ public interface DataDictionaryMapper {
     int insert(DataDictionaryEntity entity);
 
     long queryNextValue(long codeType);
+
+    int failData(Long id);
 }

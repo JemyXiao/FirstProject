@@ -1,9 +1,9 @@
 package com.recruit.entity;
 
-import com.recruit.enums.UserSexEnum;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 public class UserEntity implements Serializable {
@@ -16,18 +16,13 @@ public class UserEntity implements Serializable {
 
     private String passWord;
 
-    private UserSexEnum userSex;
-
-    private String nickName;
-
-    public UserEntity() {
-        super();
-    }
-
-    public UserEntity(String userName, String passWord, UserSexEnum userSex) {
-        super();
-        this.passWord = passWord;
-        this.userName = userName;
-        this.userSex = userSex;
-    }
+    private String token;
+    /**
+     * 创建时间
+     */
+    private Date createdAt;
+    /**
+     * 更新时间
+     */
+    private Date updatedAt;
 }

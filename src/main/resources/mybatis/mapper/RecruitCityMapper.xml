@@ -74,6 +74,7 @@
     SELECT
     <include refid="Base_Column_List" />
     from t_recruit_city
+    WHERE status=0
   </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruit.entity.RecruitCityExample" >
     select
@@ -110,10 +111,11 @@
     FROM t_recruit_city
   </select>
 
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from t_recruit_city
+  <update id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update  t_recruit_city
+    set status = 1
     where id = #{id,jdbcType=BIGINT}
-  </delete>
+  </update>
   <delete id="deleteByExample" parameterType="com.recruit.entity.RecruitCityExample" >
     delete from t_recruit_city
     <if test="_parameter != null" >

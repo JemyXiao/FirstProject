@@ -14,4 +14,6 @@ public interface DataDictionaryService {
     List<DataDictionaryEntity> getDataDictionary(Map map);
 
     int insert(DataDictionaryEntity entity);
+
+    int fail(Long id);
 }

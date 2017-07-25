@@ -11,4 +11,6 @@ public interface IndustryService {
     List<RecruitIndustry> queryAllIndustry();
 
     int insert(RecruitIndustry recruitIndustry);
+
+    int fail(Long id);
 }

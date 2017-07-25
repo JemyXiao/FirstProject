@@ -39,4 +39,9 @@ public class CityServiceImpl implements CityService {
 
         return cityMapper.insert(record);
     }
+
+    @Override
+    public int fail(Long id) {
+        return cityMapper.deleteByPrimaryKey(id);
+    }
 }

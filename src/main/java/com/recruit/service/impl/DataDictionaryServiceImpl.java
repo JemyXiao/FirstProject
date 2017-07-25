@@ -34,4 +34,9 @@ public class DataDictionaryServiceImpl implements DataDictionaryService {
         entity.setValue(String.valueOf(value));
         return mapper.insert(entity);
     }
+
+    @Override
+    public int fail(Long id) {
+        return mapper.failData(id);
+    }
 }

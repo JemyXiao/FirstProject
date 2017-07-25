@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Order(1)
-@WebFilter(filterName = "recruitFilter", urlPatterns = "/*")
+@WebFilter(filterName = "recruitFilter", urlPatterns = "/skill/*,/techMaster/*,/industry/*,/business/*,/employer/*,/city/*")
 public class RecruitFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) req;

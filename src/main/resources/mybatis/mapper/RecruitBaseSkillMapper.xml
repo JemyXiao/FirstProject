@@ -74,6 +74,7 @@
     SELECT
     <include refid="Base_Column_List" />
     from t_recruit_base_skill
+    WHERE status=0
   </select>
   <select id="selectSkillByMasterId" resultMap="BaseResultMap" parameterType="Long">
     SELECT
@@ -95,10 +96,11 @@
    WHERE skill_type = #{skillType,jdbcType=VARCHAR}
  </select>
 
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from t_recruit_base_skill
+  <update id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    UPDATE t_recruit_base_skill
+    set status = 1
     where id = #{id,jdbcType=BIGINT}
-  </delete>
+  </update>
 
   <insert id="insert" parameterType="com.recruit.entity.RecruitBaseSkill" >
     insert into t_recruit_base_skill (skill_name, skill_code,skill_type)
