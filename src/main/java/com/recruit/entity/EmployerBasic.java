@@ -61,8 +61,9 @@ public class EmployerBasic {
      */
     private int recommendCount;
     /**
-     *
+     *  是否认证
      */
+    private int verified;
 
     @JSONField(serialize = false)
     private Date createdAt;

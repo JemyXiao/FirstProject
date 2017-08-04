@@ -1,5 +1,6 @@
 package com.recruit.entity;
 
+import com.recruit.common.validate.DV;
 import lombok.Data;
 
 /**
@@ -21,8 +22,14 @@ public class RecruitMasterWorkCase {
      * 作品链接
      */
     private String worksLink;
+
+    /**
+     * 上传图片地址(可能多个)
+     */
+    private String imgUrls;
     /**
      * 作品描述
      */
+    @DV(description = "项目类型",maxLength = 500)
     private String worksDesc;
 }

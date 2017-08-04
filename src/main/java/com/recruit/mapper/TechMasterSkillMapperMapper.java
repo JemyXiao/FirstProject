@@ -11,4 +11,6 @@ public interface TechMasterSkillMapperMapper {
     int deleteByPrimaryKey(Long id);
 
     int updateByPrimaryKey(TechMasterSkillMapperMapper record);
+
+    int deleteByMasterId(Long masterId);
 }

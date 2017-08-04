@@ -13,4 +13,6 @@ public interface IndustryService {
     int insert(RecruitIndustry recruitIndustry);
 
     int fail(Long id);
+
+    int update(RecruitIndustry record);
 }

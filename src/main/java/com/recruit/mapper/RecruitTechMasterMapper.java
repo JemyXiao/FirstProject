@@ -15,6 +15,8 @@ public interface RecruitTechMasterMapper {
 
     RecruitTechMaster selectByPrimaryKey(Long id);
 
+    RecruitTechMaster selectByOpenId(String openId);
+
     int updateByPrimaryKeySelective(RecruitTechMaster record);
 
     int updateByPrimaryKey(RecruitTechMaster record);
@@ -22,4 +24,6 @@ public interface RecruitTechMasterMapper {
     List<RecruitTechMaster> selectAllMaster(Map map);
 
     int checkTechMaster(Map map);
+
+    int verified(Map map);
 }

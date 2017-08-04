@@ -3,18 +3,25 @@ package com.recruit.web;
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.recruit.common.exception.RecruitValidationException;
+import com.recruit.common.validate.ValidateService;
+import com.recruit.config.Constant;
 import com.recruit.entity.RecruitMasterWorkCase;
+import com.recruit.entity.RecruitMasterWorkMapping;
 import com.recruit.entity.RecruitTechMaster;
 import com.recruit.entity.ResultModel;
 import com.recruit.entity.dto.EmployerDto;
 import com.recruit.service.TechMasterService;
+import com.recruit.util.ErrorCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -47,27 +54,70 @@ public class TechMasterController {
      */
     @RequestMapping(value = "/techMaster/update", method = RequestMethod.POST)
     public ResultModel updateTechMaster(@RequestBody RecruitTechMaster record, HttpServletRequest request) {
-//        //获取登录人信息
-//        RecruitTechMaster techMaster = techMasterService.getTechMaster(request);
-//        //赋值跟新id
-        record.setId(1L);
+        //获取登录人信息
+        RecruitTechMaster techMaster = techMasterService.getTechMaster(request);
+        //赋值跟新id
+        record.setId(techMaster.getId());
+        record.setStatus(Constant.TODO_EDIT);
         techMasterService.updateTechMaster(record);
         return new ResultModel(200, "修改信息成功");
     }
 
     /**
-     * 修改人员信息
+     * 修改工作案例信息
      *
      * @param record
      * @return
      */
     @RequestMapping(value = "/techMasterWorksCase/update", method = RequestMethod.POST)
-    public ResultModel updateTechMasterWorkCases(@RequestBody RecruitMasterWorkCase record, HttpServletRequest request) {
+    public ResultModel updateTechMasterWorkCases(@RequestBody RecruitMasterWorkCase record, HttpServletRequest request) throws Exception {
+        ValidateService.valid(record);
         //获取登录人信息
-//        RecruitTechMaster techMaster = techMasterService.getTechMaster(request);
+        RecruitTechMaster techMaster = techMasterService.getTechMaster(request);
         //赋值跟新id
-        techMasterService.updateWorksCase(record, 1L);
+        techMasterService.updateWorksCase(record, techMaster.getId());
         return new ResultModel(200, "修改信息成功");
+    }
+
+    /**
+     * 刪除工作案例信息
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("/techMaster/delWorksCase")
+    public ResultModel deleteWorkCase(HttpServletRequest request) {
+        long id = Long.valueOf(request.getParameter("id"));
+        techMasterService.deleteWorkCasById(id);
+        return new ResultModel(200, ErrorCode.DELETE_OK);
+    }
+
+    //根据id查询工作案例
+    @GetMapping("/techMaster/queryWorkCase")
+    public ResultModel queryWorkCase(HttpServletRequest request) {
+        long id = Long.valueOf(request.getParameter("id"));
+        RecruitMasterWorkCase workCase = techMasterService.queryWorkCase(id);
+        return new ResultModel(200, workCase);
+
+    }
+
+    /**
+     * 提交审核
+     */
+    @GetMapping("/checkMaster")
+    public ResultModel checkMaster(HttpServletRequest request) {
+        //获取登录人信息
+        RecruitTechMaster techMaster = techMasterService.getTechMaster(request);
+        //赋值跟新id
+        RecruitTechMaster master = new RecruitTechMaster();
+        master.setStatus(Constant.TODO_AUDIT);
+        master.setId(techMaster.getId());
+        int cont = techMasterService.selectByMasterId(master.getId());
+        if (cont < 2) {
+            throw new RecruitValidationException("作品案例最少两条，请完善");
+        }
+        techMasterService.updateTechMaster(master);
+        return new ResultModel(200, "审核已提交");
     }
 
     /**
@@ -107,7 +157,7 @@ public class TechMasterController {
         map.put("cityId", cityId);
         map.put("industryId", industryId);
         map.put("queryParam", queryParam);
-        map.put("status", "待审核");
+        map.put("status", Constant.COMPLETED);
         PageInfo pageInfo = PageHelper.startPage(pageNumber, pageSize).doSelectPageInfo(() -> techMasterService.selectAllMaster(map));
         Map<String, Object> mapResult = new LinkedHashMap<>();
         mapResult.put("rows", pageInfo.getList());
@@ -121,42 +171,17 @@ public class TechMasterController {
      */
     @RequestMapping(value = "/techMaster/queryMasterDetail", method = RequestMethod.GET)
     public ResultModel queryMasterDetail(HttpServletRequest request) {
-        Long id = 1L;
-        if (!StringUtils.isEmpty(request.getParameter("id"))) {
-            id = Long.valueOf(request.getParameter("id"));
+        //获取登录人信息
+        Long id;
+        String string = request.getParameter("id");
+        if (StringUtils.isEmpty(string)) {
+            RecruitTechMaster techMaster = techMasterService.getTechMaster(request);
+            id = techMaster.getId();
+        } else {
+            id = Long.valueOf(string);
         }
         RecruitTechMaster master = techMasterService.getTechMasterById(id);
         return new ResultModel(200, master);
     }
-
-    /**
-     * 个人发出、接收招募信息
-     * todo
-     */
-    @RequestMapping(value = "/techMaster/getEmployer", method = RequestMethod.GET)
-    public ResultModel getEmployerByMasterId(HttpServletRequest request) {
-        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
-        int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-        String status = request.getParameter("status");
-        //获取登录人信息
-//        RecruitTechMaster techMaster = techMasterService.getTechMaster(request);
-        //查询发出方信息
-//        if (status.equals("send")) {
-//
-//        }else {
-//
-//        }
-        EmployerDto record = new EmployerDto();
-        record.setPageNumber(pageNumber);
-        record.setPageSize(pageSize);
-        record.setMasterId(1L);
-        PageInfo pageInfo = PageHelper.startPage(pageNumber, pageSize).doSelectPageInfo(() -> techMasterService.getEmployerByMasterId(record));
-        Map<String, Object> map = new LinkedHashMap<>();
-        map.put("rows", pageInfo.getList());
-        map.put("total", pageInfo.getTotal());
-        return new ResultModel(200, map);
-
-    }
-
 
 }

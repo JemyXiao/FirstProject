@@ -7,6 +7,8 @@
         <result column="project_desc" property="projectDesc" jdbcType="VARCHAR"/>
         <result column="project_cycle" property="projectCycle" jdbcType="VARCHAR"/>
         <result column="publisher" property="publisher" jdbcType="VARCHAR"/>
+        <result column="reason" property="reason" jdbcType="VARCHAR"/>
+        <result column="master_id" property="masterId" jdbcType="VARCHAR"/>
     </resultMap>
 
     <resultMap id="ViewHeaderResultMap" type="com.recruit.entity.EmployerBasic">
@@ -21,6 +23,7 @@
         <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
         <result column="business_id" property="businessId" jdbcType="BIGINT"/>
         <result column="business_parent_id" property="businessParentId" jdbcType="BIGINT"/>
+        <result column="verified" property="verified"/>
         <!--<collection property="baseSkills" column="skill_id" ofType="RecruitBaseSkill">-->
         <!--<result column="skill_id" property="id"></result>-->
         <!--<result column="skill_name" property="skillName"></result>-->
@@ -35,12 +38,12 @@
     <select id="queryEmployerViewHeader" resultMap="ViewHeaderResultMap" parameterType="EmployerDto">
         SELECT DISTINCT tre.id, tre.issue_name, tre.status, tre.created_at,
         tre.updated_at,tre.project_budget,treo.visit_count,treo.apply_count,treo.recommend_count,tre.business_id AS
-        business_id,tre.business_parent_id as business_parent_id
+        business_id,tre.business_parent_id as business_parent_id,tre.verified AS verified
         FROM t_recruit_employer tre
         LEFT JOIN t_recruit_employer_operation treo
         ON tre.id = treo.employer_id
-        LEFT JOIN t_recruit_employer_master_mapping tremm
-        ON tre.id = tremm.employer_id
+        -- LEFT JOIN t_recruit_employer_master_mapping tremm
+        -- ON tre.id = tremm.employer_id
         WHERE 1=1
         <if test="status !=null and status!=''">
             and tre.status=#{status}
@@ -49,9 +52,22 @@
             and tre.business_parent_id = #{businessParentId}
         </if>
         <if test="masterId !=null and masterId!=0">
-            and tremm.tech_master_id = #{masterId}
+            and tre.master_id = #{masterId}
         </if>
         ORDER by tre.created_at DESC
+    </select>
+
+    <select id="queryEmployerByReview" parameterType="Long" resultMap="ViewHeaderResultMap">
+        SELECT DISTINCT tre.id, tre.issue_name, tre.status, tre.created_at,
+        tre.updated_at,tre.project_budget,treo.visit_count,treo.apply_count,treo.recommend_count,tre.business_id AS
+        business_id,tre.business_parent_id as business_parent_id,tre.verified AS  verified
+        FROM t_recruit_employer tre
+        LEFT JOIN t_recruit_employer_operation treo
+        ON tre.id = treo.employer_id
+        LEFT JOIN t_recruit_employer_master_mapping tremm
+        ON tre.id = tremm.employer_id
+        WHERE tremm.tech_master_id = #{masterId}
+              AND tremm.status = '已绑定'
     </select>
     <select id="queryCountViewCount" parameterType="EmployerDto" resultType="int">
         SELECT count(1)
@@ -63,7 +79,7 @@
     </select>
     <select id="queryEmployerDetail" parameterType="Long" resultMap="BaseResultMap">
         SELECT tre.id, tre.issue_name, tre.status, tre.created_at,
-        tre.updated_at,tre.company_name, tre.project_budget,tre.project_cycle,tre.trend_complete, tre.project_desc, tre.publisher,treo.visit_count,treo.apply_count,treo.recommend_count,tre.business_id AS business_id,tre.business_parent_id as business_parent_id
+        tre.updated_at,tre.company_name, tre.project_budget,tre.reason,tre.master_id,tre.project_cycle,tre.trend_complete, tre.project_desc, tre.publisher,treo.visit_count,treo.apply_count,treo.recommend_count,tre.business_id AS business_id,tre.business_parent_id as business_parent_id
         FROM t_recruit_employer tre
         LEFT JOIN t_recruit_employer_operation treo
         ON tre.id = treo.employer_id
@@ -84,11 +100,11 @@
             keyProperty="id">
     insert into t_recruit_employer (issue_name, company_name,
       trend_complete, project_desc,project_budget,
-      status,business_id,business_parent_id,project_cycle
+      status,business_id,business_parent_id,project_cycle,master_id
       )
     values (#{projectName,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR},
       #{trendComplete,jdbcType=VARCHAR}, #{projectDesc,jdbcType=VARCHAR},
-      #{projectBudget,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{businessId,jdbcType=VARCHAR},#{businessParentId,jdbcType=VARCHAR},#{projectCycle,jdbcType=VARCHAR}
+      #{projectBudget,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{businessId,jdbcType=VARCHAR},#{businessParentId,jdbcType=VARCHAR},#{projectCycle,jdbcType=VARCHAR},#{masterId}
       )
   </insert>
 
@@ -98,8 +114,14 @@
             <if test="status != null and status!='' ">
                 status = #{status,jdbcType=VARCHAR},
             </if>
+            reason = #{reason}
         </set>
         where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="verified" parameterType="map">
+        UPDATE t_recruit_employer
+        SET verified = #{verified}
+        where id = #{empId}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.recruit.entity.EmployerDetailEntity">
     update t_recruit_employer
@@ -113,4 +135,9 @@
       updated_at = #{updatedAt,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+    <update id="updateStatus" parameterType="map">
+        UPDATE t_recruit_employer
+        SET status = #{status}
+        where id = #{empId}
+    </update>
 </mapper>

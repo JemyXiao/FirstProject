@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * Created by jmx on 2017/6/30.
- *  发布信息dto
+ * 发布信息dto
  */
 @Data
 public class EmployerDto {
@@ -59,12 +59,14 @@ public class EmployerDto {
 
     /**
      * 状态类型
+     *
      * @return
      */
     private String status;
 
     /**
      * 发布者id
+     *
      * @return
      */
     private Long masterId;

@@ -18,4 +18,6 @@ public interface BaseSkillService {
     int insert(RecruitBaseSkill record);
 
     int delete(Long id);
+
+    int update(RecruitBaseSkill record);
 }

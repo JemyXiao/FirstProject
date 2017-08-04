@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.recruit.mapper.RecruitScoreMapper">
+    <resultMap id="BaseResultMap" type="com.recruit.entity.RecruitScore">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="task_id" property="taskId" jdbcType="BIGINT"/>
+        <result column="task_type" property="taskType" jdbcType="VARCHAR"/>
+        <result column="attitude_score" property="attitudeScore" jdbcType="DOUBLE"/>
+        <result column="pay_time_score" property="payTimeScore" jdbcType="DOUBLE"/>
+        <result column="coordination_score" property="coordinationScore" jdbcType="DOUBLE"/>
+        <result column="quality_score" property="qualityScore" jdbcType="DOUBLE"/>
+        <result column="effect_score" property="effectScore" jdbcType="DOUBLE"/>
+        <result column="comment" property="comment" jdbcType="VARCHAR"/>
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
+        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    id, task_id, task_type, attitude_score, pay_time_score, coordination_score, quality_score, 
+    effect_score, comment, created_at, updated_at
+  </sql>
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruit.entity.RecruitScoreExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from t_recruit_score
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from t_recruit_score
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_recruit_score
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByExample" parameterType="com.recruit.entity.RecruitScoreExample">
+        delete from t_recruit_score
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.recruit.entity.RecruitScore">
+    insert into t_recruit_score (task_id, task_type,
+      attitude_score, pay_time_score, coordination_score, 
+      quality_score, effect_score, comment,be_rated)
+    values (#{taskId,jdbcType=BIGINT}, #{taskType,jdbcType=VARCHAR},
+      #{attitudeScore,jdbcType=DOUBLE}, #{payTimeScore,jdbcType=DOUBLE}, #{coordinationScore,jdbcType=DOUBLE}, 
+      #{qualityScore,jdbcType=DOUBLE}, #{effectScore,jdbcType=DOUBLE}, #{comment,jdbcType=VARCHAR},#{beRatedId})
+  </insert>
+    <insert id="insertSelective" parameterType="com.recruit.entity.RecruitScore">
+        insert into t_recruit_score
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="taskId != null">
+                task_id,
+            </if>
+            <if test="taskType != null">
+                task_type,
+            </if>
+            <if test="attitudeScore != null">
+                attitude_score,
+            </if>
+            <if test="payTimeScore != null">
+                pay_time_score,
+            </if>
+            <if test="coordinationScore != null">
+                coordination_score,
+            </if>
+            <if test="qualityScore != null">
+                quality_score,
+            </if>
+            <if test="effectScore != null">
+                effect_score,
+            </if>
+            <if test="comment != null">
+                comment,
+            </if>
+            <if test="createdAt != null">
+                created_at,
+            </if>
+            <if test="updatedAt != null">
+                updated_at,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="taskId != null">
+                #{taskId,jdbcType=BIGINT},
+            </if>
+            <if test="taskType != null">
+                #{taskType,jdbcType=VARCHAR},
+            </if>
+            <if test="attitudeScore != null">
+                #{attitudeScore,jdbcType=DOUBLE},
+            </if>
+            <if test="payTimeScore != null">
+                #{payTimeScore,jdbcType=DOUBLE},
+            </if>
+            <if test="coordinationScore != null">
+                #{coordinationScore,jdbcType=DOUBLE},
+            </if>
+            <if test="qualityScore != null">
+                #{qualityScore,jdbcType=DOUBLE},
+            </if>
+            <if test="effectScore != null">
+                #{effectScore,jdbcType=DOUBLE},
+            </if>
+            <if test="comment != null">
+                #{comment,jdbcType=VARCHAR},
+            </if>
+            <if test="createdAt != null">
+                #{createdAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedAt != null">
+                #{updatedAt,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.recruit.entity.RecruitScoreExample" resultType="java.lang.Integer">
+        select count(*) from t_recruit_score
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update t_recruit_score
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.taskId != null">
+                task_id = #{record.taskId,jdbcType=BIGINT},
+            </if>
+            <if test="record.taskType != null">
+                task_type = #{record.taskType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.attitudeScore != null">
+                attitude_score = #{record.attitudeScore,jdbcType=DOUBLE},
+            </if>
+            <if test="record.payTimeScore != null">
+                pay_time_score = #{record.payTimeScore,jdbcType=DOUBLE},
+            </if>
+            <if test="record.coordinationScore != null">
+                coordination_score = #{record.coordinationScore,jdbcType=DOUBLE},
+            </if>
+            <if test="record.qualityScore != null">
+                quality_score = #{record.qualityScore,jdbcType=DOUBLE},
+            </if>
+            <if test="record.effectScore != null">
+                effect_score = #{record.effectScore,jdbcType=DOUBLE},
+            </if>
+            <if test="record.comment != null">
+                comment = #{record.comment,jdbcType=VARCHAR},
+            </if>
+            <if test="record.createdAt != null">
+                created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.updatedAt != null">
+                updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update t_recruit_score
+        set id = #{record.id,jdbcType=BIGINT},
+        task_id = #{record.taskId,jdbcType=BIGINT},
+        task_type = #{record.taskType,jdbcType=VARCHAR},
+        attitude_score = #{record.attitudeScore,jdbcType=DOUBLE},
+        pay_time_score = #{record.payTimeScore,jdbcType=DOUBLE},
+        coordination_score = #{record.coordinationScore,jdbcType=DOUBLE},
+        quality_score = #{record.qualityScore,jdbcType=DOUBLE},
+        effect_score = #{record.effectScore,jdbcType=DOUBLE},
+        comment = #{record.comment,jdbcType=VARCHAR},
+        created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+        updated_at = #{record.updatedAt,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.RecruitScore">
+        update t_recruit_score
+        <set>
+            <if test="taskId != null">
+                task_id = #{taskId,jdbcType=BIGINT},
+            </if>
+            <if test="taskType != null">
+                task_type = #{taskType,jdbcType=VARCHAR},
+            </if>
+            <if test="attitudeScore != null">
+                attitude_score = #{attitudeScore,jdbcType=DOUBLE},
+            </if>
+            <if test="payTimeScore != null">
+                pay_time_score = #{payTimeScore,jdbcType=DOUBLE},
+            </if>
+            <if test="coordinationScore != null">
+                coordination_score = #{coordinationScore,jdbcType=DOUBLE},
+            </if>
+            <if test="qualityScore != null">
+                quality_score = #{qualityScore,jdbcType=DOUBLE},
+            </if>
+            <if test="effectScore != null">
+                effect_score = #{effectScore,jdbcType=DOUBLE},
+            </if>
+            <if test="comment != null">
+                comment = #{comment,jdbcType=VARCHAR},
+            </if>
+            <if test="createdAt != null">
+                created_at = #{createdAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedAt != null">
+                updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.recruit.entity.RecruitScore">
+    update t_recruit_score
+    set task_id = #{taskId,jdbcType=BIGINT},
+      task_type = #{taskType,jdbcType=VARCHAR},
+      attitude_score = #{attitudeScore,jdbcType=DOUBLE},
+      pay_time_score = #{payTimeScore,jdbcType=DOUBLE},
+      coordination_score = #{coordinationScore,jdbcType=DOUBLE},
+      quality_score = #{qualityScore,jdbcType=DOUBLE},
+      effect_score = #{effectScore,jdbcType=DOUBLE},
+      comment = #{comment,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <select id="selectByParam" parameterType="map" resultType="com.recruit.entity.RecruitScore">
+    select
+    round(avg(attitude_score),1) as attitudeScore,round(avg(pay_time_score),1) as payTimeScore,
+    round(avg(coordination_score),1) as coordinationScore,round(avg(quality_score),1) as qualityScore,
+    round(avg(effect_score),1) as effect_score
+    from   t_recruit_score
+    where  task_id = #{taskId} and task_type = #{type};
+  </select>
+
+    <select id="queryAvgEmp" parameterType="map" resultType="com.recruit.entity.RecruitScore">
+    SELECT round(avg(attitude_score),1) attitudeScore ,round(avg(pay_time_score),1) as payTimeScore,round(avg(coordination_score),1) as coordinationScore,
+    round((avg(attitude_score)+avg(pay_time_score)+avg(coordination_score))/3,1) as compScore
+    from recruit.t_recruit_score
+    where task_type = #{type} and be_rated = #{beRatedId};
+    </select>
+    <select id="queryAvgMaster" parameterType="map" resultType="com.recruit.entity.RecruitScore">
+     SELECT round(avg(attitude_score),1) attitudeScore ,round(avg(quality_score),1) as qualityScore,round(avg(effect_score),1) as effectScore,
+          round((avg(attitude_score)+avg(quality_score)+avg(effect_score))/3,1) as compScore
+     from recruit.t_recruit_score
+     where task_type = #{type} and be_rated = #{beRatedId};
+    </select>
+    <select id="queryScoreList" parameterType="map" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_recruit_score
+        where 1=1
+        <if test="type!=null">
+            and task_type = #{type}
+        </if>
+        <if test="beRatedId!=null">
+            and be_rated = #{beRatedId}
+        </if>
+        <if test="taskId!=null and taskId!=0">
+            and task_id = #{taskId}
+        </if>
+    </select>
+</mapper>

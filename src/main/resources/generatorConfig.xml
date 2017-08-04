@@ -46,7 +46,7 @@
         <!--<table tableName="t_recruit_works_case" domainObjectName="RecruitMasterWorkCase">-->
 
         <!--</table>-->
-        <table tableName="t_recruit_industry" domainObjectName="RecruitIndustry">
+        <table tableName="t_recruit_score" domainObjectName="RecruitScore">
         </table>
         <!--<table tableName="t_recruit_master_work_mapping" domainObjectName="RecruitMasterWorkMapping">-->
 

@@ -55,4 +55,10 @@ public class BaseSkillServiceImpl implements BaseSkillService {
     public int delete(Long id) {
         return baseSkillMapper.deleteByPrimaryKey(id);
     }
+
+    //修改技能名称
+    @Override
+    public int update(RecruitBaseSkill record) {
+        return baseSkillMapper.updateByPrimaryKeySelective(record);
+    }
 }

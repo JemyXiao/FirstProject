@@ -35,4 +35,13 @@
         set status = 1
         where id = #{id}
     </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.DataDictionaryEntity">
+         UPDATE t_recruit_data_dictionary
+         <set>
+             <if test="desc!=null and desc!=''">
+               data_desc = #{desc}
+             </if>
+         </set>
+        WHERE id = #{id}
+    </update>
 </mapper>

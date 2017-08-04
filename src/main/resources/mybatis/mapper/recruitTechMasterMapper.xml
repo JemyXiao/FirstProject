@@ -23,13 +23,16 @@
         <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
         <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
         <result column="score" property="score" jdbcType="INTEGER"/>
+        <result column="headImgUrl" property="headImgUrl" jdbcType="VARCHAR"/>
+        <result column="verified" property="verified" jdbcType="INTEGER"/>
+        <result column="recruit_type" property="recruitType" jdbcType="VARCHAR"/>
+        <result column="reason" property="reason" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="selectAllMaster" resultMap="BaseResultMap" parameterType="map">
         SELECT
-        trtm.id, trtm.self_introduction,trtm.job_title,trtm.nick_name, trtm.daily_wage,
-        trtm.city_id,trc.city_name,trtm.sex, trtm.status,
-        trtm.self_introduction,
-        trtm.work_experience, trtm.phone,tri.id AS industry_id,tri.industry_name
+        trtm.id, trtm.self_introduction,trtm.job_title,trtm.nick_name, trtm.daily_wage,trtm.reason,
+        trtm.city_id,trc.city_name,trtm.sex, trtm.status,trtm.headImgUrl,trtm.verified,trtm.recruit_type,
+        trtm.self_introduction,trtm.work_experience, trtm.phone,tri.id AS industry_id,tri.industry_name
         FROM t_recruit_tech_master trtm
         LEFT JOIN t_recruit_city trc
         ON trtm.city_id = trc.id
@@ -60,11 +63,22 @@
         ORDER BY trtm.updated_at DESC
 
     </select>
+    <update id="verified" parameterType="map">
+        UPDATE t_recruit_tech_master
+        SET verified = #{verified}
+        WHERE id = #{masterId}
+    </update>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
         <include refid="Base_Column_List"/>
         from t_recruit_tech_master
         where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectByOpenId" resultMap="BaseResultMap" parameterType="string">
+        select
+        <include refid="Base_Column_List"/>
+        from t_recruit_tech_master
+        where open_id = #{openId}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_recruit_tech_master
@@ -72,14 +86,10 @@
   </delete>
     <insert id="insert" parameterType="com.recruit.entity.RecruitTechMaster" useGeneratedKeys="true"
             keyProperty="id">
-    insert into t_recruit_tech_master (id, nick_name, open_id, 
-      daily_wage, city_id,
-      sex, status, self_introduction,
-      work_experience, phone)
-    values (#{id,jdbcType=BIGINT}, #{nickName,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
-      #{dailyWage,jdbcType=VARCHAR}, #{cityId,jdbcType=BIGINT},
-      #{sex,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{selfIntroduction,jdbcType=VARCHAR},
-      #{workExperience,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
+    insert into t_recruit_tech_master (nick_name, open_id,
+      sex,headimgurl,status)
+    values (#{nickName,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR},
+      #{sex,jdbcType=VARCHAR}, #{headImgUrl,jdbcType=VARCHAR},#{status})
   </insert>
     <insert id="insertSelective" parameterType="com.recruit.entity.RecruitTechMaster">
         insert into t_recruit_tech_master
@@ -211,12 +221,19 @@
             <if test="score != null">
                 score = #{score,jdbcType=INTEGER},
             </if>
+            <if test="recruitType != null">
+                recruit_type = #{recruitType,jdbcType=INTEGER},
+            </if>
+            <if test="headImgUrl != null">
+                headImgUrl = #{headImgUrl,jdbcType=INTEGER}
+            </if>
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
     <update id="checkTechMaster" parameterType="map">
           update t_recruit_tech_master
-          SET status = #{status,jdbcType=VARCHAR}
+          SET status = #{status,jdbcType=VARCHAR},
+              reason = #{reason,jdbcType=VARCHAR}
           where id = #{id,jdbcType=BIGINT}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.recruit.entity.RecruitTechMaster">

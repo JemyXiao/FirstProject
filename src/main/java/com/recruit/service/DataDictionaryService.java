@@ -16,4 +16,6 @@ public interface DataDictionaryService {
     int insert(DataDictionaryEntity entity);
 
     int fail(Long id);
+
+    int update(DataDictionaryEntity entity);
 }

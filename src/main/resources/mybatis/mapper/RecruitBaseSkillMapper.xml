@@ -163,7 +163,15 @@
       skill_code = #{skillCode,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
-
+<update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.RecruitBaseSkill">
+  UPDATE t_recruit_base_skill
+  <set >
+    <if test="skillName != null and skillName!=''" >
+      skill_name = #{skillName,jdbcType=VARCHAR}
+    </if>
+  </set>
+  where id = #{id,jdbcType=BIGINT}
+</update>
   <select id="selectBySelect" parameterType="com.recruit.entity.RecruitBaseSkill" resultType="com.recruit.entity.RecruitBaseSkill">
     SELECT
     <include refid="Base_Column_List" />

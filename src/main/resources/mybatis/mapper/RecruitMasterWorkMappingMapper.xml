@@ -93,6 +93,10 @@
     delete from t_recruit_master_work_mapping
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <delete id="deleteByWorkId" parameterType="java.lang.Long">
+     delete from t_recruit_master_work_mapping
+    where work_case_id = #{id,jdbcType=BIGINT}
+  </delete>
   <delete id="deleteByExample" parameterType="com.recruit.entity.RecruitMasterWorkMappingExample" >
     delete from t_recruit_master_work_mapping
     <if test="_parameter != null" >
@@ -146,6 +150,14 @@
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
+  </select>
+  <select id="selectWorkCaseByMasterId" parameterType="Long" resultType="int">
+
+    SELECT count(*)
+
+    FROM t_recruit_master_work_mapping
+
+    WHERE tech_master_id = #{masterId}
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
     update t_recruit_master_work_mapping

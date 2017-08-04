@@ -44,4 +44,9 @@ public class CityServiceImpl implements CityService {
     public int fail(Long id) {
         return cityMapper.deleteByPrimaryKey(id);
     }
+
+    @Override
+    public int update(RecruitCity record) {
+        return cityMapper.updateByPrimaryKeySelective(record);
+    }
 }

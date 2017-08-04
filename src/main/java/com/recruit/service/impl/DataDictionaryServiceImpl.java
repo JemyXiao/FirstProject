@@ -39,4 +39,9 @@ public class DataDictionaryServiceImpl implements DataDictionaryService {
     public int fail(Long id) {
         return mapper.failData(id);
     }
+
+    @Override
+    public int update(DataDictionaryEntity entity) {
+        return mapper.updateByPrimaryKeySelective(entity);
+    }
 }

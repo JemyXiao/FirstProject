@@ -24,4 +24,8 @@
         skill_id = #{skillId,jdbcType=BIGINT}
         where id = #{id,jdbcType=BIGINT}
     </update>
+    <delete id="deleteByMasterId" parameterType="java.lang.Long">
+        DELETE FROM t_recruit_techmaster_skill_mapping
+        WHERE  tech_master_id = #{masterId}
+    </delete>
 </mapper>

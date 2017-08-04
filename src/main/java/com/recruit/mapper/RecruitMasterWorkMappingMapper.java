@@ -13,6 +13,8 @@ public interface RecruitMasterWorkMappingMapper {
 
     int deleteByPrimaryKey(Long id);
 
+    int deleteByWorkId(Long masterId);
+
     int insert(RecruitMasterWorkMapping record);
 
     int insertSelective(RecruitMasterWorkMapping record);
@@ -28,4 +30,7 @@ public interface RecruitMasterWorkMappingMapper {
     int updateByPrimaryKeySelective(RecruitMasterWorkMapping record);
 
     int updateByPrimaryKey(RecruitMasterWorkMapping record);
+
+    int selectWorkCaseByMasterId(Long masterId);
+
 }

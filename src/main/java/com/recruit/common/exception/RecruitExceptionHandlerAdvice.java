@@ -1,5 +1,6 @@
 package com.recruit.common.exception;
 
+import com.alibaba.fastjson.JSON;
 import com.recruit.common.mail.MailContract;
 import com.recruit.common.mail.MailSenderHelper;
 import com.recruit.entity.ResultModel;
@@ -21,7 +22,7 @@ public class RecruitExceptionHandlerAdvice {
     @ExceptionHandler(value = {Exception.class})
     public ResultModel exception(Exception ex) {
         logger.error("error happens", ex);
-        ResultModel result = new ResultModel(400);
+        ResultModel result = new ResultModel(400, JSON.toJSON(ex));
         result.setMessage(ex.getMessage());
 //        MailContract mailContract = new MailContract();
 //        mailContract.setTo(new String[]{"jinming.xiao@ele.me"});

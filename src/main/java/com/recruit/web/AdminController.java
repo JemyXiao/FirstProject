@@ -1,25 +1,34 @@
 package com.recruit.web;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.recruit.entity.*;
 import com.recruit.entity.dto.EmployerDto;
 import com.recruit.service.*;
 import com.recruit.util.ErrorCode;
+import com.recruit.util.HttpURLConnectionUtils;
+import lombok.extern.slf4j.Slf4j;
+import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.util.*;
 
 /**
  * Created by jmx
  * 2017/7/19.
  */
+@Slf4j
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
@@ -44,6 +53,11 @@ public class AdminController {
 
     @Autowired
     private BusinessService businessService;
+
+    @Value("${upload.path1}")
+    private String path;
+    @Value("${upload.path2}")
+    private String pathSl;
 
     /**
      * 任务列表查询
@@ -73,7 +87,7 @@ public class AdminController {
      */
     @GetMapping("/checkEmp")
     public ResultModel checkEmp(HttpServletRequest request) {
-        employerService.checkEmp(Long.parseLong(request.getParameter("id")), request.getParameter("status"));
+        employerService.checkEmp(Long.parseLong(request.getParameter("id")), request.getParameter("status"), request.getParameter("reason"));
         return new ResultModel(200, JSON.toJSON(ErrorCode.OK));
     }
 
@@ -111,9 +125,11 @@ public class AdminController {
     public ResultModel checkMaster(HttpServletRequest request) {
         Long id = Long.valueOf(request.getParameter("id"));
         String status = request.getParameter("status");
+        String reason = request.getParameter("reason");
         Map<String, Object> map = new HashMap<>();
         map.put("id", id);
         map.put("status", status);
+        map.put("reason", reason);
         techMasterService.checkTechMaster(map);
         return new ResultModel(200, JSON.toJSON(ErrorCode.OK));
     }
@@ -123,7 +139,11 @@ public class AdminController {
      */
     @PostMapping(value = "/addSkill")
     public ResultModel addSkill(@RequestBody RecruitBaseSkill record) {
-        baseSkillService.insert(record);
+        if (record.getId() > 0) {
+            baseSkillService.update(record);
+        } else {
+            baseSkillService.insert(record);
+        }
         return new ResultModel(200, JSON.toJSON(ErrorCode.OK));
     }
 
@@ -170,14 +190,18 @@ public class AdminController {
      */
     @PostMapping("/addCity")
     public ResultModel addCity(@RequestBody RecruitCity record) {
-        cityService.insert(record);
+        if (record.getId() > 0) {
+            cityService.update(record);
+        } else {
+            cityService.insert(record);
+        }
         return new ResultModel(200, JSON.toJSON(ErrorCode.INSERT_OK));
     }
 
     /**
      * 城市失效
      */
-    @GetMapping ("/failCity")
+    @GetMapping("/failCity")
     public ResultModel failCity(HttpServletRequest request) {
         cityService.fail(Long.valueOf(request.getParameter("id")));
         return new ResultModel(200, JSON.toJSON(ErrorCode.DELETE_OK));
@@ -202,14 +226,18 @@ public class AdminController {
      */
     @PostMapping("/addIndustry")
     public ResultModel addIndustry(@RequestBody RecruitIndustry industry) {
-        industryService.insert(industry);
+        if (industry.getId() > 0) {
+            industryService.update(industry);
+        } else {
+            industryService.insert(industry);
+        }
         return new ResultModel(200, JSON.toJSON(ErrorCode.INSERT_OK));
     }
 
     /**
      * 行业信息失效
      */
-    @GetMapping ("/failIndustry")
+    @GetMapping("/failIndustry")
     public ResultModel failIndustry(HttpServletRequest request) {
         industryService.fail(Long.valueOf(request.getParameter("id")));
         return new ResultModel(200, JSON.toJSON(ErrorCode.DELETE_OK));
@@ -234,15 +262,20 @@ public class AdminController {
      */
     @PostMapping("/addDataDictionary")
     public ResultModel addDataDictionary(@RequestBody DataDictionaryEntity entity) {
-        dataDictionaryService.insert(entity);
+        if (entity.getId() != null) {
+            dataDictionaryService.update(entity);
+        } else {
+            dataDictionaryService.insert(entity);
+        }
         return new ResultModel(200, JSON.toJSON(ErrorCode.INSERT_OK));
     }
+
     /**
      * 数据字失效
      */
-    @GetMapping ("/failDataDictionary")
+    @GetMapping("/failDataDictionary")
     public ResultModel failDataDictionary(HttpServletRequest request) {
-        industryService.fail(Long.valueOf(request.getParameter("id")));
+        dataDictionaryService.fail(Long.valueOf(request.getParameter("id")));
         return new ResultModel(200, JSON.toJSON(ErrorCode.DELETE_OK));
     }
 
@@ -273,5 +306,77 @@ public class AdminController {
     public ResultModel addBusiness(@RequestBody RecruitBusiness record) {
         businessService.insert(record);
         return new ResultModel(200, JSON.toJSON(ErrorCode.INSERT_OK));
+    }
+
+    /**
+     * 文件上传
+     */
+    @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
+    public ResultModel testUploadFile(HttpServletRequest req, @RequestParam("file") MultipartFile file) throws IOException {
+        long timeInMillis = Calendar.getInstance().getTimeInMillis();
+        String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+        String fileName = timeInMillis + suffix;
+        File filePath = new File(path + fileName);
+        log.info(path);
+        if (!file.isEmpty()) {
+            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(filePath));
+            out.write(file.getBytes());
+            out.flush();
+            out.close();
+        }
+        if (suffix.equals(".png") || suffix.equals(".jpg") || suffix.equals(".JPEG")) {
+            /**
+             * 缩略图begin
+             */
+//            long size = file.getSize();
+//            double scale = 1.0d;
+//            if (size >= 200 * 1024) {
+//                if (size > 0) {
+//                    scale = (200 * 1024f) / size;
+//                }
+//            }
+            try {
+                Thumbnails.of(file.getInputStream()).size(300, 400).outputQuality(1f).toFile(pathSl + fileName);
+
+            } catch (Exception e1) {
+                return new ResultModel(400, "操作失败", e1.getMessage());
+            }
+            /**
+             * 缩略图end
+             */
+        }
+        return new ResultModel(200, JSON.toJSON(fileName));
+
+    }
+
+    /**
+     * 认证牛人
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("verifiedMaster")
+    public ResultModel verifiedMaster(HttpServletRequest request) {
+        Long masterId = Long.parseLong(request.getParameter("id"));
+        int verified = Integer.parseInt(request.getParameter("verified"));
+        Map<String, Object> map = new HashMap();
+        map.put("masterId", masterId);
+        map.put("verified", verified);
+        techMasterService.verified(map);
+        return new ResultModel(200, JSON.toJSON(ErrorCode.OK));
+    }
+
+    /**
+     * 认证发布信息
+     */
+    @GetMapping("verifiedEmployer")
+    public ResultModel verifiedEmployer(HttpServletRequest request) {
+        Long empId = Long.parseLong(request.getParameter("id"));
+        int verified = Integer.parseInt(request.getParameter("verified"));
+        Map<String, Object> map = new HashMap();
+        map.put("empId", empId);
+        map.put("verified", verified);
+        employerService.verified(map);
+        return new ResultModel(200, JSON.toJSON(ErrorCode.OK));
     }
 }

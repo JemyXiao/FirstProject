@@ -2,6 +2,7 @@ package com.recruit.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * 牛人实体类
  */
 @Data
-public class RecruitTechMaster {
+public class RecruitTechMaster implements Serializable {
 
     private Long id;
     /**
@@ -101,4 +102,21 @@ public class RecruitTechMaster {
      */
     private Date updatedAt;
 
+    /**
+     * 头像url
+     */
+    private String headImgUrl;
+    /**
+     * 是否认证
+     */
+    private int verified;
+    /**
+     * 审核原因
+     */
+    private String reason;
+
+    /**
+     * 評分
+     */
+    private RecruitScore masterScore;
 }

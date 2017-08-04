@@ -6,6 +6,7 @@ import com.recruit.entity.dto.EmployerDto;
 import com.recruit.entity.vo.EmployerViewHeaderObject;
 
 import java.util.List;
+import java.util.Map;
 
 public interface EmployerMapper {
 
@@ -26,4 +27,12 @@ public interface EmployerMapper {
     List<EmployerBasic> queryEmployerViewHeader(EmployerDto record);
 
     int queryCountViewCount(EmployerDto record);
+
+    int verified(Map map);
+
+    List<EmployerBasic> queryEmployerByReview(Long masterId);
+
+    int updateStatus(Map map);
+
+
 }

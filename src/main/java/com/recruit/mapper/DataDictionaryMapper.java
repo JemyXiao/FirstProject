@@ -18,4 +18,6 @@ public interface DataDictionaryMapper {
     long queryNextValue(long codeType);
 
     int failData(Long id);
+
+    int updateByPrimaryKeySelective(DataDictionaryEntity entity);
 }

@@ -9,6 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,13 +26,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Properties;
 
 /**
  * Created by jmx
  * 2017/7/24.
  */
 @Slf4j
-@Configuration
+@Component
 public class TestHandlerInterceptor extends HandlerInterceptorAdapter {
 
     @Autowired
@@ -41,7 +46,6 @@ public class TestHandlerInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
         String token = CookieUtils.getCookieValue(request, "COFFEE_TOKEN");
-//        Cookie cookie = CookieUtils.getCookieByName(request, "COFFEE_TOKEN");
         if (token == null || StringUtils.isEmpty(token)) {
             responseContent(response, "COOKIE_IS_NULL", "token为空");
             return false;

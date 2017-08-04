@@ -14,4 +14,6 @@ public interface CityService {
     int insert(RecruitCity record);
 
     int fail(Long id);
+
+    int update(RecruitCity record);
 }

@@ -52,4 +52,9 @@ public class IndustryServiceImpl implements IndustryService {
     public int fail(Long id) {
         return mapper.deleteByPrimaryKey(id);
     }
+
+    @Override
+    public int update(RecruitIndustry record) {
+        return mapper.updateByPrimaryKeySelective(record);
+    }
 }
