@@ -106,10 +106,10 @@
     <insert id="insert" parameterType="com.recruit.entity.RecruitMasterWorkCase" useGeneratedKeys="true"
             keyProperty="id">
     insert into t_recruit_works_case (work_name, work_responsibility,works_link,
-      works_desc
+      works_desc,image_url
       )
     values (#{workName,jdbcType=VARCHAR}, #{responsibilities,jdbcType=VARCHAR}, #{worksLink,jdbcType=VARCHAR},
-      #{worksDesc,jdbcType=VARCHAR}
+      #{worksDesc,jdbcType=VARCHAR},#{imgUrls}
       )
   </insert>
     <insert id="insertSelective" parameterType="com.recruit.entity.RecruitMasterWorkCase">
@@ -250,8 +250,8 @@
             <if test="worksLink != null">
                 works_link = #{worksLink,jdbcType=VARCHAR},
             </if>
-            <if test=" imgUrls != null">
-                imag_url = #{ imgUrls,jdbcType=VARCHAR},
+            <if test="imgUrls != null">
+                image_url = #{imgUrls,jdbcType=VARCHAR},
             </if>
             <if test="worksDesc != null">
                 works_desc = #{worksDesc,jdbcType=VARCHAR},
