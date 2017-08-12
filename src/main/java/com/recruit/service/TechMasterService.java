@@ -49,4 +49,6 @@ public interface TechMasterService {
 
     RecruitMasterWorkCase queryWorkCase(long id);
 
+    List<RecruitTechMaster> getMasterWatchList(Long empId);
+
 }

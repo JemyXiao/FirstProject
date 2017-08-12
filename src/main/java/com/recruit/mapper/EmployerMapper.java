@@ -20,7 +20,10 @@ public interface EmployerMapper {
 
     EmployerDetailEntity selectByPrimaryKey(Long id);
 
-    int updateByPrimaryKeySelective(EmployerDetailEntity record);
+    int updateByPrimaryKeySelective(EmployerDto record);
+
+    int checkEmp(EmployerDetailEntity record);
+
 
     int updateByPrimaryKey(EmployerDetailEntity record);
 

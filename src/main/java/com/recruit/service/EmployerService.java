@@ -16,7 +16,7 @@ import java.util.Map;
 public interface EmployerService {
     int addEmployer(EmployerDto employerEntity);
 
-    EmployerDetailEntity queryEmployerDetail(Long id);
+    EmployerDetailEntity queryEmployerDetail(Long id,boolean flag);
 
     EmployerDetailEntity queryUserInfoEmp(Long id);
 

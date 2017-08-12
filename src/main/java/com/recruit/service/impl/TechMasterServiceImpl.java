@@ -65,6 +65,10 @@ public class TechMasterServiceImpl implements TechMasterService {
     public int updateTechMaster(RecruitTechMaster record) {
         //更新或插入skill
         if (record.getSkills() != null) {
+            RecruitTechMaster master = new RecruitTechMaster();
+            master.setId(record.getId());
+            master.setOwnerSkills(record.getOwnerSkills());
+            techMasterMapper.updateByPrimaryKeySelective(master);
             //删除之前管关联关系
             skillMapperMapper.deleteByMasterId(record.getId());
             //插入新关联关系
@@ -76,7 +80,7 @@ public class TechMasterServiceImpl implements TechMasterService {
             }
         } else {
             //更新master
-            int masterNum = techMasterMapper.updateByPrimaryKeySelective(record);
+            techMasterMapper.updateByPrimaryKeySelective(record);
         }
         return 1;
     }
@@ -90,18 +94,12 @@ public class TechMasterServiceImpl implements TechMasterService {
             RecruitMasterWorkMapping mapping = new RecruitMasterWorkMapping();
             mapping.setTechMasterId(masterId);
             mapping.setWorkCaseId(workCase.getId());
-//        //删除关联关系
-//        masterWorkMappingMapper.deleteByMasterId(masterId);
-            //重新插入关联关系
             masterWorkMappingMapper.insert(mapping);
         } else {
             masterWorkCaseMapper.updateByPrimaryKeySelective(workCase);
         }
         return 2;
     }
-
-    //删除worksCase
-
 
     @Override
     public int deleteTechMaster(long id) {
@@ -209,5 +207,10 @@ public class TechMasterServiceImpl implements TechMasterService {
     @Override
     public RecruitMasterWorkCase queryWorkCase(long id) {
         return masterWorkCaseMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<RecruitTechMaster> getMasterWatchList(Long empId) {
+        return techMasterMapper.getMasterWatchList(empId);
     }
 }

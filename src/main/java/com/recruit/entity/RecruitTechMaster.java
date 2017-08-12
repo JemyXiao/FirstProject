@@ -76,6 +76,10 @@ public class RecruitTechMaster implements Serializable {
      */
     private List<Long> skills;
     /**
+     * 个人擅长技能
+     */
+    private String ownerSkills;
+    /**
      * 行业id
      */
     private Long industryId;
@@ -119,4 +123,9 @@ public class RecruitTechMaster implements Serializable {
      * 評分
      */
     private RecruitScore masterScore;
+
+    /**
+     * 是否被关注
+     */
+    private int isWatched;
 }

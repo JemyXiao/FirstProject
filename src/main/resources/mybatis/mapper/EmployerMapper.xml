@@ -9,6 +9,7 @@
         <result column="publisher" property="publisher" jdbcType="VARCHAR"/>
         <result column="reason" property="reason" jdbcType="VARCHAR"/>
         <result column="master_id" property="masterId" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
     </resultMap>
 
     <resultMap id="ViewHeaderResultMap" type="com.recruit.entity.EmployerBasic">
@@ -46,7 +47,7 @@
         -- ON tre.id = tremm.employer_id
         WHERE 1=1
         <if test="status !=null and status!=''">
-            and tre.status=#{status}
+            and tre.status ${status}
         </if>
         <if test="businessParentId !=null and businessParentId!=0">
             and tre.business_parent_id = #{businessParentId}
@@ -78,9 +79,12 @@
         </if>
     </select>
     <select id="queryEmployerDetail" parameterType="Long" resultMap="BaseResultMap">
-        SELECT tre.id, tre.issue_name, tre.status, tre.created_at,
-        tre.updated_at,tre.company_name, tre.project_budget,tre.reason,tre.master_id,tre.project_cycle,tre.trend_complete, tre.project_desc, tre.publisher,treo.visit_count,treo.apply_count,treo.recommend_count,tre.business_id AS business_id,tre.business_parent_id as business_parent_id
+        SELECT tre.id, tre.issue_name, tre.status, tre.created_at,master.nick_name as publisher,tre.phone AS phone,
+        tre.updated_at,tre.company_name, tre.project_budget,tre.reason,tre.master_id,tre.project_cycle,tre.trend_complete,
+        tre.project_desc, tre.publisher,treo.visit_count,treo.apply_count,treo.recommend_count,tre.business_id AS business_id,tre.business_parent_id as business_parent_id
         FROM t_recruit_employer tre
+        INNER JOIN t_recruit_tech_master master
+        ON tre.master_id = master.id
         LEFT JOIN t_recruit_employer_operation treo
         ON tre.id = treo.employer_id
         WHERE tre.id= #{id}
@@ -100,15 +104,54 @@
             keyProperty="id">
     insert into t_recruit_employer (issue_name, company_name,
       trend_complete, project_desc,project_budget,
-      status,business_id,business_parent_id,project_cycle,master_id
+      status,business_id,business_parent_id,project_cycle,master_id,phone
       )
     values (#{projectName,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR},
       #{trendComplete,jdbcType=VARCHAR}, #{projectDesc,jdbcType=VARCHAR},
-      #{projectBudget,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{businessId,jdbcType=VARCHAR},#{businessParentId,jdbcType=VARCHAR},#{projectCycle,jdbcType=VARCHAR},#{masterId}
+      #{projectBudget,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{businessId,jdbcType=VARCHAR},
+      #{businessParentId,jdbcType=VARCHAR},#{projectCycle,jdbcType=VARCHAR},#{masterId},#{phone}
       )
   </insert>
-
-    <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.EmployerDetailEntity">
+  <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.dto.EmployerDto">
+      UPDATE t_recruit_employer
+      <set>
+          <if test="projectName != null">
+              issue_name = #{projectName,jdbcType=VARCHAR},
+          </if>
+          <if test="companyName != null">
+              company_name = #{companyName,jdbcType=VARCHAR},
+          </if>
+          <if test="trendComplete != trendComplete">
+              trend_complete = #{trendComplete,jdbcType=VARCHAR},
+          </if>
+          <if test="projectDesc != null">
+              project_desc = #{projectDesc,jdbcType=VARCHAR},
+          </if>
+          <if test="projectBudget != null">
+              project_budget = #{projectBudget,jdbcType=VARCHAR},
+          </if>
+          <if test="status != null">
+              status = #{status,jdbcType=VARCHAR},
+          </if>
+          <if test="businessId != null">
+              business_id = #{businessId,jdbcType=VARCHAR},
+          </if>
+          <if test="businessParentId != null">
+              business_parent_id = #{businessParentId,jdbcType=VARCHAR},
+          </if>
+          <if test="projectCycle != null">
+              project_cycle = #{projectCycle,jdbcType=VARCHAR},
+          </if>
+          <if test="masterId != null">
+              master_id = #{masterId,jdbcType=VARCHAR},
+          </if>
+          <if test="phone != null">
+              phone = #{phone,jdbcType=VARCHAR},
+          </if>
+      </set>
+      where id = #{id,jdbcType=BIGINT}
+  </update>
+    <update id="checkEmp" parameterType="com.recruit.entity.EmployerDetailEntity">
         update t_recruit_employer
         <set>
             <if test="status != null and status!='' ">

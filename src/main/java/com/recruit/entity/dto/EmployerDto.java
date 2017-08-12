@@ -71,6 +71,11 @@ public class EmployerDto {
      */
     private Long masterId;
 
+    /**
+     * 发布者电话
+     */
+    private String phone;
+
     @JSONField(serialize = false)
     private int pageNumber;
 

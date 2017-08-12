@@ -28,6 +28,7 @@ public class OperatorRecord {
     public OperatorRecord(AsyncEvtBusHelper asyncEvtBusHelper) {
         this.asyncEvtBusHelper = asyncEvtBusHelper;
     }
+
     //定义拦截规则：拦截被@Permission注解的类中的方法
     @Pointcut("@annotation(com.recruit.common.aop.Operation)")
     public void annotationPointcut() {
@@ -36,20 +37,25 @@ public class OperatorRecord {
 
 
     @AfterReturning("@annotation(com.recruit.common.aop.Operation)")
-    public void beforeExec(JoinPoint point){
-        try{
+    public void beforeExec(JoinPoint point) {
+        try {
             EmployerOperator operator = new EmployerOperator();
             MethodSignature signature = (MethodSignature) point.getSignature();
-            Method method=signature.getMethod();
+            Method method = signature.getMethod();
             String name = method.getDeclaredAnnotation(Operation.class).name();
             Object[] args = point.getArgs();
             operator.setEmployerId((Long) args[0]);
             switch (name) {
-                case "employerCount": operator.setVisitCount(1);
+                case "employerCount":
+                    operator.setVisitCount(1);
+                    break;
+                case "applyCount":
+                    operator.setApplyCount(1);
+                    break;
             }
             System.out.println(Arrays.toString(args));
             asyncEvtBusHelper.post(operator);
-        }catch(Exception ex){
+        } catch (Exception ex) {
             log.error("aop count error", ex);
         }
     }

@@ -65,7 +65,7 @@ public class AdminController {
     @GetMapping("/queryEmpList")
     public ResultModel queryEmpList(HttpServletRequest request) {
         EmployerDto record = new EmployerDto();
-        record.setStatus(request.getParameter("status"));
+        record.setStatus(" = '"+request.getParameter("status")+"'");
         PageInfo pageInfo = PageHelper.startPage(Integer.parseInt(request.getParameter("pageNumber")), Integer.parseInt(request.getParameter("pageSize"))).doSelectPageInfo(() -> employerService.queryEmployerViewHeader(record));
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("rows", pageInfo.getList());
@@ -78,7 +78,7 @@ public class AdminController {
      */
     @GetMapping("/detailEmp")
     public ResultModel detailEmp(HttpServletRequest request) {
-        EmployerDetailEntity employerEntity = employerService.queryEmployerDetail(Long.parseLong(request.getParameter("id")));
+        EmployerDetailEntity employerEntity = employerService.queryEmployerDetail(Long.parseLong(request.getParameter("id")),true);
         return new ResultModel(200, employerEntity);
     }
 

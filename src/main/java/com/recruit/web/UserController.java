@@ -1,10 +1,7 @@
 package com.recruit.web;
 
 import java.io.IOException;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -18,6 +15,7 @@ import com.recruit.entity.ResultModel;
 import com.recruit.entity.dto.EmployerDto;
 import com.recruit.service.EmployerService;
 import com.recruit.service.TechMasterService;
+import com.recruit.service.WatchListService;
 import com.recruit.util.CookieUtils;
 import com.recruit.util.ErrorCode;
 import com.recruit.util.HttpURLConnectionUtils;
@@ -45,6 +43,8 @@ public class UserController {
     private TechMasterService techMasterService;
     @Autowired
     private EmployerService employerService;
+    @Autowired
+    private WatchListService watchListService;
 
     @GetMapping("/admin/getUsers")
     public ResultModel getUsers() {
@@ -165,10 +165,25 @@ public class UserController {
         }
 
     }
+
     //个人信息我的任务详情
     @RequestMapping(value = "/userInfo/queryDetailEmp/{id}", method = RequestMethod.GET)
     public ResultModel queryEmployerDetail(@PathVariable("id") long id) {
         EmployerDetailEntity employerEntity = employerService.queryUserInfoEmp(id);
         return new ResultModel(200, employerEntity);
+    }
+
+    //个人信息关注牛人列表
+    @GetMapping("/userInfo/watchList")
+    public ResultModel watchList(HttpServletRequest request) {
+        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+        int pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+        //获取登录人信息
+        RecruitTechMaster techMaster = techMasterService.getTechMaster(request);
+        PageInfo pageInfo = PageHelper.startPage(pageNumber, pageSize).doSelectPageInfo(() -> techMasterService.getMasterWatchList(techMaster.getId()));
+        Map<String, Object> map = new HashMap<>();
+        map.put("rows", pageInfo.getList());
+        map.put("total", pageInfo.getTotal());
+        return new ResultModel(200, map);
     }
 }

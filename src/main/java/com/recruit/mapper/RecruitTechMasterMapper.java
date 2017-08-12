@@ -26,4 +26,6 @@ public interface RecruitTechMasterMapper {
     int checkTechMaster(Map map);
 
     int verified(Map map);
+
+    List<RecruitTechMaster> getMasterWatchList(Long empId);
 }

@@ -13,6 +13,8 @@ public class Constant {
     public static final String TODO_AUDIT = "待审核";
     //
     public static final String COMPLETED = "审核通过";
+
+    public static final String RUNNING="进行中";
     //
     public static final String VERIDIED = "已认证";
 
@@ -26,5 +28,8 @@ public class Constant {
      * 牛人状态
      */
 //    public static final String
+    public static final String WATCH = "watch";
+
+    public static final String CANCEL = "cancel";
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface EmpSkillMapperMapper {
     int insert(EmployerSkillMapper record);
-    int deleteByPrimaryKey(EmployerSkillMapper record);
+    int deleteByEmpId(Long employerId);
     int updateByPrimaryKey(EmployerSkillMapper record);
     List<RecruitBaseSkill> selectSkillByEmpId(Long employerId);
 }

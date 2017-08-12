@@ -3,15 +3,14 @@ package com.recruit.web;
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.recruit.common.aop.Operation;
 import com.recruit.common.exception.RecruitValidationException;
 import com.recruit.common.validate.ValidateService;
 import com.recruit.config.Constant;
-import com.recruit.entity.RecruitMasterWorkCase;
-import com.recruit.entity.RecruitMasterWorkMapping;
-import com.recruit.entity.RecruitTechMaster;
-import com.recruit.entity.ResultModel;
+import com.recruit.entity.*;
 import com.recruit.entity.dto.EmployerDto;
 import com.recruit.service.TechMasterService;
+import com.recruit.service.WatchListService;
 import com.recruit.util.ErrorCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
@@ -33,6 +32,8 @@ public class TechMasterController {
 
     @Autowired
     private TechMasterService techMasterService;
+    @Autowired
+    private WatchListService watchListService;
 
     /**
      * 人员信息完善
@@ -133,9 +134,10 @@ public class TechMasterController {
     }
 
     /**
-     * 牛人发送申请意向
+     * 牛人发送申请任务信息
      * todo
      */
+    @Operation(name = "applyCount")
     @RequestMapping(value = "/techMaster/applyEmployer/{id}", method = RequestMethod.GET)
     public ResultModel applyEmployer(@PathVariable("id") long id, HttpServletRequest request) {
         techMasterService.applyEmployer(id, request);
@@ -173,14 +175,21 @@ public class TechMasterController {
     public ResultModel queryMasterDetail(HttpServletRequest request) {
         //获取登录人信息
         Long id;
+        RecruitTechMaster techMaster = techMasterService.getTechMaster(request);
         String string = request.getParameter("id");
         if (StringUtils.isEmpty(string)) {
-            RecruitTechMaster techMaster = techMasterService.getTechMaster(request);
             id = techMaster.getId();
         } else {
             id = Long.valueOf(string);
         }
         RecruitTechMaster master = techMasterService.getTechMasterById(id);
+        RecruitWatchList watchList = new RecruitWatchList();
+        watchList.setEmpMasterId(techMaster.getId());
+        watchList.setWatchMaterId(id);
+        RecruitWatchList watchList1 = watchListService.queryByWatchList(watchList);
+        if (!ObjectUtils.isEmpty(watchList1)) {
+            master.setIsWatched(1);
+        }
         return new ResultModel(200, master);
     }
 

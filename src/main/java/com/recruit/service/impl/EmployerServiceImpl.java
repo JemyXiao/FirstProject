@@ -40,18 +40,27 @@ public class EmployerServiceImpl implements EmployerService {
     @Override
     public int addEmployer(EmployerDto record) {
         record.setStatus(Constant.TODO_AUDIT);
-        int emp = employerMapper.insert(record);
+        if (Objects.isNull(record.getId())) {
+            employerMapper.insert(record);
+        } else {
+            //修改发布信息
+            //删除关联关系
+            skillMapperMapper.deleteByEmpId(record.getId());
+            employerMapper.updateByPrimaryKeySelective(record);
+
+        }
         for (Long bus : record.getSkillList()) {
             EmployerSkillMapper mapper = new EmployerSkillMapper();
             mapper.setEmployerId(record.getId());
             mapper.setSkillId(bus);
             skillMapperMapper.insert(mapper);
         }
-        return emp;
+
+        return 1;
     }
 
     @Override
-    public EmployerDetailEntity queryEmployerDetail(Long id) {
+    public EmployerDetailEntity queryEmployerDetail(Long id, boolean flag) {
         EmployerDetailEntity entity = employerMapper.queryEmployerDetail(id);
         //baseSkills
         List<RecruitBaseSkill> skillList = skillMapperMapper.selectSkillByEmpId(id);
@@ -81,7 +90,7 @@ public class EmployerServiceImpl implements EmployerService {
     //个人信息查询任务详情
     @Override
     public EmployerDetailEntity queryUserInfoEmp(Long id) {
-        EmployerDetailEntity entity = queryEmployerDetail(id);
+        EmployerDetailEntity entity = queryEmployerDetail(id, true);
 //        entity.setEmpScore(null);
         Map<String, Object> objectMap = new HashMap<>();
         objectMap.put("taskId", id);
@@ -134,7 +143,7 @@ public class EmployerServiceImpl implements EmployerService {
         record.setStatus(status);
         record.setReason(reason);
         record.setId(id);
-        return employerMapper.updateByPrimaryKeySelective(record);
+        return employerMapper.checkEmp(record);
     }
 
     /**

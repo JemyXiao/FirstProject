@@ -27,12 +27,29 @@
         <result column="verified" property="verified" jdbcType="INTEGER"/>
         <result column="recruit_type" property="recruitType" jdbcType="VARCHAR"/>
         <result column="reason" property="reason" jdbcType="VARCHAR"/>
+        <result column="owner_skills" property="ownerSkills" jdbcType="VARCHAR"/>
     </resultMap>
+    <select id="getMasterWatchList" parameterType="Long" resultMap="BaseResultMap">
+        SELECT
+        trtm.id, trtm.self_introduction,trtm.job_title,trtm.nick_name, trtm.daily_wage,trtm.reason,
+        trtm.city_id,trc.city_name,trtm.sex, trtm.status,trtm.headImgUrl,trtm.verified,trtm.recruit_type,
+        trtm.self_introduction,trtm.work_experience, trtm.phone,tri.id AS industry_id,tri.industry_name,
+        trtm.owner_skills AS owner_skills
+        FROM t_recruit_tech_master trtm
+        JOIN t_recruit_watch_list trwl
+        ON trwl.watch_mater_id = trtm.id
+        LEFT JOIN t_recruit_city trc
+        ON trtm.city_id = trc.id
+        LEFT JOIN t_recruit_industry tri
+        ON tri.id = trtm.industry_id
+        WHERE trwl.emp_master_id = #{empId}
+    </select>
     <select id="selectAllMaster" resultMap="BaseResultMap" parameterType="map">
         SELECT
         trtm.id, trtm.self_introduction,trtm.job_title,trtm.nick_name, trtm.daily_wage,trtm.reason,
         trtm.city_id,trc.city_name,trtm.sex, trtm.status,trtm.headImgUrl,trtm.verified,trtm.recruit_type,
-        trtm.self_introduction,trtm.work_experience, trtm.phone,tri.id AS industry_id,tri.industry_name
+        trtm.self_introduction,trtm.work_experience, trtm.phone,tri.id AS industry_id,tri.industry_name,
+        trtm.owner_skills AS owner_skills
         FROM t_recruit_tech_master trtm
         LEFT JOIN t_recruit_city trc
         ON trtm.city_id = trc.id
@@ -193,6 +210,9 @@
             </if>
             <if test="cityId != null">
                 city_id = #{cityId,jdbcType=BIGINT},
+            </if>
+            <if test="ownerSkills != null">
+                owner_skills = #{ownerSkills,jdbcType=VARCHAR},
             </if>
             <if test="areaId != null">
                 area_id = #{areaId,jdbcType=BIGINT},

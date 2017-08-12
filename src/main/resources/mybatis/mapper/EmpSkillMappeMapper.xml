@@ -7,9 +7,9 @@
         updated_at
     </sql>
 
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <delete id="deleteByEmpId" parameterType="java.lang.Long">
         delete from t_recruit_employer_skill_mapping
-        where id = #{id,jdbcType=BIGINT}
+        where employer_id = #{employerId,jdbcType=BIGINT}
     </delete>
 
     <insert id="insert" parameterType="com.recruit.entity.EmployerSkillMapper" useGeneratedKeys="true"

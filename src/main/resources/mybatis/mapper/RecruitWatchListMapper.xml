@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.recruit.mapper.RecruitMasterWorkCaseMapper">
-    <resultMap id="BaseResultMap" type="com.recruit.entity.RecruitMasterWorkCase">
+<mapper namespace="com.recruit.mapper.RecruitWatchListMapper">
+    <resultMap id="BaseResultMap" type="com.recruit.entity.RecruitWatchList">
         <id column="id" property="id" jdbcType="BIGINT"/>
-        <result column="work_name" property="workName" jdbcType="VARCHAR"/>
-        <result column="work_responsibility" property="responsibilities" jdbcType="VARCHAR"/>
-        <result column="works_link" property="worksLink" jdbcType="VARCHAR"/>
-        <result column="works_desc" property="worksDesc" jdbcType="VARCHAR"/>
-        <result column="image_url" property="imgUrls" jdbcType="VARCHAR"/>
+        <result column="watch_mater_id" property="watchMaterId" jdbcType="BIGINT"/>
+        <result column="emp_master_id" property="empMasterId" jdbcType="BIGINT"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
+        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -70,16 +70,15 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-    id, work_name, work_responsibility ,works_link, works_desc,image_url
+    id, watch_mater_id, emp_master_id, status, created_at, updated_at
   </sql>
-    <select id="selectByExample" resultMap="BaseResultMap"
-            parameterType="com.recruit.entity.RecruitMasterWorkCaseExample">
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.recruit.entity.RecruitWatchListExample">
         select
         <if test="distinct">
             distinct
         </if>
         <include refid="Base_Column_List"/>
-        from t_recruit_works_case
+        from t_recruit_watch_list
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
@@ -87,54 +86,57 @@
             order by ${orderByClause}
         </if>
     </select>
+    <select id="selectByWatchList" parameterType="com.recruit.entity.RecruitWatchList" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_recruit_watch_list
+        WHERE emp_master_id = #{empMasterId}
+        AND watch_mater_id = #{watchMaterId}
+    </select>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
         <include refid="Base_Column_List"/>
-        from t_recruit_works_case
+        from t_recruit_watch_list
         where id = #{id,jdbcType=BIGINT}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from t_recruit_works_case
+    delete from t_recruit_watch_list
     where id = #{id,jdbcType=BIGINT}
   </delete>
-    <delete id="deleteByExample" parameterType="com.recruit.entity.RecruitMasterWorkCaseExample">
-        delete from t_recruit_works_case
+    <delete id="deleteByExample" parameterType="com.recruit.entity.RecruitWatchListExample">
+        delete from t_recruit_watch_list
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
     </delete>
-    <insert id="insert" parameterType="com.recruit.entity.RecruitMasterWorkCase" useGeneratedKeys="true"
+    <delete id="deleteByWatchList" parameterType="com.recruit.entity.RecruitWatchList">
+     delete from t_recruit_watch_list
+     WHERE emp_master_id = #{empMasterId}
+          AND watch_mater_id = #{watchMaterId}
+  </delete>
+    <insert id="insert" parameterType="com.recruit.entity.RecruitWatchList" useGeneratedKeys="true"
             keyProperty="id">
-    insert into t_recruit_works_case (work_name, work_responsibility,works_link,
-      works_desc,image_url
+    insert into t_recruit_watch_list (id, watch_mater_id, emp_master_id, 
+      status
       )
-    values (#{workName,jdbcType=VARCHAR}, #{responsibilities,jdbcType=VARCHAR}, #{worksLink,jdbcType=VARCHAR},
-      #{worksDesc,jdbcType=VARCHAR},#{imgUrls}
+    values (#{id,jdbcType=BIGINT}, #{watchMaterId,jdbcType=BIGINT}, #{empMasterId,jdbcType=BIGINT}, 
+      #{status,jdbcType=VARCHAR}
       )
   </insert>
-    <insert id="insertSelective" parameterType="com.recruit.entity.RecruitMasterWorkCase">
-        insert into t_recruit_works_case
+    <insert id="insertSelective" parameterType="com.recruit.entity.RecruitWatchList">
+        insert into t_recruit_watch_list
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 id,
             </if>
-            <if test="workName != null">
-                work_name,
+            <if test="watchMaterId != null">
+                watch_mater_id,
             </if>
-            <if test="responsibilities != null">
-                work_responsibility,
+            <if test="empMasterId != null">
+                emp_master_id,
             </if>
-            <if test="industryId != null">
-                industry_id,
-            </if>
-            <if test="industryName != null">
-                industry_name,
-            </if>
-            <if test="worksLink != null">
-                works_link,
-            </if>
-            <if test="worksDesc != null">
-                works_desc,
+            <if test="status != null">
+                status,
             </if>
             <if test="createdAt != null">
                 created_at,
@@ -147,23 +149,14 @@
             <if test="id != null">
                 #{id,jdbcType=BIGINT},
             </if>
-            <if test="workName != null">
-                #{workName,jdbcType=VARCHAR},
+            <if test="watchMaterId != null">
+                #{watchMaterId,jdbcType=BIGINT},
             </if>
-            <if test="responsibilities != null">
-                #{responsibilities,jdbcType=VARCHAR},
+            <if test="empMasterId != null">
+                #{empMasterId,jdbcType=BIGINT},
             </if>
-            <if test="industryId != null">
-                #{industryId,jdbcType=BIGINT},
-            </if>
-            <if test="industryName != null">
-                #{industryName,jdbcType=VARCHAR},
-            </if>
-            <if test="worksLink != null">
-                #{worksLink,jdbcType=VARCHAR},
-            </if>
-            <if test="worksDesc != null">
-                #{worksDesc,jdbcType=VARCHAR},
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
             </if>
             <if test="createdAt != null">
                 #{createdAt,jdbcType=TIMESTAMP},
@@ -173,44 +166,27 @@
             </if>
         </trim>
     </insert>
-    <select id="selectByMasterId" parameterType="Long" resultMap="BaseResultMap">
-    SELECT
-    trwc.id, trwc.work_name,trwc.work_responsibility,trwc.works_link, trwc.works_desc,trwc.image_url
-    FROM t_recruit_works_case trwc
-    LEFT JOIN t_recruit_master_work_mapping mapping
-    ON trwc.id = mapping.work_case_id
-    WHERE mapping.tech_master_id = #{masterId}
-  </select>
-    <select id="countByExample" parameterType="com.recruit.entity.RecruitMasterWorkCaseExample"
+    <select id="countByExample" parameterType="com.recruit.entity.RecruitWatchListExample"
             resultType="java.lang.Integer">
-        select count(*) from t_recruit_works_case
+        select count(*) from t_recruit_watch_list
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
     </select>
     <update id="updateByExampleSelective" parameterType="map">
-        update t_recruit_works_case
+        update t_recruit_watch_list
         <set>
             <if test="record.id != null">
                 id = #{record.id,jdbcType=BIGINT},
             </if>
-            <if test="record.workName != null">
-                work_name = #{record.workName,jdbcType=VARCHAR},
+            <if test="record.watchMaterId != null">
+                watch_mater_id = #{record.watchMaterId,jdbcType=BIGINT},
             </if>
-            <if test="record.responsibilities != null">
-                work_responsibility = #{record.responsibilities,jdbcType=VARCHAR},
+            <if test="record.empMasterId != null">
+                emp_master_id = #{record.empMasterId,jdbcType=BIGINT},
             </if>
-            <if test="record.industryId != null">
-                industry_id = #{record.industryId,jdbcType=BIGINT},
-            </if>
-            <if test="record.industryName != null">
-                industry_name = #{record.industryName,jdbcType=VARCHAR},
-            </if>
-            <if test="record.worksLink != null">
-                works_link = #{record.worksLink,jdbcType=VARCHAR},
-            </if>
-            <if test="record.worksDesc != null">
-                works_desc = #{record.worksDesc,jdbcType=VARCHAR},
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=VARCHAR},
             </if>
             <if test="record.createdAt != null">
                 created_at = #{record.createdAt,jdbcType=TIMESTAMP},
@@ -224,49 +200,43 @@
         </if>
     </update>
     <update id="updateByExample" parameterType="map">
-        update t_recruit_works_case
+        update t_recruit_watch_list
         set id = #{record.id,jdbcType=BIGINT},
-        work_name = #{record.workName,jdbcType=VARCHAR},
-        work_responsibility = #{record.responsibilities,jdbcType=VARCHAR},
-        industry_id = #{record.industryId,jdbcType=BIGINT},
-        industry_name = #{record.industryName,jdbcType=VARCHAR},
-        works_link = #{record.worksLink,jdbcType=VARCHAR},
-        works_desc = #{record.worksDesc,jdbcType=VARCHAR},
+        watch_mater_id = #{record.watchMaterId,jdbcType=BIGINT},
+        emp_master_id = #{record.empMasterId,jdbcType=BIGINT},
+        status = #{record.status,jdbcType=VARCHAR},
         created_at = #{record.createdAt,jdbcType=TIMESTAMP},
         updated_at = #{record.updatedAt,jdbcType=TIMESTAMP}
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
     </update>
-    <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.RecruitMasterWorkCase">
-        update t_recruit_works_case
+    <update id="updateByPrimaryKeySelective" parameterType="com.recruit.entity.RecruitWatchList">
+        update t_recruit_watch_list
         <set>
-            <if test="workName != null">
-                work_name = #{workName,jdbcType=VARCHAR},
+            <if test="watchMaterId != null">
+                watch_mater_id = #{watchMaterId,jdbcType=BIGINT},
             </if>
-            <if test="responsibilities != null">
-                work_responsibility = #{responsibilities,jdbcType=VARCHAR},
+            <if test="empMasterId != null">
+                emp_master_id = #{empMasterId,jdbcType=BIGINT},
             </if>
-            <if test="worksLink != null">
-                works_link = #{worksLink,jdbcType=VARCHAR},
+            <if test="status != null">
+                status = #{status,jdbcType=VARCHAR},
             </if>
-            <if test="imgUrls != null">
-                image_url = #{imgUrls,jdbcType=VARCHAR},
+            <if test="createdAt != null">
+                created_at = #{createdAt,jdbcType=TIMESTAMP},
             </if>
-            <if test="worksDesc != null">
-                works_desc = #{worksDesc,jdbcType=VARCHAR},
+            <if test="updatedAt != null">
+                updated_at = #{updatedAt,jdbcType=TIMESTAMP},
             </if>
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.recruit.entity.RecruitMasterWorkCase">
-    update t_recruit_works_case
-    set work_name = #{workName,jdbcType=VARCHAR},
-      work_responsibility = #{responsibilities,jdbcType=VARCHAR},
-      industry_id = #{industryId,jdbcType=BIGINT},
-      industry_name = #{industryName,jdbcType=VARCHAR},
-      works_link = #{worksLink,jdbcType=VARCHAR},
-      works_desc = #{worksDesc,jdbcType=VARCHAR},
+    <update id="updateByPrimaryKey" parameterType="com.recruit.entity.RecruitWatchList">
+    update t_recruit_watch_list
+    set watch_mater_id = #{watchMaterId,jdbcType=BIGINT},
+      emp_master_id = #{empMasterId,jdbcType=BIGINT},
+      status = #{status,jdbcType=VARCHAR},
       created_at = #{createdAt,jdbcType=TIMESTAMP},
       updated_at = #{updatedAt,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
